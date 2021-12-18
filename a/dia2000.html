@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Редактор диалогов DiaBuilder 2000: обзор и пример использования &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Лёгкое и простое создание диалогов MapInfo в визуальной среде программирования DiaBuilder 2000 языка MapBasic. Описание работы и практические примеры на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="ide dialbuilder 2000, диалоги mapinfo, программирование mapbasic" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a id="item" href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="article">
+			Редактор диалогов языка MapBasic: обзор и пример использования программы DiaBuilder 2000
+		</h1>
+		<hr class="split" />
+
+		<ul id="toc">
+			<li><a href="#ch1">Обзор DiaBuilder 2000</a></li>
+			<li><a href="#ch2">Возможности программы</a></li>
+			<li><a href="#ch3">Загрузка программы</a></li>
+			<li><a href="#ch4">Пример использования DiaBuilder&nbsp;2000</a></li>
+			<li><a href="#ch5">Список литературы</a></li>
+		</ul>
+		<hr class="split" />
+
+<!--1-->
+		<h2 id="ch1">Обзор DiaBuilder 2000</h2>
+		<p>
+			Любой программист, пишущий приложения под MapInfo Professional, рано или поздно приходит в отчаянье от выполнения одной, весьма тягомотной, обязанности. А именно &ndash; от создания диалоговых окон на языке MapBasic. Эта рутинная кропотливая работа отъедает значительный кусок и времени, и программного кода.
+		</p>
+		<p>
+			Но. Вопрос создания диалогов MapBasic давно решен! Работая в свое свободное время, после долгих, жарких дней установки <a href="http://en.wikipedia.org/wiki/Enhanced_9-1-1" title="Wikipedia">системы E911</a> в южном Техасе, бизнесмен и программист Трей Паттильо (Trey Pattillo) выпустил в 2000 году свой редактор диалогов для MapBasic &ndash; DiaBuilder 2000. Особенно приятен тот факт, что программа, изначально выпущенная как коммерческий продукт, с 2009 года стала полностью freeware, т.е. бесплатной.
+		</p>
+		<p>
+			DiaBuilder полностью поддерживает все пятнадцать элементов управления MapBasic и все их свойства, а также соблюдает все ограничения диалогов MapBasic. Операции просты и понятны: что вы видите, то и получаете. Контролы выбираются на панели инструментов и помещаются на форму простым нажатием мыши. Размеры и положения элементов можно изменять, а правый клик мыши вызывает меню &laquo;Свойства&raquo;, в котором можно задать все параметры в точности.
+		</p>
+		<img src="dia2000/1.png" alt="Рис. 1" width="456px" height="76px" />
+		<p>
+			Также DiaBuilder имеет развитые средства выравнивания элементов диалога. Можно выровнять контрол по отношению к другим по центру, расставить по сетке или распределить равномерно. Можно задавать последовательность обхода элементов и еще многое другое, не менее полезное и приятное.
+		</p>
+		<p>
+			Никто не любит возиться с настройками, но DiaBuilder позволяет настроить все, от шага и цвета сетки и размеров элементов по умолчанию, до папок размещения проектов и файлов компилятора, так что пренебрегать этой возможностью программы не стоит.
+		</p>
+		<p>
+			За несколько минут вы можете создать красивый и качественный диалог MapBasic и сразу же увидеть, как он будет выглядеть. Разрабатывая программу через интерфейс DiaBuilder, вы не только создаете форму диалога, но и файлы переменных и объявлений, настраиваете управление идентификаторами и структуру кода подпрограмм. В процессе разработки можно включать в код свои модули, добавлять различные файлы, не заботясь об объявлении их в коде.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--2-->
+		<h2 id="ch2">Возможности программы</h2>
+		<p>
+			Итак, что же имеет в своем арсенале DiaBuilder?
+		</p>
+		<ul>
+			<li>полный визуальный контроль над созданием ваших диалогов MapBasic;</li>
+			<li>настройка размеров, положения, выравнивания, доступности, заголовков, пароля и доступности элемента, а также значений, переменных и вызовов (value, into, calling);</li>
+			<li>одновременное перемещение и настройка группы контролов;</li>
+			<li>автоматическое создание имен переменных и идентификаторов контролов;</li>
+			<li>полноценное использование системных переменных;</li>
+			<li>автоматическое создание блоков подпрограмм &ndash; остается только добавить ваш код;</li>
+			<li>встроенный редактор кода с цветной подсветкой синтаксиса;</li>
+			<li>сохранение и загрузка проектов для последующих изменений;</li>
+			<li>предпросмотр сформированных диалогов;</li>
+			<li>компиляция и запуск программы (требуется установленный MapBasic).</li>
+		</ul>
+		<p>
+			Что добавляет прелести программе &ndash; так это ее полная портабельность (portable). DiaBuilder, хотя и имеет файл инсталляции, переносится на другой компьютер простым копированием и не оставляет следов в реестре.
+		</p>
+		<p>
+			Интерфейс программы английский и, к сожалению, возможность русификации автором не предусмотрена. С другой стороны, продуманность и интуитивная понятность меню и диалогов DiaBuilder позволяют беспроблемно освоить программу любому, мало-мальски знакомому с основами языка, человеку.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--3-->
+		<h2 id="ch3">Загрузка программы</h2>
+		<p>
+			Как уже упоминалось выше, с 2009 года автор, Трей Паттильо, сделал программу бесплатной (против 40$ ранее). Теперь DiaBuilder&nbsp;2000 можно абсолютно свободно, без оплаты и регистрации загрузить на <a href="http://www.wap3.com">сайте автора</a>.<br />
+			Также программу в виде ZIP-архива (исполняемые файлы и справочная система) можно загрузить на сайте <a href="../download.html#mbed" title="Перейти на страницу загрузки">GLab&copy;2007</a>
+		</p>
+		<p>
+			Помимо редактора диалогов DiaBuilder&nbsp;2000 Трей Паттильо написал великолепный редактор языка MapBasic &ndash; MB&nbsp;Coder, с полноценной подсветкой синтаксиса языка, подсказками, деревом проекта и многими другими, важными и нужными разработчику функциями. Более полная информация о редакторе представлена в <a href="../download.html#mbed" title="Перейти на страницу загрузки">разделе загрузок сайта</a>.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--4-->
+		<h2 id="ch4">Пример использования DiaBuilder&nbsp;2000 &ndash; создание диалога</h2>
+		<p>
+			При первом запуске программа создаст файл настроек diabuilder.ini, на что, возможно, потребуется некоторое время. После полной загрузки, интерфейс DiaBuilder будет представлен двумя окнами: панелью инструментов и начальной формой диалога. На панели инструментов находятся 4 вкладками:
+		</p>
+		<ol>
+			<li>Controls &ndash; элементы управления;</li>
+			<li>Alignment &ndash; выравнивание и расстановка элементов;</li>
+			<li>Options &ndash; опции и настройки программы;</li>
+			<li>File &ndash; управление файлами проекта.</li>
+		</ol>
+		<p>
+			Учитывая, что программа не всегда находит путь к папке компилятора MapBasic, стоит проверить настройки путей (меню &laquo;Options&raquo; &rarr; &laquo;Settings&raquo;).
+		</p>
+		<p>
+			После проверки и окончательной настройки программы можно перейти к созданию нашего первого диалога. Это будет утилита, которая выбирает из открытой таблицы все объекты одного типа (полигоны, символы, текст, etc.) Подробно вопрос выбора однотипных объектов средствами самой MapInfo подробно рассматривался в <a href="../a/mifaq.html#ch25">GIS MapInfo FAQ</a>.
+		</p>
+		<p>
+			Перейдя на вкладку &laquo;Controls&raquo;, выберем элемент управления Radio&nbsp;Group. Простым щелчком мыши на свободном поле формы добавим этот элемент. Правый клик откроет дополнительное окно &ndash; редактор свойств элементов. Должна получиться примерно такая картина:
+		</p>
+		<img src="dia2000/2.png" alt="Рис. 2" width="456px" height="394px" />
+		<p>
+			Активировав щелчком по полю Title в окне редактора свойств диалог ввода подписей элемента, заполним его сообразно примеру. Значение свойства UserID &ndash; Radio1ID запомним или запишем в сторонке, так как оно нам потребуется для обращения к этому элементу впоследствии.
+		</p>
+		<img src="dia2000/3.png" alt="Рис. 3" width="456px" height="394px" />
+		<p>
+			Таким же, как описанный выше, способом, добавим на форму и настроим элементы StaticText и 2 командные кнопки: OK Button и Cancel Button.
+		</p>
+		<img class="inline" src="dia2000/4.png" alt="Рис. 4" width="266px" height="318px" />
+		<img class="inline" src="dia2000/5.png" alt="Рис. 5" width="266px" height="250px" />
+		<p>
+			Выделив на форме элемент OK Button, в Редакторе Свойств активизируем свойство Calling. Откроется встроенный редактор кода, в который можно сразу же, не заботясь ни об объявлении констант, ни об определениях, ни даже об объявлении процедуры (Sub … End Sub), сразу же писать код.
+		</p>
+		<img src="dia2000/6.png" alt="Рис. 6" width="554px" height="397px" />
+		<p>
+			Вот код, который позволит выбрать все объекты одного типа в первой открытой таблице.
+		</p>
+		<p>
+			Для начала делаем проверку на наличие открытых таблиц:
+		</p>
+		<p class="code">
+	If Numtables( ) &lt; 1 Then
+		End Program
+	End If
+		</p>
+		<p>
+			Затем объявляем внутреннюю переменную и записываем в нее строку в зависимости от выбранной пользователем опции Radio&nbsp;Group (вызов свойств контрола по UserID):
+		</p>
+		<p class="code">
+	Dim sQuery as String
+	Do Case ReadControlValue(Radio1ID)
+		Case 1
+			sQuery = &quot;line&quot;
+		Case 2
+			sQuery = &quot;polyline&quot;
+		Case 3
+			sQuery = &quot;region&quot;
+		Case 4
+			sQuery = &quot;text&quot;
+		Case 5
+			sQuery = &quot;point&quot;
+		Case 6
+			sQuery = &quot;rect&quot;
+		Case 7
+			sQuery = &quot;roundrect&quot;
+		Case 8
+			sQuery = &quot;ellipse&quot;
+		Case 9
+			sQuery = &quot;arc&quot;
+	End Case
+		</p>
+		<p>
+			И, наконец, составляем запрос и запускаем команду на выполнение:
+		</p>
+		<p class="code">
+	Run Command &quot;Select * From &quot; &amp; TableInfo(1,TAB_INFO_NAME) &amp; &quot; Where Str$(obj)=&quot;&quot;&quot; &amp; sQuery &amp; &quot;&quot;&quot; Into Selection&quot;
+		</p>
+		<p>
+			Все! Программа готова. Переходим на вкладку &laquo;File&raquo; панели инструментов, выбираем опцию &laquo;Test&raquo;, ждем &hellip;
+		</p>
+		<img class="inline" src="dia2000/7.png" alt="Рис. 7" width="266px" height="250px" />
+		<img class="inline" src="dia2000/8.png" alt="Рис. 8" width="266px" height="250px" />
+		<p>
+			Готово. Программа создана, скомпилирована и ей можно пользоваться. На все операции у меня ушло не более 5 минут.
+		</p>
+		<p>
+			<a href="dia2000/s_prj.zip">Загрузить готовый проект рассмотренного примера (2,97 KB)</a><br />
+			<a href="dia2000/s_mbx.zip">Загрузить скомпилированную утилиту (1,54 KB)</a>
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--5-->
+		<h2 id="ch5">Список литературы</h2>
+		<ol>
+			<li><a href="http://www.directionsmag.com/article.php?article_id=76">Bill Thoen. An End to Dialog Slog in MapBasic Development//GISnet, - 2000</a></li>
+			<li><a href="http://www.wap3.com/DiaBuilder2000/db2k_more_info.htm">Trey Pattillo. DiaBuilder2000. Order Now - 2009</a></li>
+			<li>MapBasic. Среда разработки. Руководство пользователя. - Нью-Йорк: MapInfo Corp., 2000.</li>
+		</ol>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

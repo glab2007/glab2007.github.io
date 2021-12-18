@@ -1,0 +1,2603 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Сводная таблица иконок MapInfo Professional &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Сводная таблица иконок пользовательских панелей инструментов в MapInfo Professional. Памятка кодов, констант, и значков для кнопок на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="иконки mapinfo, иконки mapbasic, панели инструментов" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+<style type="text/css">
+	#content IMG {width: 22px; height: 22px; margin: 0px !important;}
+	#content TD {padding: 0px 20px !important; vertical-align: middle;}
+</style>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a id="item" href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="article">
+			Сводная таблица иконок MapInfo Professional
+		</h1>
+		<hr class="split" />
+
+		<p>
+			Не статья, а, скорее, памятка для пишущих на MapBasic. Сама идея создания сводной таблицы иконок MapInfo позаимствована из блога австралийского программиста <a href="https://plus.google.com/113736990329407525570" title="lus.google.com">James Moloney</a>. Блог, кстати, весьма интересный и настоятельно <a href="http://www.mapbasichelp.com" title="mapbasichelp.com">рекомендуемый к изучению</a> не только программистами.
+		</p>
+		<p>
+			Итак, как известно, при создании кнопок инструментальных панелей на языке MapBasic используются, по умолчанию, иконки из файла ресурсов MapInfo. Вызов этих иконок осуществляется при помощи их уникального идентификатора или мнемонической константы вида MI_ICON_ARROW. Перечень констант и их значений перечислен в файле определений ICONS.DEF из стандартной поставки MapBasic. Однако, достаточно сложно определить, как выглядит тот или иной значок по его коду. Безусловно, предлагаемая в поставке утилита ICONDEMO.MBX помогает в этом, но пользоваться ей, всё же, неудобно. Для облегчения поиска нужной иконки, её кода и мнемонической константы и создана сводная таблица иконок, доступных в MapInfo.
+		</p>
+		<div class="small passage">
+			<p>
+				При составлении этой таблицы выяснились некоторые любопытные моменты:
+			</p>
+			<ul>
+				<li>Значки иконок с кодом MI_ICON_TRANSPORT_26 и MI_ICON_TRANSPORT_27 выглядят как изображения вертолёта, тёмное и светлое соответственно. По крайней мере, так было во всех предыдущих версиях MapInfo. А в версии MapInfo 12.5.2 build 206, по которой и составлялась таблица, эти значки <a href="#nb1">одинаковые</a>.</li>
+				<li>Значка с идентификатором 1015 в файле ресурсов MapInfo нет. 1014 &ndash; есть, 1016 &ndash; есть, а 1015 &ndash; нет. И в ICONS.DEF нет соответствующей константы. А вот кнопку с такой иконкой создать <a href="#nb2">можно</a>.</li>
+			</ul>
+		</div>
+		<p>
+			<a href="icons/micons.zip">Загрузить сводную таблицу иконок MapInfo в формате PDF (332 KB)</a><br />
+			<a href="icons/icons.zip">Загрузить коллекцию иконок MapInfo в формате PNG (261 KB)</a>
+		</p>
+
+<!--0-->
+		<ul id="toc">
+			<li>Основные наборы
+				<ul>
+					<li><a href="#ch1">Операции</a></li>
+					<li><a href="#ch2">Пенал</a></li>
+					<li><a href="#ch3">Программы</a></li>
+					<li><a href="#ch4">Стандартные</a></li>
+					<li><a href="#ch5">Стрелки</a></li>
+					<li><a href="#ch6">Связь</a></li>
+					<li><a href="#ch7">Особого назначения</a></li>
+					<li><a href="#ch8">Буквы</a></li>
+					<li><a href="#ch9">Карты</a></li>
+					<li><a href="#ch10">Символы</a></li>
+					<li><a href="#ch11">Морские</a></li>
+					<li><a href="#ch12">MapBasic</a></li>
+					<li><a href="#ch13">Смешанные</a></li>
+					<li><a href="#ch14">Цифры</a></li>
+					<li><a href="#ch15">Недвижимость</a></li>
+					<li><a href="#ch16">Дорожные знаки</a></li>
+					<li><a href="#ch17">Транспорт</a></li>
+					<li><a href="#ch18">Базы Данных</a></li>
+					<li><a href="#ch19">Диапазон</a></li>
+					<li><a href="#ch20">Прочие</a></li>
+				</ul>
+			</li>
+			<li>Дополнительные наборы</li>
+				<ul>
+					<li><a href="#ch21">Операции</a></li>
+					<li><a href="#ch22">Пенал</a></li>
+					<li><a href="#ch23">Программы</a></li>
+					<li><a href="#ch24">Стандартные</a></li>
+					<li><a href="#ch25">MapBasic</a></li>
+					<li><a href="#ch26">Базы Данных</a></li>
+					<li><a href="#ch27">Прочие</a></li>
+				</ul>
+		</ul>
+		<hr class="split" />
+
+		<h2>Основные наборы</h2>
+<!--1-->
+		<h3 id="ch1">Операции</h3>
+		<table>
+			<tr>
+				<td><img src="icons/0.png"/></td>
+				<td>MI_ICON_ARROW</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1.png"/></td>
+				<td>MI_ICON_SEARCH_RECT</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<td><img src="icons/2.png"/></td>
+				<td>MI_ICON_SEARCH_RADIUS</td>
+				<td>2</td>
+			</tr>
+			<tr>
+				<td><img src="icons/3.png"/></td>
+				<td>MI_ICON_SEARCH_BDY</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td><img src="icons/4.png"/></td>
+				<td>MI_ICON_ZOOM_IN</td>
+				<td>4</td>
+			</tr>
+			<tr>
+				<td><img src="icons/5.png"/></td>
+				<td>MI_ICON_ZOOM_OUT</td>
+				<td>5</td>
+			</tr>
+			<tr>
+				<td><img src="icons/6.png"/></td>
+				<td>MI_ICON_ZOOM_QUESTION</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td><img src="icons/7.png"/></td>
+				<td>MI_ICON_GRABBER</td>
+				<td>7</td>
+			</tr>
+			<tr>
+				<td><img src="icons/8.png"/></td>
+				<td>MI_ICON_INFO</td>
+				<td>8</td>
+			</tr>
+			<tr>
+				<td><img src="icons/9.png"/></td>
+				<td>MI_ICON_LABEL</td>
+				<td>9</td>
+			</tr>
+			<tr>
+				<td><img src="icons/10.png"/></td>
+				<td>MI_ICON_LAYERS</td>
+				<td>10</td>
+			</tr>
+			<tr>
+				<td><img src="icons/11.png"/></td>
+				<td>MI_ICON_RULER</td>
+				<td>11</td>
+			</tr>
+			<tr>
+				<td><img src="icons/12.png"/></td>
+				<td>MI_ICON_LEGEND</td>
+				<td>12</td>
+			</tr>
+			<tr>
+				<td><img src="icons/13.png"/></td>
+				<td>MI_ICON_STATISTICS</td>
+				<td>13</td>
+			</tr>
+			<tr>
+				<td><img src="icons/14.png"/></td>
+				<td>MI_ICON_DISTRICT_MANY</td>
+				<td>14</td>
+			</tr>
+			<tr>
+				<td><img src="icons/15.png"/></td>
+				<td>MI_ICON_DISTRICT_SAME</td>
+				<td>15</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--2-->
+		<h3 id="ch2">Пенал</h3>
+		<table>
+			<tr>
+				<td><img src="icons/16.png"/></td>
+				<td>MI_ICON_SYMBOL</td>
+				<td>16</td>
+			</tr>
+			<tr>
+				<td><img src="icons/17.png"/></td>
+				<td>MI_ICON_LINE</td>
+				<td>17</td>
+			</tr>
+			<tr>
+				<td><img src="icons/18.png"/></td>
+				<td>MI_ICON_POLYLINE</td>
+				<td>18</td>
+			</tr>
+			<tr>
+				<td><img src="icons/19.png"/></td>
+				<td>MI_ICON_ARC</td>
+				<td>19</td>
+			</tr>
+			<tr>
+				<td><img src="icons/20.png"/></td>
+				<td>MI_ICON_POLYGON</td>
+				<td>20</td>
+			</tr>
+			<tr>
+				<td><img src="icons/21.png"/></td>
+				<td>MI_ICON_ELLIPSE</td>
+				<td>21</td>
+			</tr>
+			<tr>
+				<td><img src="icons/22.png"/></td>
+				<td>MI_ICON_RECT</td>
+				<td>22</td>
+			</tr>
+			<tr>
+				<td><img src="icons/23.png"/></td>
+				<td>MI_ICON_ROUND_RECT</td>
+				<td>23</td>
+			</tr>
+			<tr>
+				<td><img src="icons/24.png"/></td>
+				<td>MI_ICON_TEXT</td>
+				<td>24</td>
+			</tr>
+			<tr>
+				<td><img src="icons/25.png"/></td>
+				<td>MI_ICON_WINDOW_FRAME</td>
+				<td>25</td>
+			</tr>
+			<tr>
+				<td><img src="icons/26.png"/></td>
+				<td>MI_ICON_RESHAPE</td>
+				<td>26</td>
+			</tr>
+			<tr>
+				<td><img src="icons/27.png"/></td>
+				<td>MI_ICON_ADD_NODE</td>
+				<td>27</td>
+			</tr>
+			<tr>
+				<td><img src="icons/28.png"/></td>
+				<td>MI_ICON_SYMBOL_STYLE</td>
+				<td>28</td>
+			</tr>
+			<tr>
+				<td><img src="icons/29.png"/></td>
+				<td>MI_ICON_LINE_STYLE</td>
+				<td>29</td>
+			</tr>
+			<tr>
+				<td><img src="icons/30.png"/></td>
+				<td>MI_ICON_REGION_STYLE</td>
+				<td>30</td>
+			</tr>
+			<tr>
+				<td><img src="icons/31.png"/></td>
+				<td>MI_ICON_TEXT_STYLE</td>
+				<td>31</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--3-->
+		<h3 id="ch3">Программы</h3>
+		<table>
+			<tr>
+				<td><img src="icons/32.png"/></td>
+				<td>MI_ICON_RUN</td>
+				<td>32</td>
+			</tr>
+			<tr>
+				<td><img src="icons/33.png"/></td>
+				<td>MI_ICON_WRENCH</td>
+				<td>33</td>
+			</tr>
+			<tr>
+				<td><img src="icons/34.png"/></td>
+				<td>MI_ICON_CROSSHAIR</td>
+				<td>34</td>
+			</tr>
+			<tr>
+				<td><img src="icons/35.png"/></td>
+				<td>MI_ICON_CLIP_MODE</td>
+				<td>35</td>
+			</tr>
+			<tr>
+				<td><img src="icons/36.png"/></td>
+				<td>MI_ICON_CLIP_REGION</td>
+				<td>36</td>
+			</tr>
+			<tr>
+				<td><img src="icons/37.png"/></td>
+				<td>MI_ICON_DRAG_HANDLE</td>
+				<td>37</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--4-->
+		<h3 id="ch4">Стандартные</h3>
+		<table>
+			<tr>
+				<td><img src="icons/38.png"/></td>
+				<td>MI_ICON_NEW_DOC</td>
+				<td>38</td>
+			</tr>
+			<tr>
+				<td><img src="icons/39.png"/></td>
+				<td>MI_ICON_OPEN_FILE</td>
+				<td>39</td>
+			</tr>
+			<tr>
+				<td><img src="icons/40.png"/></td>
+				<td>MI_ICON_SAVE_FILE</td>
+				<td>40</td>
+			</tr>
+			<tr>
+				<td><img src="icons/41.png"/></td>
+				<td>MI_ICON_PRINT</td>
+				<td>41</td>
+			</tr>
+			<tr>
+				<td><img src="icons/42.png"/></td>
+				<td>MI_ICON_CUT</td>
+				<td>42</td>
+			</tr>
+			<tr>
+				<td><img src="icons/43.png"/></td>
+				<td>MI_ICON_COPY</td>
+				<td>43</td>
+			</tr>
+			<tr>
+				<td><img src="icons/44.png"/></td>
+				<td>MI_ICON_PASTE</td>
+				<td>44</td>
+			</tr>
+			<tr>
+				<td><img src="icons/45.png"/></td>
+				<td>MI_ICON_UNDO</td>
+				<td>45</td>
+			</tr>
+			<tr>
+				<td><img src="icons/46.png"/></td>
+				<td>MI_ICON_HELP</td>
+				<td>46</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--5-->
+		<h3 id="ch5">Стрелки</h3>
+		<table>
+			<tr>
+				<td><img src="icons/47.png"/></td>
+				<td>MI_ICON_ARROW_1</td>
+				<td>47</td>
+			</tr>
+			<tr>
+				<td><img src="icons/48.png"/></td>
+				<td>MI_ICON_ARROW_2</td>
+				<td>48</td>
+			</tr>
+			<tr>
+				<td><img src="icons/49.png"/></td>
+				<td>MI_ICON_ARROW_3</td>
+				<td>49</td>
+			</tr>
+			<tr>
+				<td><img src="icons/50.png"/></td>
+				<td>MI_ICON_ARROW_4</td>
+				<td>50</td>
+			</tr>
+			<tr>
+				<td><img src="icons/51.png"/></td>
+				<td>MI_ICON_ARROW_5</td>
+				<td>51</td>
+			</tr>
+			<tr>
+				<td><img src="icons/52.png"/></td>
+				<td>MI_ICON_ARROW_6</td>
+				<td>52</td>
+			</tr>
+			<tr>
+				<td><img src="icons/53.png"/></td>
+				<td>MI_ICON_ARROW_7</td>
+				<td>53</td>
+			</tr>
+			<tr>
+				<td><img src="icons/54.png"/></td>
+				<td>MI_ICON_ARROW_8</td>
+				<td>54</td>
+			</tr>
+			<tr>
+				<td><img src="icons/55.png"/></td>
+				<td>MI_ICON_ARROW_9</td>
+				<td>55</td>
+			</tr>
+			<tr>
+				<td><img src="icons/56.png"/></td>
+				<td>MI_ICON_ARROW_10</td>
+				<td>56</td>
+			</tr>
+			<tr>
+				<td><img src="icons/57.png"/></td>
+				<td>MI_ICON_ARROW_11</td>
+				<td>57</td>
+			</tr>
+			<tr>
+				<td><img src="icons/58.png"/></td>
+				<td>MI_ICON_ARROW_12</td>
+				<td>58</td>
+			</tr>
+			<tr>
+				<td><img src="icons/59.png"/></td>
+				<td>MI_ICON_ARROW_13</td>
+				<td>59</td>
+			</tr>
+			<tr>
+				<td><img src="icons/60.png"/></td>
+				<td>MI_ICON_ARROW_14</td>
+				<td>60</td>
+			</tr>
+			<tr>
+				<td><img src="icons/61.png"/></td>
+				<td>MI_ICON_ARROW_15</td>
+				<td>61</td>
+			</tr>
+			<tr>
+				<td><img src="icons/62.png"/></td>
+				<td>MI_ICON_ARROW_16</td>
+				<td>62</td>
+			</tr>
+			<tr>
+				<td><img src="icons/63.png"/></td>
+				<td>MI_ICON_ARROW_17</td>
+				<td>63</td>
+			</tr>
+			<tr>
+				<td><img src="icons/64.png"/></td>
+				<td>MI_ICON_ARROW_18</td>
+				<td>64</td>
+			</tr>
+			<tr>
+				<td><img src="icons/65.png"/></td>
+				<td>MI_ICON_ARROW_19</td>
+				<td>65</td>
+			</tr>
+			<tr>
+				<td><img src="icons/66.png"/></td>
+				<td>MI_ICON_ARROW_20</td>
+				<td>66</td>
+			</tr>
+			<tr>
+				<td><img src="icons/67.png"/></td>
+				<td>MI_ICON_ARROW_21</td>
+				<td>67</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--6-->
+		<h3 id="ch6">Связь</h3>
+		<table>
+			<tr>
+				<td><img src="icons/68.png"/></td>
+				<td>MI_ICON_COMMUNICATION_1</td>
+				<td>68</td>
+			</tr>
+			<tr>
+				<td><img src="icons/69.png"/></td>
+				<td>MI_ICON_COMMUNICATION_2</td>
+				<td>69</td>
+			</tr>
+			<tr>
+				<td><img src="icons/70.png"/></td>
+				<td>MI_ICON_COMMUNICATION_3</td>
+				<td>70</td>
+			</tr>
+			<tr>
+				<td><img src="icons/71.png"/></td>
+				<td>MI_ICON_COMMUNICATION_4</td>
+				<td>71</td>
+			</tr>
+			<tr>
+				<td><img src="icons/72.png"/></td>
+				<td>MI_ICON_COMMUNICATION_5</td>
+				<td>72</td>
+			</tr>
+			<tr>
+				<td><img src="icons/73.png"/></td>
+				<td>MI_ICON_COMMUNICATION_6</td>
+				<td>73</td>
+			</tr>
+			<tr>
+				<td><img src="icons/74.png"/></td>
+				<td>MI_ICON_COMMUNICATION_7</td>
+				<td>74</td>
+			</tr>
+			<tr>
+				<td><img src="icons/75.png"/></td>
+				<td>MI_ICON_COMMUNICATION_8</td>
+				<td>75</td>
+			</tr>
+			<tr>
+				<td><img src="icons/76.png"/></td>
+				<td>MI_ICON_COMMUNICATION_9</td>
+				<td>76</td>
+			</tr>
+			<tr>
+				<td><img src="icons/77.png"/></td>
+				<td>MI_ICON_COMMUNICATION_10</td>
+				<td>77</td>
+			</tr>
+			<tr>
+				<td><img src="icons/78.png"/></td>
+				<td>MI_ICON_COMMUNICATION_11</td>
+				<td>78</td>
+			</tr>
+			<tr>
+				<td><img src="icons/79.png"/></td>
+				<td>MI_ICON_COMMUNICATION_12</td>
+				<td>79</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--7-->
+		<h3 id="ch7">Особого назначения</h3>
+		<table>
+			<tr>
+				<td><img src="icons/80.png"/></td>
+				<td>MI_ICON_EMERGENCY_1</td>
+				<td>80</td>
+			</tr>
+			<tr>
+				<td><img src="icons/81.png"/></td>
+				<td>MI_ICON_EMERGENCY_2</td>
+				<td>81</td>
+			</tr>
+			<tr>
+				<td><img src="icons/82.png"/></td>
+				<td>MI_ICON_EMERGENCY_3</td>
+				<td>82</td>
+			</tr>
+			<tr>
+				<td><img src="icons/83.png"/></td>
+				<td>MI_ICON_EMERGENCY_4</td>
+				<td>83</td>
+			</tr>
+			<tr>
+				<td><img src="icons/84.png"/></td>
+				<td>MI_ICON_EMERGENCY_5</td>
+				<td>84</td>
+			</tr>
+			<tr>
+				<td><img src="icons/85.png"/></td>
+				<td>MI_ICON_EMERGENCY_6</td>
+				<td>85</td>
+			</tr>
+			<tr>
+				<td><img src="icons/86.png"/></td>
+				<td>MI_ICON_EMERGENCY_7</td>
+				<td>86</td>
+			</tr>
+			<tr>
+				<td><img src="icons/87.png"/></td>
+				<td>MI_ICON_EMERGENCY_8</td>
+				<td>87</td>
+			</tr>
+			<tr>
+				<td><img src="icons/88.png"/></td>
+				<td>MI_ICON_EMERGENCY_9</td>
+				<td>88</td>
+			</tr>
+			<tr>
+				<td><img src="icons/89.png"/></td>
+				<td>MI_ICON_EMERGENCY_10</td>
+				<td>89</td>
+			</tr>
+			<tr>
+				<td><img src="icons/90.png"/></td>
+				<td>MI_ICON_EMERGENCY_11</td>
+				<td>90</td>
+			</tr>
+			<tr>
+				<td><img src="icons/91.png"/></td>
+				<td>MI_ICON_EMERGENCY_12</td>
+				<td>91</td>
+			</tr>
+			<tr>
+				<td><img src="icons/92.png"/></td>
+				<td>MI_ICON_EMERGENCY_13</td>
+				<td>92</td>
+			</tr>
+			<tr>
+				<td><img src="icons/93.png"/></td>
+				<td>MI_ICON_EMERGENCY_14</td>
+				<td>93</td>
+			</tr>
+			<tr>
+				<td><img src="icons/94.png"/></td>
+				<td>MI_ICON_EMERGENCY_15</td>
+				<td>94</td>
+			</tr>
+			<tr>
+				<td><img src="icons/95.png"/></td>
+				<td>MI_ICON_EMERGENCY_16</td>
+				<td>95</td>
+			</tr>
+			<tr>
+				<td><img src="icons/96.png"/></td>
+				<td>MI_ICON_EMERGENCY_17</td>
+				<td>96</td>
+			</tr>
+			<tr>
+				<td><img src="icons/97.png"/></td>
+				<td>MI_ICON_EMERGENCY_18</td>
+				<td>97</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--8-->
+		<h3 id="ch8">Буквы</h3>
+		<table>
+			<tr>
+				<td><img src="icons/98.png"/></td>
+				<td>MI_ICON_LETTERS_A</td>
+				<td>98</td>
+			</tr>
+			<tr>
+				<td><img src="icons/99.png"/></td>
+				<td>MI_ICON_LETTERS_B</td>
+				<td>99</td>
+			</tr>
+			<tr>
+				<td><img src="icons/100.png"/></td>
+				<td>MI_ICON_LETTERS_C</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td><img src="icons/101.png"/></td>
+				<td>MI_ICON_LETTERS_D</td>
+				<td>101</td>
+			</tr>
+			<tr>
+				<td><img src="icons/102.png"/></td>
+				<td>MI_ICON_LETTERS_E</td>
+				<td>102</td>
+			</tr>
+			<tr>
+				<td><img src="icons/103.png"/></td>
+				<td>MI_ICON_LETTERS_F</td>
+				<td>103</td>
+			</tr>
+			<tr>
+				<td><img src="icons/104.png"/></td>
+				<td>MI_ICON_LETTERS_G</td>
+				<td>104</td>
+			</tr>
+			<tr>
+				<td><img src="icons/105.png"/></td>
+				<td>MI_ICON_LETTERS_H</td>
+				<td>105</td>
+			</tr>
+			<tr>
+				<td><img src="icons/106.png"/></td>
+				<td>MI_ICON_LETTERS_I</td>
+				<td>106</td>
+			</tr>
+			<tr>
+				<td><img src="icons/107.png"/></td>
+				<td>MI_ICON_LETTERS_J</td>
+				<td>107</td>
+			</tr>
+			<tr>
+				<td><img src="icons/108.png"/></td>
+				<td>MI_ICON_LETTERS_K</td>
+				<td>108</td>
+			</tr>
+			<tr>
+				<td><img src="icons/109.png"/></td>
+				<td>MI_ICON_LETTERS_L</td>
+				<td>109</td>
+			</tr>
+			<tr>
+				<td><img src="icons/110.png"/></td>
+				<td>MI_ICON_LETTERS_M</td>
+				<td>110</td>
+			</tr>
+			<tr>
+				<td><img src="icons/111.png"/></td>
+				<td>MI_ICON_LETTERS_N</td>
+				<td>111</td>
+			</tr>
+			<tr>
+				<td><img src="icons/112.png"/></td>
+				<td>MI_ICON_LETTERS_O</td>
+				<td>112</td>
+			</tr>
+			<tr>
+				<td><img src="icons/113.png"/></td>
+				<td>MI_ICON_LETTERS_P</td>
+				<td>113</td>
+			</tr>
+			<tr>
+				<td><img src="icons/114.png"/></td>
+				<td>MI_ICON_LETTERS_Q</td>
+				<td>114</td>
+			</tr>
+			<tr>
+				<td><img src="icons/115.png"/></td>
+				<td>MI_ICON_LETTERS_R</td>
+				<td>115</td>
+			</tr>
+			<tr>
+				<td><img src="icons/116.png"/></td>
+				<td>MI_ICON_LETTERS_S</td>
+				<td>116</td>
+			</tr>
+			<tr>
+				<td><img src="icons/117.png"/></td>
+				<td>MI_ICON_LETTERS_T</td>
+				<td>117</td>
+			</tr>
+			<tr>
+				<td><img src="icons/118.png"/></td>
+				<td>MI_ICON_LETTERS_U</td>
+				<td>118</td>
+			</tr>
+			<tr>
+				<td><img src="icons/119.png"/></td>
+				<td>MI_ICON_LETTERS_V</td>
+				<td>119</td>
+			</tr>
+			<tr>
+				<td><img src="icons/120.png"/></td>
+				<td>MI_ICON_LETTERS_W</td>
+				<td>120</td>
+			</tr>
+			<tr>
+				<td><img src="icons/121.png"/></td>
+				<td>MI_ICON_LETTERS_X</td>
+				<td>121</td>
+			</tr>
+			<tr>
+				<td><img src="icons/122.png"/></td>
+				<td>MI_ICON_LETTERS_Y</td>
+				<td>122</td>
+			</tr>
+			<tr>
+				<td><img src="icons/123.png"/></td>
+				<td>MI_ICON_LETTERS_Z</td>
+				<td>123</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--9-->
+		<h3 id="ch9">Карты</h3>
+		<table>
+			<tr>
+				<td><img src="icons/124.png"/></td>
+				<td>MI_ICONS_MAPS_1</td>
+				<td>124</td>
+			</tr>
+			<tr>
+				<td><img src="icons/125.png"/></td>
+				<td>MI_ICONS_MAPS_2</td>
+				<td>125</td>
+			</tr>
+			<tr>
+				<td><img src="icons/126.png"/></td>
+				<td>MI_ICONS_MAPS_3</td>
+				<td>126</td>
+			</tr>
+			<tr>
+				<td><img src="icons/127.png"/></td>
+				<td>MI_ICONS_MAPS_4</td>
+				<td>127</td>
+			</tr>
+			<tr>
+				<td><img src="icons/128.png"/></td>
+				<td>MI_ICONS_MAPS_5</td>
+				<td>128</td>
+			</tr>
+			<tr>
+				<td><img src="icons/129.png"/></td>
+				<td>MI_ICONS_MAPS_6</td>
+				<td>129</td>
+			</tr>
+			<tr>
+				<td><img src="icons/130.png"/></td>
+				<td>MI_ICONS_MAPS_7</td>
+				<td>130</td>
+			</tr>
+			<tr>
+				<td><img src="icons/131.png"/></td>
+				<td>MI_ICONS_MAPS_8</td>
+				<td>131</td>
+			</tr>
+			<tr>
+				<td><img src="icons/132.png"/></td>
+				<td>MI_ICONS_MAPS_9</td>
+				<td>132</td>
+			</tr>
+			<tr>
+				<td><img src="icons/133.png"/></td>
+				<td>MI_ICONS_MAPS_10</td>
+				<td>133</td>
+			</tr>
+			<tr>
+				<td><img src="icons/134.png"/></td>
+				<td>MI_ICONS_MAPS_11</td>
+				<td>134</td>
+			</tr>
+			<tr>
+				<td><img src="icons/135.png"/></td>
+				<td>MI_ICONS_MAPS_12</td>
+				<td>135</td>
+			</tr>
+			<tr>
+				<td><img src="icons/136.png"/></td>
+				<td>MI_ICONS_MAPS_13</td>
+				<td>136</td>
+			</tr>
+			<tr>
+				<td><img src="icons/137.png"/></td>
+				<td>MI_ICONS_MAPS_14</td>
+				<td>137</td>
+			</tr>
+			<tr>
+				<td><img src="icons/138.png"/></td>
+				<td>MI_ICONS_MAPS_15</td>
+				<td>138</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--10-->
+		<h3 id="ch10">Символы</h3>
+		<table>
+			<tr>
+				<td><img src="icons/139.png"/></td>
+				<td>MI_ICON_MAPSYMB_1</td>
+				<td>139</td>
+			</tr>
+			<tr>
+				<td><img src="icons/140.png"/></td>
+				<td>MI_ICON_MAPSYMB_2</td>
+				<td>140</td>
+			</tr>
+			<tr>
+				<td><img src="icons/141.png"/></td>
+				<td>MI_ICON_MAPSYMB_3</td>
+				<td>141</td>
+			</tr>
+			<tr>
+				<td><img src="icons/142.png"/></td>
+				<td>MI_ICON_MAPSYMB_4</td>
+				<td>142</td>
+			</tr>
+			<tr>
+				<td><img src="icons/143.png"/></td>
+				<td>MI_ICON_MAPSYMB_5</td>
+				<td>143</td>
+			</tr>
+			<tr>
+				<td><img src="icons/144.png"/></td>
+				<td>MI_ICON_MAPSYMB_6</td>
+				<td>144</td>
+			</tr>
+			<tr>
+				<td><img src="icons/145.png"/></td>
+				<td>MI_ICON_MAPSYMB_7</td>
+				<td>145</td>
+			</tr>
+			<tr>
+				<td><img src="icons/146.png"/></td>
+				<td>MI_ICON_MAPSYMB_8</td>
+				<td>146</td>
+			</tr>
+			<tr>
+				<td><img src="icons/147.png"/></td>
+				<td>MI_ICON_MAPSYMB_9</td>
+				<td>147</td>
+			</tr>
+			<tr>
+				<td><img src="icons/148.png"/></td>
+				<td>MI_ICON_MAPSYMB_10</td>
+				<td>148</td>
+			</tr>
+			<tr>
+				<td><img src="icons/149.png"/></td>
+				<td>MI_ICON_MAPSYMB_11</td>
+				<td>149</td>
+			</tr>
+			<tr>
+				<td><img src="icons/150.png"/></td>
+				<td>MI_ICON_MAPSYMB_12</td>
+				<td>150</td>
+			</tr>
+			<tr>
+				<td><img src="icons/151.png"/></td>
+				<td>MI_ICON_MAPSYMB_13</td>
+				<td>151</td>
+			</tr>
+			<tr>
+				<td><img src="icons/152.png"/></td>
+				<td>MI_ICON_MAPSYMB_14</td>
+				<td>152</td>
+			</tr>
+			<tr>
+				<td><img src="icons/153.png"/></td>
+				<td>MI_ICON_MAPSYMB_15</td>
+				<td>153</td>
+			</tr>
+			<tr>
+				<td><img src="icons/154.png"/></td>
+				<td>MI_ICON_MAPSYMB_16</td>
+				<td>154</td>
+			</tr>
+			<tr>
+				<td><img src="icons/155.png"/></td>
+				<td>MI_ICON_MAPSYMB_17</td>
+				<td>155</td>
+			</tr>
+			<tr>
+				<td><img src="icons/156.png"/></td>
+				<td>MI_ICON_MAPSYMB_18</td>
+				<td>156</td>
+			</tr>
+			<tr>
+				<td><img src="icons/157.png"/></td>
+				<td>MI_ICON_MAPSYMB_19</td>
+				<td>157</td>
+			</tr>
+			<tr>
+				<td><img src="icons/158.png"/></td>
+				<td>MI_ICON_MAPSYMB_20</td>
+				<td>158</td>
+			</tr>
+			<tr>
+				<td><img src="icons/159.png"/></td>
+				<td>MI_ICON_MAPSYMB_21</td>
+				<td>159</td>
+			</tr>
+			<tr>
+				<td><img src="icons/160.png"/></td>
+				<td>MI_ICON_MAPSYMB_22</td>
+				<td>160</td>
+			</tr>
+			<tr>
+				<td><img src="icons/161.png"/></td>
+				<td>MI_ICON_MAPSYMB_23</td>
+				<td>161</td>
+			</tr>
+			<tr>
+				<td><img src="icons/162.png"/></td>
+				<td>MI_ICON_MAPSYMB_24</td>
+				<td>162</td>
+			</tr>
+			<tr>
+				<td><img src="icons/163.png"/></td>
+				<td>MI_ICON_MAPSYMB_25</td>
+				<td>163</td>
+			</tr>
+			<tr>
+				<td><img src="icons/164.png"/></td>
+				<td>MI_ICON_MAPSYMB_26</td>
+				<td>164</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--11-->
+		<h3 id="ch11">Морские</h3>
+		<table>
+			<tr>
+				<td><img src="icons/165.png"/></td>
+				<td>MI_ICON_MARITIME_1</td>
+				<td>165</td>
+			</tr>
+			<tr>
+				<td><img src="icons/166.png"/></td>
+				<td>MI_ICON_MARITIME_2</td>
+				<td>166</td>
+			</tr>
+			<tr>
+				<td><img src="icons/167.png"/></td>
+				<td>MI_ICON_MARITIME_3</td>
+				<td>167</td>
+			</tr>
+			<tr>
+				<td><img src="icons/168.png"/></td>
+				<td>MI_ICON_MARITIME_4</td>
+				<td>168</td>
+			</tr>
+			<tr>
+				<td><img src="icons/169.png"/></td>
+				<td>MI_ICON_MARITIME_5</td>
+				<td>169</td>
+			</tr>
+			<tr>
+				<td><img src="icons/170.png"/></td>
+				<td>MI_ICON_MARITIME_6</td>
+				<td>170</td>
+			</tr>
+			<tr>
+				<td><img src="icons/171.png"/></td>
+				<td>MI_ICON_MARITIME_7</td>
+				<td>171</td>
+			</tr>
+			<tr>
+				<td><img src="icons/172.png"/></td>
+				<td>MI_ICON_MARITIME_8</td>
+				<td>172</td>
+			</tr>
+			<tr>
+				<td><img src="icons/173.png"/></td>
+				<td>MI_ICON_MARITIME_9</td>
+				<td>173</td>
+			</tr>
+			<tr>
+				<td><img src="icons/174.png"/></td>
+				<td>MI_ICON_MARITIME_10</td>
+				<td>174</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--12-->
+		<h3 id="ch12">MapBasic</h3>
+		<table>
+			<tr>
+				<td><img src="icons/175.png"/></td>
+				<td>MI_ICON_MB_1</td>
+				<td>175</td>
+			</tr>
+			<tr>
+				<td><img src="icons/176.png"/></td>
+				<td>MI_ICON_MB_2</td>
+				<td>176</td>
+			</tr>
+			<tr>
+				<td><img src="icons/177.png"/></td>
+				<td>MI_ICON_MB_3</td>
+				<td>177</td>
+			</tr>
+			<tr>
+				<td><img src="icons/178.png"/></td>
+				<td>MI_ICON_MB_4</td>
+				<td>178</td>
+			</tr>
+			<tr>
+				<td><img src="icons/179.png"/></td>
+				<td>MI_ICON_MB_5</td>
+				<td>179</td>
+			</tr>
+			<tr>
+				<td><img src="icons/180.png"/></td>
+				<td>MI_ICON_MB_6</td>
+				<td>180</td>
+			</tr>
+			<tr>
+				<td><img src="icons/181.png"/></td>
+				<td>MI_ICON_MB_7</td>
+				<td>181</td>
+			</tr>
+			<tr>
+				<td><img src="icons/182.png"/></td>
+				<td>MI_ICON_MB_8</td>
+				<td>182</td>
+			</tr>
+			<tr>
+				<td><img src="icons/183.png"/></td>
+				<td>MI_ICON_MB_9</td>
+				<td>183</td>
+			</tr>
+			<tr>
+				<td><img src="icons/184.png"/></td>
+				<td>MI_ICON_MB_10</td>
+				<td>184</td>
+			</tr>
+			<tr>
+				<td><img src="icons/185.png"/></td>
+				<td>MI_ICON_MB_11</td>
+				<td>185</td>
+			</tr>
+			<tr>
+				<td><img src="icons/186.png"/></td>
+				<td>MI_ICON_MB_12</td>
+				<td>186</td>
+			</tr>
+			<tr>
+				<td><img src="icons/187.png"/></td>
+				<td>MI_ICON_MB_13</td>
+				<td>187</td>
+			</tr>
+			<tr>
+				<td><img src="icons/188.png"/></td>
+				<td>MI_ICON_MB_14</td>
+				<td>188</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--13-->
+		<h3 id="ch13">Смешанные</h3>
+		<table>
+			<tr>
+				<td><img src="icons/189.png"/></td>
+				<td>MI_ICON_MISC_1</td>
+				<td>189</td>
+			</tr>
+			<tr>
+				<td><img src="icons/190.png"/></td>
+				<td>MI_ICON_MISC_2</td>
+				<td>190</td>
+			</tr>
+			<tr>
+				<td><img src="icons/191.png"/></td>
+				<td>MI_ICON_MISC_3</td>
+				<td>191</td>
+			</tr>
+			<tr>
+				<td><img src="icons/192.png"/></td>
+				<td>MI_ICON_MISC_4</td>
+				<td>192</td>
+			</tr>
+			<tr>
+				<td><img src="icons/193.png"/></td>
+				<td>MI_ICON_MISC_5</td>
+				<td>193</td>
+			</tr>
+			<tr>
+				<td><img src="icons/194.png"/></td>
+				<td>MI_ICON_MISC_6</td>
+				<td>194</td>
+			</tr>
+			<tr>
+				<td><img src="icons/195.png"/></td>
+				<td>MI_ICON_MISC_7</td>
+				<td>195</td>
+			</tr>
+			<tr>
+				<td><img src="icons/196.png"/></td>
+				<td>MI_ICON_MISC_8</td>
+				<td>196</td>
+			</tr>
+			<tr>
+				<td><img src="icons/197.png"/></td>
+				<td>MI_ICON_MISC_9</td>
+				<td>197</td>
+			</tr>
+			<tr>
+				<td><img src="icons/198.png"/></td>
+				<td>MI_ICON_MISC_10</td>
+				<td>198</td>
+			</tr>
+			<tr>
+				<td><img src="icons/199.png"/></td>
+				<td>MI_ICON_MISC_11</td>
+				<td>199</td>
+			</tr>
+			<tr>
+				<td><img src="icons/200.png"/></td>
+				<td>MI_ICON_MISC_12</td>
+				<td>200</td>
+			</tr>
+			<tr>
+				<td><img src="icons/201.png"/></td>
+				<td>MI_ICON_MISC_13</td>
+				<td>201</td>
+			</tr>
+			<tr>
+				<td><img src="icons/202.png"/></td>
+				<td>MI_ICON_MISC_14</td>
+				<td>202</td>
+			</tr>
+			<tr>
+				<td><img src="icons/203.png"/></td>
+				<td>MI_ICON_MISC_15</td>
+				<td>203</td>
+			</tr>
+			<tr>
+				<td><img src="icons/204.png"/></td>
+				<td>MI_ICON_MISC_16</td>
+				<td>204</td>
+			</tr>
+			<tr>
+				<td><img src="icons/205.png"/></td>
+				<td>MI_ICON_MISC_17</td>
+				<td>205</td>
+			</tr>
+			<tr>
+				<td><img src="icons/206.png"/></td>
+				<td>MI_ICON_MISC_18</td>
+				<td>206</td>
+			</tr>
+			<tr>
+				<td><img src="icons/207.png"/></td>
+				<td>MI_ICON_MISC_19</td>
+				<td>207</td>
+			</tr>
+			<tr>
+				<td><img src="icons/208.png"/></td>
+				<td>MI_ICON_MISC_20</td>
+				<td>208</td>
+			</tr>
+			<tr>
+				<td><img src="icons/209.png"/></td>
+				<td>MI_ICON_MISC_21</td>
+				<td>209</td>
+			</tr>
+			<tr>
+				<td><img src="icons/210.png"/></td>
+				<td>MI_ICON_MISC_22</td>
+				<td>210</td>
+			</tr>
+			<tr>
+				<td><img src="icons/211.png"/></td>
+				<td>MI_ICON_MISC_23</td>
+				<td>211</td>
+			</tr>
+			<tr>
+				<td><img src="icons/212.png"/></td>
+				<td>MI_ICON_MISC_24</td>
+				<td>212</td>
+			</tr>
+			<tr>
+				<td><img src="icons/213.png"/></td>
+				<td>MI_ICON_MISC_25</td>
+				<td>213</td>
+			</tr>
+			<tr>
+				<td><img src="icons/214.png"/></td>
+				<td>MI_ICON_MISC_26</td>
+				<td>214</td>
+			</tr>
+			<tr>
+				<td><img src="icons/215.png"/></td>
+				<td>MI_ICON_MISC_27</td>
+				<td>215</td>
+			</tr>
+			<tr>
+				<td><img src="icons/216.png"/></td>
+				<td>MI_ICON_MISC_28</td>
+				<td>216</td>
+			</tr>
+			<tr>
+				<td><img src="icons/217.png"/></td>
+				<td>MI_ICON_MISC_29</td>
+				<td>217</td>
+			</tr>
+			<tr>
+				<td><img src="icons/218.png"/></td>
+				<td>MI_ICON_MISC_30</td>
+				<td>218</td>
+			</tr>
+			<tr>
+				<td><img src="icons/219.png"/></td>
+				<td>MI_ICON_MISC_31</td>
+				<td>219</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--14-->
+		<h3 id="ch14">Цифры</h3>
+		<table>
+			<tr>
+				<td><img src="icons/220.png"/></td>
+				<td>MI_ICON_NUMBERS_1</td>
+				<td>220</td>
+			</tr>
+			<tr>
+				<td><img src="icons/221.png"/></td>
+				<td>MI_ICON_NUMBERS_2</td>
+				<td>221</td>
+			</tr>
+			<tr>
+				<td><img src="icons/222.png"/></td>
+				<td>MI_ICON_NUMBERS_3</td>
+				<td>222</td>
+			</tr>
+			<tr>
+				<td><img src="icons/223.png"/></td>
+				<td>MI_ICON_NUMBERS_4</td>
+				<td>223</td>
+			</tr>
+			<tr>
+				<td><img src="icons/224.png"/></td>
+				<td>MI_ICON_NUMBERS_5</td>
+				<td>224</td>
+			</tr>
+			<tr>
+				<td><img src="icons/225.png"/></td>
+				<td>MI_ICON_NUMBERS_6</td>
+				<td>225</td>
+			</tr>
+			<tr>
+				<td><img src="icons/226.png"/></td>
+				<td>MI_ICON_NUMBERS_7</td>
+				<td>226</td>
+			</tr>
+			<tr>
+				<td><img src="icons/227.png"/></td>
+				<td>MI_ICON_NUMBERS_8</td>
+				<td>227</td>
+			</tr>
+			<tr>
+				<td><img src="icons/228.png"/></td>
+				<td>MI_ICON_NUMBERS_9</td>
+				<td>228</td>
+			</tr>
+			<tr>
+				<td><img src="icons/229.png"/></td>
+				<td>MI_ICON_NUMBERS_10</td>
+				<td>229</td>
+			</tr>
+			<tr>
+				<td><img src="icons/230.png"/></td>
+				<td>MI_ICON_NUMBERS_11</td>
+				<td>230</td>
+			</tr>
+			<tr>
+				<td><img src="icons/231.png"/></td>
+				<td>MI_ICON_NUMBERS_12</td>
+				<td>231</td>
+			</tr>
+			<tr>
+				<td><img src="icons/232.png"/></td>
+				<td>MI_ICON_NUMBERS_13</td>
+				<td>232</td>
+			</tr>
+			<tr>
+				<td><img src="icons/233.png"/></td>
+				<td>MI_ICON_NUMBERS_14</td>
+				<td>233</td>
+			</tr>
+			<tr>
+				<td><img src="icons/234.png"/></td>
+				<td>MI_ICON_NUMBERS_15</td>
+				<td>234</td>
+			</tr>
+			<tr>
+				<td><img src="icons/235.png"/></td>
+				<td>MI_ICON_NUMBERS_16</td>
+				<td>235</td>
+			</tr>
+			<tr>
+				<td><img src="icons/236.png"/></td>
+				<td>MI_ICON_NUMBERS_17</td>
+				<td>236</td>
+			</tr>
+			<tr>
+				<td><img src="icons/237.png"/></td>
+				<td>MI_ICON_NUMBERS_18</td>
+				<td>237</td>
+			</tr>
+			<tr>
+				<td><img src="icons/238.png"/></td>
+				<td>MI_ICON_NUMBERS_19</td>
+				<td>238</td>
+			</tr>
+			<tr>
+				<td><img src="icons/239.png"/></td>
+				<td>MI_ICON_NUMBERS_20</td>
+				<td>239</td>
+			</tr>
+			<tr>
+				<td><img src="icons/240.png"/></td>
+				<td>MI_ICON_NUMBERS_21</td>
+				<td>240</td>
+			</tr>
+			<tr>
+				<td><img src="icons/241.png"/></td>
+				<td>MI_ICON_NUMBERS_22</td>
+				<td>241</td>
+			</tr>
+			<tr>
+				<td><img src="icons/242.png"/></td>
+				<td>MI_ICON_NUMBERS_23</td>
+				<td>242</td>
+			</tr>
+			<tr>
+				<td><img src="icons/243.png"/></td>
+				<td>MI_ICON_NUMBERS_24</td>
+				<td>243</td>
+			</tr>
+			<tr>
+				<td><img src="icons/244.png"/></td>
+				<td>MI_ICON_NUMBERS_25</td>
+				<td>244</td>
+			</tr>
+			<tr>
+				<td><img src="icons/245.png"/></td>
+				<td>MI_ICON_NUMBERS_26</td>
+				<td>245</td>
+			</tr>
+			<tr>
+				<td><img src="icons/246.png"/></td>
+				<td>MI_ICON_NUMBERS_27</td>
+				<td>246</td>
+			</tr>
+			<tr>
+				<td><img src="icons/247.png"/></td>
+				<td>MI_ICON_NUMBERS_28</td>
+				<td>247</td>
+			</tr>
+			<tr>
+				<td><img src="icons/248.png"/></td>
+				<td>MI_ICON_NUMBERS_29</td>
+				<td>248</td>
+			</tr>
+			<tr>
+				<td><img src="icons/249.png"/></td>
+				<td>MI_ICON_NUMBERS_30</td>
+				<td>249</td>
+			</tr>
+			<tr>
+				<td><img src="icons/250.png"/></td>
+				<td>MI_ICON_NUMBERS_31</td>
+				<td>250</td>
+			</tr>
+			<tr>
+				<td><img src="icons/251.png"/></td>
+				<td>MI_ICON_NUMBERS_32</td>
+				<td>251</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--15-->
+		<h3 id="ch15">Недвижимость</h3>
+		<table>
+			<tr>
+				<td><img src="icons/252.png"/></td>
+				<td>MI_ICON_REALESTATE_1</td>
+				<td>252</td>
+			</tr>
+			<tr>
+				<td><img src="icons/253.png"/></td>
+				<td>MI_ICON_REALESTATE_2</td>
+				<td>253</td>
+			</tr>
+			<tr>
+				<td><img src="icons/254.png"/></td>
+				<td>MI_ICON_REALESTATE_3</td>
+				<td>254</td>
+			</tr>
+			<tr>
+				<td><img src="icons/255.png"/></td>
+				<td>MI_ICON_REALESTATE_4</td>
+				<td>255</td>
+			</tr>
+			<tr>
+				<td><img src="icons/256.png"/></td>
+				<td>MI_ICON_REALESTATE_5</td>
+				<td>256</td>
+			</tr>
+			<tr>
+				<td><img src="icons/257.png"/></td>
+				<td>MI_ICON_REALESTATE_6</td>
+				<td>257</td>
+			</tr>
+			<tr>
+				<td><img src="icons/258.png"/></td>
+				<td>MI_ICON_REALESTATE_7</td>
+				<td>258</td>
+			</tr>
+			<tr>
+				<td><img src="icons/259.png"/></td>
+				<td>MI_ICON_REALESTATE_8</td>
+				<td>259</td>
+			</tr>
+			<tr>
+				<td><img src="icons/260.png"/></td>
+				<td>MI_ICON_REALESTATE_9</td>
+				<td>260</td>
+			</tr>
+			<tr>
+				<td><img src="icons/261.png"/></td>
+				<td>MI_ICON_REALESTATE_10</td>
+				<td>261</td>
+			</tr>
+			<tr>
+				<td><img src="icons/262.png"/></td>
+				<td>MI_ICON_REALESTATE_11</td>
+				<td>262</td>
+			</tr>
+			<tr>
+				<td><img src="icons/263.png"/></td>
+				<td>MI_ICON_REALESTATE_12</td>
+				<td>263</td>
+			</tr>
+			<tr>
+				<td><img src="icons/264.png"/></td>
+				<td>MI_ICON_REALESTATE_13</td>
+				<td>264</td>
+			</tr>
+			<tr>
+				<td><img src="icons/265.png"/></td>
+				<td>MI_ICON_REALESTATE_14</td>
+				<td>265</td>
+			</tr>
+			<tr>
+				<td><img src="icons/266.png"/></td>
+				<td>MI_ICON_REALESTATE_15</td>
+				<td>266</td>
+			</tr>
+			<tr>
+				<td><img src="icons/267.png"/></td>
+				<td>MI_ICON_REALESTATE_16</td>
+				<td>267</td>
+			</tr>
+			<tr>
+				<td><img src="icons/268.png"/></td>
+				<td>MI_ICON_REALESTATE_17</td>
+				<td>268</td>
+			</tr>
+			<tr>
+				<td><img src="icons/269.png"/></td>
+				<td>MI_ICON_REALESTATE_18</td>
+				<td>269</td>
+			</tr>
+			<tr>
+				<td><img src="icons/270.png"/></td>
+				<td>MI_ICON_REALESTATE_19</td>
+				<td>270</td>
+			</tr>
+			<tr>
+				<td><img src="icons/271.png"/></td>
+				<td>MI_ICON_REALESTATE_20</td>
+				<td>271</td>
+			</tr>
+			<tr>
+				<td><img src="icons/272.png"/></td>
+				<td>MI_ICON_REALESTATE_21</td>
+				<td>272</td>
+			</tr>
+			<tr>
+				<td><img src="icons/273.png"/></td>
+				<td>MI_ICON_REALESTATE_22</td>
+				<td>273</td>
+			</tr>
+			<tr>
+				<td><img src="icons/274.png"/></td>
+				<td>MI_ICON_REALESTATE_23</td>
+				<td>274</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--16-->
+		<h3 id="ch16">Дорожные знаки</h3>
+		<table>
+			<tr>
+				<td><img src="icons/275.png"/></td>
+				<td>MI_ICON_SIGNS_1</td>
+				<td>275</td>
+			</tr>
+			<tr>
+				<td><img src="icons/276.png"/></td>
+				<td>MI_ICON_SIGNS_2</td>
+				<td>276</td>
+			</tr>
+			<tr>
+				<td><img src="icons/277.png"/></td>
+				<td>MI_ICON_SIGNS_3</td>
+				<td>277</td>
+			</tr>
+			<tr>
+				<td><img src="icons/278.png"/></td>
+				<td>MI_ICON_SIGNS_4</td>
+				<td>278</td>
+			</tr>
+			<tr>
+				<td><img src="icons/279.png"/></td>
+				<td>MI_ICON_SIGNS_5</td>
+				<td>279</td>
+			</tr>
+			<tr>
+				<td><img src="icons/280.png"/></td>
+				<td>MI_ICON_SIGNS_6</td>
+				<td>280</td>
+			</tr>
+			<tr>
+				<td><img src="icons/281.png"/></td>
+				<td>MI_ICON_SIGNS_7</td>
+				<td>281</td>
+			</tr>
+			<tr>
+				<td><img src="icons/282.png"/></td>
+				<td>MI_ICON_SIGNS_8</td>
+				<td>282</td>
+			</tr>
+			<tr>
+				<td><img src="icons/283.png"/></td>
+				<td>MI_ICON_SIGNS_9</td>
+				<td>283</td>
+			</tr>
+			<tr>
+				<td><img src="icons/284.png"/></td>
+				<td>MI_ICON_SIGNS_10</td>
+				<td>284</td>
+			</tr>
+			<tr>
+				<td><img src="icons/285.png"/></td>
+				<td>MI_ICON_SIGNS_11</td>
+				<td>285</td>
+			</tr>
+			<tr>
+				<td><img src="icons/286.png"/></td>
+				<td>MI_ICON_SIGNS_12</td>
+				<td>286</td>
+			</tr>
+			<tr>
+				<td><img src="icons/287.png"/></td>
+				<td>MI_ICON_SIGNS_13</td>
+				<td>287</td>
+			</tr>
+			<tr>
+				<td><img src="icons/288.png"/></td>
+				<td>MI_ICON_SIGNS_14</td>
+				<td>288</td>
+			</tr>
+			<tr>
+				<td><img src="icons/289.png"/></td>
+				<td>MI_ICON_SIGNS_15</td>
+				<td>289</td>
+			</tr>
+			<tr>
+				<td><img src="icons/290.png"/></td>
+				<td>MI_ICON_SIGNS_16</td>
+				<td>290</td>
+			</tr>
+			<tr>
+				<td><img src="icons/291.png"/></td>
+				<td>MI_ICON_SIGNS_17</td>
+				<td>291</td>
+			</tr>
+			<tr>
+				<td><img src="icons/292.png"/></td>
+				<td>MI_ICON_SIGNS_18</td>
+				<td>292</td>
+			</tr>
+			<tr>
+				<td><img src="icons/293.png"/></td>
+				<td>MI_ICON_SIGNS_19</td>
+				<td>293</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--17-->
+		<h3 id="ch17">Транспорт</h3>
+		<table>
+			<tr>
+				<td><img src="icons/294.png"/></td>
+				<td>MI_ICON_TRANSPORT_1</td>
+				<td>294</td>
+			</tr>
+			<tr>
+				<td><img src="icons/295.png"/></td>
+				<td>MI_ICON_TRANSPORT_2</td>
+				<td>295</td>
+			</tr>
+			<tr>
+				<td><img src="icons/296.png"/></td>
+				<td>MI_ICON_TRANSPORT_3</td>
+				<td>296</td>
+			</tr>
+			<tr>
+				<td><img src="icons/297.png"/></td>
+				<td>MI_ICON_TRANSPORT_4</td>
+				<td>297</td>
+			</tr>
+			<tr>
+				<td><img src="icons/298.png"/></td>
+				<td>MI_ICON_TRANSPORT_5</td>
+				<td>298</td>
+			</tr>
+			<tr>
+				<td><img src="icons/299.png"/></td>
+				<td>MI_ICON_TRANSPORT_6</td>
+				<td>299</td>
+			</tr>
+			<tr>
+				<td><img src="icons/300.png"/></td>
+				<td>MI_ICON_TRANSPORT_7</td>
+				<td>300</td>
+			</tr>
+			<tr>
+				<td><img src="icons/301.png"/></td>
+				<td>MI_ICON_TRANSPORT_8</td>
+				<td>301</td>
+			</tr>
+			<tr>
+				<td><img src="icons/302.png"/></td>
+				<td>MI_ICON_TRANSPORT_9</td>
+				<td>302</td>
+			</tr>
+			<tr>
+				<td><img src="icons/303.png"/></td>
+				<td>MI_ICON_TRANSPORT_10</td>
+				<td>303</td>
+			</tr>
+			<tr>
+				<td><img src="icons/304.png"/></td>
+				<td>MI_ICON_TRANSPORT_11</td>
+				<td>304</td>
+			</tr>
+			<tr>
+				<td><img src="icons/305.png"/></td>
+				<td>MI_ICON_TRANSPORT_12</td>
+				<td>305</td>
+			</tr>
+			<tr>
+				<td><img src="icons/306.png"/></td>
+				<td>MI_ICON_TRANSPORT_13</td>
+				<td>306</td>
+			</tr>
+			<tr>
+				<td><img src="icons/307.png"/></td>
+				<td>MI_ICON_TRANSPORT_14</td>
+				<td>307</td>
+			</tr>
+			<tr>
+				<td><img src="icons/308.png"/></td>
+				<td>MI_ICON_TRANSPORT_15</td>
+				<td>308</td>
+			</tr>
+			<tr>
+				<td><img src="icons/309.png"/></td>
+				<td>MI_ICON_TRANSPORT_16</td>
+				<td>309</td>
+			</tr>
+			<tr>
+				<td><img src="icons/310.png"/></td>
+				<td>MI_ICON_TRANSPORT_17</td>
+				<td>310</td>
+			</tr>
+			<tr>
+				<td><img src="icons/311.png"/></td>
+				<td>MI_ICON_TRANSPORT_18</td>
+				<td>311</td>
+			</tr>
+			<tr>
+				<td><img src="icons/312.png"/></td>
+				<td>MI_ICON_TRANSPORT_19</td>
+				<td>312</td>
+			</tr>
+			<tr>
+				<td><img src="icons/313.png"/></td>
+				<td>MI_ICON_TRANSPORT_20</td>
+				<td>313</td>
+			</tr>
+			<tr>
+				<td><img src="icons/314.png"/></td>
+				<td>MI_ICON_TRANSPORT_21</td>
+				<td>314</td>
+			</tr>
+			<tr>
+				<td><img src="icons/315.png"/></td>
+				<td>MI_ICON_TRANSPORT_22</td>
+				<td>315</td>
+			</tr>
+			<tr>
+				<td><img src="icons/316.png"/></td>
+				<td>MI_ICON_TRANSPORT_23</td>
+				<td>316</td>
+			</tr>
+			<tr>
+				<td><img src="icons/317.png"/></td>
+				<td>MI_ICON_TRANSPORT_24</td>
+				<td>317</td>
+			</tr>
+			<tr>
+				<td><img src="icons/318.png"/></td>
+				<td>MI_ICON_TRANSPORT_25</td>
+				<td>318</td>
+			</tr>
+			<tr id="nb1">
+				<td><img src="icons/319.png"/></td>
+				<td>MI_ICON_TRANSPORT_26</td>
+				<td>319</td>
+			</tr>
+			<tr>
+				<td><img src="icons/320.png"/></td>
+				<td>MI_ICON_TRANSPORT_27</td>
+				<td>320</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--18-->
+		<h3 id="ch18">Базы Данных</h3>
+		<table>
+			<tr>
+				<td><img src="icons/321.png"/></td>
+				<td>MI_ICON_ODBC_OPEN</td>
+				<td>321</td>
+			</tr>
+			<tr>
+				<td><img src="icons/322.png"/></td>
+				<td>MI_ICON_ODBC_REFRESH</td>
+				<td>322</td>
+			</tr>
+			<tr>
+				<td><img src="icons/323.png"/></td>
+				<td>MI_ICON_ODBC_UNLINK</td>
+				<td>323</td>
+			</tr>
+			<tr>
+				<td><img src="icons/324.png"/></td>
+				<td>MI_ICON_ODBC_MAPPABLE</td>
+				<td>324</td>
+			</tr>
+			<tr>
+				<td><img src="icons/325.png"/></td>
+				<td>MI_ICON_ODBC_SYMBOL</td>
+				<td>325</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--19-->
+		<h3 id="ch19">Диапазон</h3>
+		<table>
+			<tr>
+				<td><img src="icons/326.png"/></td>
+				<td>MI_ICON_COMPASS_EXPAND</td>
+				<td>326</td>
+			</tr>
+			<tr>
+				<td><img src="icons/327.png"/></td>
+				<td>MI_ICON_COMPASS_CONTRACT</td>
+				<td>327</td>
+			</tr>
+			<tr>
+				<td><img src="icons/328.png"/></td>
+				<td>MI_ICON_COMPASS_TAG</td>
+				<td>328</td>
+			</tr>
+			<tr>
+				<td><img src="icons/329.png"/></td>
+				<td>MI_ICON_COMPASS_UNTAG</td>
+				<td>329</td>
+			</tr>
+			<tr>
+				<td><img src="icons/330.png"/></td>
+				<td>MI_ICON_COMPASS_CIRCLE_TA</td>
+				<td>330</td>
+			</tr>
+			<tr>
+				<td><img src="icons/331.png"/></td>
+				<td>MI_ICON_COMPASS_POLY_TA</td>
+				<td>331</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--20-->
+		<h3 id="ch20">Прочие</h3>
+		<table>
+			<tr>
+				<td><img src="icons/332.png"/></td>
+				<td>MI_ICON_SEARCH_POLYGON</td>
+				<td>332</td>
+			</tr>
+			<tr>
+				<td><img src="icons/333.png"/></td>
+				<td>MI_ICON_UNSELECT_ALL</td>
+				<td>333</td>
+			</tr>
+			<tr>
+				<td><img src="icons/334.png"/></td>
+				<td>MI_ICON_GRAPH_SELECT</td>
+				<td>334</td>
+			</tr>
+			<tr>
+				<td><img src="icons/335.png"/></td>
+				<td>MI_ICON_ODBC_DISCONNECT</td>
+				<td>335</td>
+			</tr>
+			<tr>
+				<td><img src="icons/336.png"/></td>
+				<td>MI_ICON_HOT_LINK</td>
+				<td>336</td>
+			</tr>
+			<tr>
+				<td><img src="icons/337.png"/></td>
+				<td>MI_ICON_INVERTSELECT</td>
+				<td>337</td>
+			</tr>
+			<tr>
+				<td><img src="icons/338.png"/></td>
+				<td>MI_ICON_OPENWMS</td>
+				<td>338</td>
+			</tr>
+			<tr>
+				<td><img src="icons/339.png"/></td>
+				<td>MI_ICON_OPENWFS</td>
+				<td>339</td>
+			</tr>
+			<tr>
+				<td><img src="icons/340.png"/></td>
+				<td>MI_ICON_OPEN_WOR</td>
+				<td>340</td>
+			</tr>
+			<tr>
+				<td><img src="icons/341.png"/></td>
+				<td>MI_ICON_SAVE_WIN</td>
+				<td>341</td>
+			</tr>
+			<tr>
+				<td><img src="icons/342.png"/></td>
+				<td>MI_ICON_SAVE_WOR</td>
+				<td>342</td>
+			</tr>
+			<tr>
+				<td><img src="icons/343.png"/></td>
+				<td>MI_ICON_CLOSE_ALL</td>
+				<td>343</td>
+			</tr>
+			<tr>
+				<td><img src="icons/344.png"/></td>
+				<td>MI_ICON_ADORNMENT</td>
+				<td>344</td>
+			</tr>
+			<tr>
+				<td><img src="icons/345.png"/></td>
+				<td>MI_ICON_PRINT_PDF</td>
+				<td>345</td>
+			</tr>
+			<tr>
+				<td><img src="icons/346.png"/></td>
+				<td>MI_ICON_SCALEBAR</td>
+				<td>346</td>
+			</tr>
+			<tr>
+				<td><img src="icons/347.png"/></td>
+				<td>MI_ICON_BING_AERIAL</td>
+				<td>347</td>
+			</tr>
+			<tr>
+				<td><img src="icons/348.png"/></td>
+				<td>MI_ICON_BING_HYBRID</td>
+				<td>348</td>
+			</tr>
+			<tr>
+				<td><img src="icons/349.png"/></td>
+				<td>MI_ICON_CATALOG_BROWSER</td>
+				<td>349</td>
+			</tr>
+			<tr>
+				<td><img src="icons/350.png"/></td>
+				<td>MI_ICON_VIEW_CATALOG_RECORD</td>
+				<td>350</td>
+			</tr>
+			<tr>
+				<td><img src="icons/351.png"/></td>
+				<td>MI_ICON_PBBI_DATA_CATALOG</td>
+				<td>351</td>
+			</tr>
+			<tr>
+				<td><img src="icons/352.png"/></td>
+				<td>MI_ICON_CREATE_CATALOG_RECORD</td>
+				<td>352</td>
+			</tr>
+			<tr>
+				<td><img src="icons/353.png"/></td>
+				<td>MI_ICON_ADD_BASEMAP</td>
+				<td>353</td>
+			</tr>
+			<tr>
+				<td><img src="icons/354.png"/></td>
+				<td>MI_ICON_ADD_FAVORITE</td>
+				<td>354</td>
+			</tr>
+			<tr>
+				<td><img src="icons/355.png"/></td>
+				<td>MI_ICON_TABLE_LIST</td>
+				<td>355</td>
+			</tr>
+			<tr>
+				<td><img src="icons/356.png"/></td>
+				<td>MI_ICON_BING_ROADS</td>
+				<td>356</td>
+			</tr>
+			<tr>
+				<td><img src="icons/357.png"/></td>
+				<td>MI_ICON_BING_MOVE_MAP_TO</td>
+				<td>357</td>
+			</tr>
+			<tr>
+				<td><img src="icons/358.png"/></td>
+				<td>MI_ICON_EDIT_METADATA_REC</td>
+				<td>358</td>
+			</tr>
+			<tr>
+				<td><img src="icons/359.png"/></td>
+				<td>MI_ICON_FILTER</td>
+				<td>359</td>
+			</tr>
+			<tr>
+				<td><img src="icons/360.png"/></td>
+				<td>MI_ICON_SORT</td>
+				<td>360</td>
+			</tr>
+			<tr>
+				<td><img src="icons/361.png"/></td>
+				<td>MI_ICON_VIEW_METADATA_REC</td>
+				<td>361</td>
+			</tr>
+			<tr>
+				<td><img src="icons/362.png"/></td>
+				<td>MI_ICON_VINTAGE_METADATA</td>
+				<td>362</td>
+			</tr>
+			<tr>
+				<td><img src="icons/363.png"/></td>
+				<td>MI_ICON_ADDTOLIBRARY</td>
+				<td>363</td>
+			</tr>
+			<tr>
+				<td><img src="icons/364.png"/></td>
+				<td>MI_ICON_OSM_ROADS</td>
+				<td>364</td>
+			</tr>
+			<tr>
+				<td><img src="icons/365.png"/></td>
+				<td>MI_ICON_NAMED_VIEWS</td>
+				<td>365</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+		<h2>Дополнительные наборы</h2>
+<!--21-->
+		<h3 id="ch21">Операции</h3>
+		<table>
+			<tr>
+				<td><img src="icons/1000.png"/></td>
+				<td>MI_ICON_ARROW_2ALT</td>
+				<td>1000</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1001.png"/></td>
+				<td>MI_ICON_SEARCH_RECT_2</td>
+				<td>1001</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1002.png"/></td>
+				<td>MI_ICON_SEARCH_RADIUS_2</td>
+				<td>1002</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1003.png"/></td>
+				<td>MI_ICON_SEARCH_BDY_2</td>
+				<td>1003</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1004.png"/></td>
+				<td>MI_ICON_ZOOM_IN_2</td>
+				<td>1004</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1005.png"/></td>
+				<td>MI_ICON_ZOOM_OUT_2</td>
+				<td>1005</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1006.png"/></td>
+				<td>MI_ICON_ZOOM_QUESTION_2</td>
+				<td>1006</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1007.png"/></td>
+				<td>MI_ICON_GRABBER_2</td>
+				<td>1007</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1008.png"/></td>
+				<td>MI_ICON_INFO_2</td>
+				<td>1008</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1009.png"/></td>
+				<td>MI_ICON_LABEL_2</td>
+				<td>1009</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1010.png"/></td>
+				<td>MI_ICON_LAYERS_2</td>
+				<td>1010</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1011.png"/></td>
+				<td>MI_ICON_RULER_2</td>
+				<td>1011</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1012.png"/></td>
+				<td>MI_ICON_LEGEND_2</td>
+				<td>1012</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1013.png"/></td>
+				<td>MI_ICON_STATISTICS_2</td>
+				<td>1013</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1014.png"/></td>
+				<td>MI_ICON_DISTRICT_MANY_2</td>
+				<td>1014</td>
+			</tr>
+			<tr id="nb2">
+				<td><img src="icons/1015.png"/></td>
+				<td>&nbsp;</td>
+				<td>1015</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--22-->
+		<h3 id="ch22">Пенал</h3>
+		<table>
+			<tr>
+				<td><img src="icons/1016.png"/></td>
+				<td>MI_ICON_SYMBOL_2</td>
+				<td>1016</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1017.png"/></td>
+				<td>MI_ICON_LINE_2</td>
+				<td>1017</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1018.png"/></td>
+				<td>MI_ICON_POLYLINE_2</td>
+				<td>1018</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1019.png"/></td>
+				<td>MI_ICON_ARC_2</td>
+				<td>1019</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1020.png"/></td>
+				<td>MI_ICON_POLYGON_2</td>
+				<td>1020</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1021.png"/></td>
+				<td>MI_ICON_ELLIPSE_2</td>
+				<td>1021</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1022.png"/></td>
+				<td>MI_ICON_RECT_2</td>
+				<td>1022</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1023.png"/></td>
+				<td>MI_ICON_ROUND_RECT_2</td>
+				<td>1023</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1024.png"/></td>
+				<td>MI_ICON_TEXT_2</td>
+				<td>1024</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1025.png"/></td>
+				<td>MI_ICON_WINDOW_FRAME_2</td>
+				<td>1025</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1026.png"/></td>
+				<td>MI_ICON_RESHAPE_2</td>
+				<td>1026</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1027.png"/></td>
+				<td>MI_ICON_ADD_NODE_2</td>
+				<td>1027</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1028.png"/></td>
+				<td>MI_ICON_SYMBOL_STYLE_2</td>
+				<td>1028</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1029.png"/></td>
+				<td>MI_ICON_LINE_STYLE_2</td>
+				<td>1029</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1030.png"/></td>
+				<td>MI_ICON_REGION_STYLE_2</td>
+				<td>1030</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1031.png"/></td>
+				<td>MI_ICON_TEXT_STYLE_2</td>
+				<td>1031</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--23-->
+		<h3 id="ch23">Программы</h3>
+		<table>
+			<tr>
+				<td><img src="icons/1032.png"/></td>
+				<td>MI_ICON_RUN_2</td>
+				<td>1032</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1033.png"/></td>
+				<td>MI_ICON_WRENCH_2</td>
+				<td>1033</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1034.png"/></td>
+				<td>MI_ICON_CROSSHAIR_2</td>
+				<td>1034</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1035.png"/></td>
+				<td>MI_ICON_CLIP_MODE_2</td>
+				<td>1035</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1036.png"/></td>
+				<td>MI_ICON_CLIP_REGION_2</td>
+				<td>1036</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1037.png"/></td>
+				<td>MI_ICON_DRAG_HANDLE_2</td>
+				<td>1037</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--24-->
+		<h3 id="ch24">Стандартные</h3>
+		<table>
+			<tr>
+				<td><img src="icons/1038.png"/></td>
+				<td>MI_ICON_NEW_DOC_2</td>
+				<td>1038</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1039.png"/></td>
+				<td>MI_ICON_OPEN_FILE_2</td>
+				<td>1039</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1040.png"/></td>
+				<td>MI_ICON_SAVE_FILE_2</td>
+				<td>1040</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1041.png"/></td>
+				<td>MI_ICON_PRINT_2</td>
+				<td>1041</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1042.png"/></td>
+				<td>MI_ICON_CUT_2</td>
+				<td>1042</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1043.png"/></td>
+				<td>MI_ICON_COPY_2</td>
+				<td>1043</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1044.png"/></td>
+				<td>MI_ICON_PASTE_2</td>
+				<td>1044</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1045.png"/></td>
+				<td>MI_ICON_UNDO_2</td>
+				<td>1045</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1046.png"/></td>
+				<td>MI_ICON_HELP_2</td>
+				<td>1046</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--25-->
+		<h3 id="ch25">MapBasic</h3>
+		<table>
+			<tr>
+				<td><img src="icons/1175.png"/></td>
+				<td>MI_ICON_MB_1_2</td>
+				<td>1175</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1176.png"/></td>
+				<td>MI_ICON_MB_2_2</td>
+				<td>1176</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1177.png"/></td>
+				<td>MI_ICON_MB_3_2</td>
+				<td>1177</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1178.png"/></td>
+				<td>MI_ICON_MB_4_2</td>
+				<td>1178</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1179.png"/></td>
+				<td>MI_ICON_MB_5_2</td>
+				<td>1179</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1180.png"/></td>
+				<td>MI_ICON_MB_6_2</td>
+				<td>1180</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1181.png"/></td>
+				<td>MI_ICON_MB_7_2</td>
+				<td>1181</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1182.png"/></td>
+				<td>MI_ICON_MB_8_2</td>
+				<td>1182</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1183.png"/></td>
+				<td>MI_ICON_MB_9_2</td>
+				<td>1183</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1184.png"/></td>
+				<td>MI_ICON_MB_10_2</td>
+				<td>1184</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1185.png"/></td>
+				<td>MI_ICON_MB_11_2</td>
+				<td>1185</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1186.png"/></td>
+				<td>MI_ICON_MB_12_2</td>
+				<td>1186</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1187.png"/></td>
+				<td>MI_ICON_MB_13_2</td>
+				<td>1187</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1188.png"/></td>
+				<td>MI_ICON_MB_14_2</td>
+				<td>1188</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--26-->
+		<h3 id="ch26">Базы Данных</h3>
+		<table>
+			<tr>
+				<td><img src="icons/1321.png"/></td>
+				<td>MI_ICON_ODBC_OPEN_2</td>
+				<td>1321</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1322.png"/></td>
+				<td>MI_ICON_ODBC_REFRESH_2</td>
+				<td>1322</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1323.png"/></td>
+				<td>MI_ICON_ODBC_UNLINK_2</td>
+				<td>1323</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1324.png"/></td>
+				<td>MI_ICON_ODBC_MAPPABLE_2</td>
+				<td>1324</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1325.png"/></td>
+				<td>MI_ICON_ODBC_SYMBOL_2</td>
+				<td>1325</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--27-->
+		<h3 id="ch27">Прочие</h3>
+		<table>
+			<tr>
+				<td><img src="icons/1332.png"/></td>
+				<td>MI_ICON_SEARCH_POLYGON_2</td>
+				<td>1332</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1333.png"/></td>
+				<td>MI_ICON_UNSELECT_ALL_2</td>
+				<td>1333</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1334.png"/></td>
+				<td>MI_ICON_GRAPH_SELECT_2</td>
+				<td>1334</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1335.png"/></td>
+				<td>MI_ICON_ODBC_DISCONNECT_2</td>
+				<td>1335</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1336.png"/></td>
+				<td>MI_ICON_HOT_LINK_2</td>
+				<td>1336</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1337.png"/></td>
+				<td>MI_ICON_INVERTSELECT_2</td>
+				<td>1337</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1338.png"/></td>
+				<td>MI_ICON_OPENWMS_2</td>
+				<td>1338</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1339.png"/></td>
+				<td>MI_ICON_OPENWFS_2</td>
+				<td>1339</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1340.png"/></td>
+				<td>MI_ICON_OPEN_WOR_2</td>
+				<td>1340</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1341.png"/></td>
+				<td>MI_ICON_SAVE_WIN_2</td>
+				<td>1341</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1342.png"/></td>
+				<td>MI_ICON_SAVE_WOR_2</td>
+				<td>1342</td>
+			</tr>
+			<tr>
+				<td><img src="icons/1343.png"/></td>
+				<td>MI_ICON_CLOSE_ALL_2</td>
+				<td>1343</td>
+			</tr>
+		</table>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

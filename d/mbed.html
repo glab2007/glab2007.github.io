@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Средства разработки для MapBasic &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Всё для MapBasic на одной странице: компиляторы и редакторы кода MapBasic, визуальная среда проектирования MapBasic IDE, подсветка синтаксиса MapBasic. Скачать на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="mapbasic, mapbasic скачать, mapbasic ide, компилятор mapbasic" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a id="item" href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="download">
+			Сборник средств разработки для MapBasic
+		</h1>
+		<hr class="split" />
+
+		<div class="avatar">
+			<img class="inline" src="mbed/0.png" alt="MapBasic IDE" width="150px; " height="150px; " />
+		</div>
+		<p class="small">
+			Средства разработки, или &laquo;<a href="https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D0%BE%D0%B5_%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5" title="Wikipedia">инструментальное программное обеспечение</a>&raquo;, предназначены для проектирования, разработки и сопровождения прикладных или системных программ. К этим средствам относятся такие виды ПО, как редакторы кода, компиляторы, линковщики, отладчики, ассемблеры и другие, зачастую, но не обязательно, объединённые в IDE (интегрированную среду разработки) или SDK.
+		</p>
+		<p class="small">
+			Комплект поставки MapBasic включает в себя простейший текстовый редактор, компилятор с линковщиком и примитивным отладчиком. Этот набор является базовым и необходимым для создания программ на языке MapBasic, но ни в коем случае не достаточным. Ниже на странице собраны как официальные дистрибьютивы MapBasic, так и сторонние средства разработки, позволяющие сделать программирование на MapBasic более комфортным.
+		</p>
+		<p class="small passage">
+			MapBasic &ndash; язык программирования для MapInfo Professional. Он может использоваться для автоматизации повторяющихся задач, добавления в MapInfo новых возможностей или даже для создания сложных специализированных картографических.
+		</p>
+		<hr class="split" />
+
+		<ul id="toc">
+			<li><a href="#pb">Дистрибьютивы MapBasic (Pitney Bowes)</a></li>
+			<li>
+				<a href="#tp">Программы от Trey Pattillo (WAP3)</a>
+				<ul>
+					<li><a href="#db2000" class="small">DiaBuilder&nbsp;2000</a></li>
+					<li><a href="#mbc" class="small">MB&nbsp;Coder</a></li>
+				</ul>
+			</li>
+			<li><a href="#moz">IDE от Mustafa Ozcetin</a></li>
+			<li><a href="#etc">Прочие средства разработки</a></li>
+		</ul>
+		<hr class="split" />
+
+<!--pb-->
+		<h2 id="pb">Дистрибьютивы MapBasic (Pitney Bowes)</h2>
+		<hr class="split" />
+
+		<div id="mb" class="block">
+			<div class="row_name" title="Название">
+				MapBasic&nbsp;&reg;
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://www.pbinsight.com/support/contact-support/">Техническая поддержка и поддержка пользователей Pitney Bowes</a>
+			</div>
+			<div class="row_note" title="Описание">
+				<p>
+					Среда разработки для MapInfo Professional&nbsp;&reg;
+				</p>
+				<p>
+					BASIC-подобный язык программирования. Используется для создания пользовательских приложений для работы с MapInfo Professional. Позволяет увеличить функциональность MapInfo Professional, автоматизировать повторяющиеся операции, быстро и легко интегрировать MapInfo Professional с другими приложениями.
+				</p>
+				<ul>
+					<li>Текстовый редактор для создания и редактирования программ MapBasic;</li>
+					<li>Компилятор для создания исполняемого файла программы;</li>
+					<li>Линкование отдельных модулей программы для больших и сложных приложений;</li>
+					<li>On-line помощь для языка MapBasic;</li>
+					<li>Включает более 400 объявлений и функций.</li>
+				</ul>
+				<p>
+					Начиная с версии 10.0, MapBasic&nbsp;&reg; становится бесплатным.
+				</p>
+				
+			</div>
+			<div class="row_screen" title="Снимок экрана">
+				<a href="mbed/pb/mb.png"><img src="mbed/pb/mb.jpg" alt="скриншот" width="80px" height="40px" /></a>
+			</div>
+			<div class="row_save" title="Загрузка">
+				<p>
+					<a href="http://www.pbinsight.com/support/product-downloads/for/mapbasic">Загрузить английскую версию на сайте Pitney Bowes</a><br />
+					<a href="http://mapinfo.ru/product/mapinfo-mapbasic">Загрузить русскую версию на сайте Эсти Мэп</a><br />
+					<a href="http://yadi.sk/d/_NM5IYIwMiCeq">Загрузить русскую версию 11.0 на Яндекс.Диск (32,7 MB)</a>
+				</p>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+		<hr class="split" />
+
+<!--tp-->
+		<h2 id="tp">Программы от Trey Pattillo (WAP3)</h2>
+		<hr class="split" />
+
+		<div id="db2000" class="block">
+			<div class="row_name" title="Название">
+				DiaBuilder&nbsp;2000
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="mailto:wap3@wap3.com">wap3@wap3.com</a>
+			</div>
+			<div class="row_note" title="Описание">
+				<p>
+					Конструктор диалогов для языка MapBasic.
+				</p>
+				<p>
+					Визуальная среда разработки. Полностью поддерживает все 15 элементов управления MapBasic и все их свойства. Разрабатывая программу через интерфейс DiaBuilder, Вы не только создаете форму диалога, но и файлы переменных и объявлений, настраиваете управление идентификаторами и структуру кода подпрограмм. В процессе разработки можно включать в код свои модули, добавлять различные файлы, не заботясь об объявлении их в коде.
+				</p>
+				<ul>
+					<li>полный визуальный контроль над созданием Ваших диалогов MapBasic;</li>
+					<li>настройка размеров, положения, выравнивания, доступности, заголовков, пароля и доступности элемента, а также значений, переменных и вызовов (value, into, calling);</li>
+					<li>автоматическое создание имен переменных и идентификаторов контролов;</li>
+					<li>автоматическое создание блоков подпрограмм &ndash; остается только добавить Ваш код;</li>
+					<li>встроенный редактор кода с цветной подсветкой синтаксиса;</li>
+					<li>предпросмотр сформированных диалогов;</li>
+					<li>компиляция и запуск программы (требуется установленный MapBasic).</li>
+				</ul>
+				<a href="../a/dia2000.html">Подробнее &gt;&gt;&gt;</a>
+			</div>
+			<div class="row_screen" title="Снимок экрана">
+				<a href="mbed/tp/db2000f.png"><img src="mbed/tp/db2000f.jpg" alt="скриншот" width="80px" height="40px" /></a>
+			</div>
+			<div class="row_save" title="Загрузка">
+				<p>
+					<a href="http://www.wap3.com/DiaBuilder2000/index.shtml">Загрузить DiaBuilder и MBCoder на сайте автора</a><br />
+					<a href="mbed/tp/db2000f.zip">Загрузить на этом сайте &ndash; ZIP (1,00 KB)</a>
+				</p>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="mbc" class="block">
+			<div class="row_name" title="Название">
+				MB&nbsp;Coder
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="mailto:wap3@wap3.com">wap3@wap3.com</a>
+			</div>
+			<div class="row_note" title="Описание">
+				<p>
+					Бесплатный редактор языка MapBasic, с полноценной подсветкой синтаксиса языка, подсказками, деревом проекта и многими другими, важными и нужными разработчику функциями.
+				</p>
+				<ul>
+					<li>сохранение и загрузка проектов для последующих изменений;</li>
+					<li>подсветка синтаксиса языка MapBasic, автозавершение (более 200 объявлений и функций);</li>
+					<li>подключаемые словари пользователя;</li>
+					<li>дерево проекта, поддержка меток и быстрых переходов;</li>
+					<li>полноценная панель инструментов;</li>
+					<li>настройка отступов и цветовой подсветки;</li>
+					<li>полная поддержка &laquo;горячих&raquo; клавиш MapBasic;</li>
+					<li>интеграция с DiaBuilder&nbsp;2000;</li>
+					<li>компиляция и запуск программы (требуется установленный MapBasic).</li>
+				</ul>
+			</div>
+			<div class="row_screen" title="Снимок экрана">
+				<a href="mbed/tp/mbc.png"><img src="mbed/tp/mbc.jpg" alt="скриншот" width="80px" height="40px" /></a>
+			</div>
+			<div class="row_save" title="Загрузка">
+				<p>
+					<a href="http://www.wap3.com/DiaBuilder2000/index.shtml">Загрузить DiaBuilder и MBCoder на сайте автора</a><br />
+					<a href="mbed/tp/mbc.zip">Загрузить на этом сайте &ndash; ZIP (909 KB)</a>
+				</p>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+		<hr class="split" />
+
+<!--moz-->
+		<h2 id="moz">IDE от Mustafa Ozcetin</h2>
+		<hr class="split" />
+<!--mbide-->
+		<div id="mbide" class="block">
+			<div class="row_name" title="Название">
+				MapBasic IDE v1.7 beta 1
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="https://mustafaozcetin.wordpress.com/" title="https://mustafaozcetin.wordpress.com/">Mustafa Ozcetin</a>
+			</div>
+			<div class="row_note" title="Описание" onclick="spoiler(this)">
+				<p>
+					MapBasic IDE &ndash; это свободно распространяемая интегрированная среда проектирования для языка MapBasic.
+				</p>
+				<p>
+					MapBasic IDE во многом напоминает мини-Visual Studio и содержит большинство современных средств и инструментов разработки. Можно перечислить такие, как:
+				</p>
+				<ul>
+					<li>интегрированный конструктор диалогов;</li>
+					<li>подсветка синтаксиса языка MapBasic;</li>
+					<li>автозавершение кода;</li>
+					<li>проверка синтаксиса;</li>
+					<li>сворачивание кода;</li>
+					<li>заготовки кода для типовых задач;</li>
+					<li>и <span class="spoil_title" title="Развернуть">многое другое &hellip;</span></li>
+				</ul>
+				<div class="spoil_body" style="display: none; width:400px; ">
+					<ul>
+						<li>Dialog Designer</li>
+						<li>Syntax highlighting</li>
+						<li>Extended code completion</li>
+						<li>Method insight</li>
+						<li>Syntax (compile) error check while typing</li>
+						<li>Highlighting occurrences</li>
+						<li>Code folding + User defined foldable code blocks</li>
+						<li>Code snippets + User defined code snippets</li>
+						<li>Code surrounding</li>
+						<li>Cycle Clipboard Ring</li>
+						<li>Multiple tabs for documents</li>
+						<li>New Item Dialog</li>
+						<li>MapBasic Project (MBP) support</li>
+						<li>64-bit Windows support</li>
+						<li>Multiple MapBasic version support on a single machine</li>
+						<li>Duplicating line or selection</li>
+						<li>Moving current line up/down</li>
+						<li>Toggling comments</li>
+						<li>Going to last edit location</li>
+						<li>Going to subs/functions</li>
+						<li>Going to declaration</li>
+						<li>Bookmarks</li>
+						<li>Editor zoom in/out</li>
+						<li>Setting code font type and size</li>
+						<li>Context sensitive MapBasic help</li>
+						<li>Unlimited undo/redo</li>
+						<li>Block indent/outdent</li>
+						<li>Brace match highlighting</li>
+						<li>Current line highlighting</li>
+						<li>Line numbers</li>
+						<li>Line selection from left margin</li>
+						<li>Shortcut keys</li>
+						<li>File system watching for currently edited documents</li>
+						<li>Color themes</li>
+						<li>Drag &amp; drop support to open files</li>
+					</ul>
+				</div>
+				<p>
+					<span class="font_red">Внимание!</span>&nbsp;Требуется <a href="http://www.microsoft.com/en-us/download/details.aspx?id=17718">.NET Framework 4.0 Full</a>
+				</p>
+			</div>
+			<div class="row_screen" title="Снимок экрана">
+				<a href="mbed/moz/mbide_0.png"><img class="inline" src="mbed/moz/mbide_0.jpg" alt="скриншот" width="80px" height="40px" /></a>
+				<a href="mbed/moz/mbide_1.png"><img class="inline" src="mbed/moz/mbide_1.jpg" alt="скриншот" width="80px" height="40px" /></a>
+			</div>
+			<div class="row_save" title="Загрузка">
+				<p>
+					<a href="https://dl.dropboxusercontent.com/u/54151940/GIS/MapInfo/MapBasic/MapBasicIDE-1.7-Beta1-Setup.exe">Загрузить на сайте автора &ndash; EXE (1,00 MB)</a><br />
+					<a href="mbed/moz/mbide.zip">Загрузить на этом сайте &ndash; ZIP (955 KB)</a>
+				</p>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+		<hr class="split" />
+
+<!--etc-->
+		<h2 id="etc">Прочие средства разработки</h2>
+		<hr class="split" />
+
+		<div id="hex" class="block">
+			<div class="row_name" title="Название">
+				HEXView&nbsp;&copy;&nbsp;1999
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="mailto:Anssi.Joutsiniemi@espoo.fi">Anssi Joutsiniemi</a>
+			</div>
+			<div class="row_note" title="Описание">
+				<p>
+					Большинство двоичных редакторов не умеет работать с компилированными файлами MBX.
+				</p>
+				<p>
+					Утилита HEXView-33 позволяет просматривать и править двоичный код компилированных приложений MBX прямо в среде MapInfo.
+				</p>
+			</div>
+			<div class="row_screen" title="Снимок экрана">
+				<a href="mbed/etc/hex.png"><img src="mbed/etc/hex.jpg" alt="скриншот" width="80px" height="40px" /></a>
+			</div>
+			<div class="row_save" title="Загрузка">
+				<p>
+					<a href="mbed/etc/hex.zip">Загрузить (37.7 KB)</a>
+				</p>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="mbd" class="block">
+			<div class="row_name" title="Название">
+				MapBasic&nbsp;Designer&nbsp;&copy;&nbsp;0.98(beta)
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="mailto:doraq@hanmail.net">Jung, seung-wook</a>
+			</div>
+			<div class="row_note" title="Описание">
+				<p>
+					Визуальный конструктор диалогов для языка MapBasic.
+				</p>
+				<p>
+					Простой и эффективный. Всего один исполняемый файл. Максимум возможностей при минимуме затрат.
+				</p>
+				<ul>
+					<li>поддерживает все 15 элементов управления MapBasic и все их свойства;</li>
+					<li>настройка размеров, положения, выравнивания и заголовков;</li>
+					<li>предпросмотр сформированных диалогов;</li>
+				</ul>
+			</div>
+			<div class="row_screen" title="Снимок экрана">
+				<a href="mbed/etc/mbd.png"><img src="mbed/etc/mbd.jpg" alt="скриншот" width="80px" height="40px" /></a>
+			</div>
+			<div class="row_save" title="Загрузка">
+				<p>
+					<a href="mbed/etc/mbd.zip">Загрузить (220 KB)</a>
+				</p>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="mbt" class="block">
+			<div class="row_name" title="Название">
+				MBTexts&nbsp;&copy;&nbsp;1.0
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="mailto:LVN@mapinfo.dk">Lars Nielsen, Kampsax</a>
+			</div>
+			<div class="row_note" title="Описание">
+				<p>
+					Утилита MapInfo, созданная для облегчения перевода интерфейса утилит MapBasic.
+				</p>
+				<p>
+					MBTEXTS извлекает все текстовые элементы из файлов исходного кода MapBasic и записывает их в отдельном файле определений. Все текстовые элементы в исходном коде при этом заменяются на соответствующие им константы.
+				</p>
+			</div>
+			<div class="row_screen" title="Снимок экрана">
+				<a href="mbed/etc/mbt.png"><img src="mbed/etc/mbt.jpg" alt="скриншот" width="80px" height="40px" /></a>
+			</div>
+			<div class="row_save" title="Загрузка">
+				<p>
+					<a href="mbed/etc/mbt.zip">Загрузить (7,16 KB)</a>
+				</p>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="uf2d" class="block">
+			<div class="row_name" title="Название">
+				Userform2Dialog&nbsp;&copy;&nbsp;2005
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="mailto:LKetch@hfx.eastlink.ca">Lorne Ketch</a>
+			</div>
+			<div class="row_note" title="Описание">
+				<p>
+					Визуальный редактор диалогов MapBasic.
+				</p>
+				<p>
+					Написан на языке VBA для MS Word, позволяет использовать стандартные средства VBA для создания элементов диалогов MapBasic. Вы создаете свою форму в редакторе VBA, которая затем автоматически преобразуется в диалог на языке MapBasic.
+				</p>
+			</div>
+			<div class="row_screen" title="Снимок экрана">
+				<a href="mbed/etc/uf2d.png"><img src="mbed/etc/uf2d.jpg" alt="скриншот" width="80px" height="40px" /></a>
+			</div>
+			<div class="row_save" title="Загрузка">
+				<p>
+					<a href="mbed/etc/uf2d.zip">Загрузить (176 KB)</a>
+				</p>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

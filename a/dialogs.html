@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Улучшенные диалоги в MapBasic: простой способ придать лоск приложению &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Использование стандартных диалогов Windows в программах MapBasic как пример использования WinAPI. Описание работы и практические примеры на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="mapbasic winapi, замена стандартных диалогов mapbasic" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a id="item" href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="article">
+			Улучшенные диалоги в MapBasic: простой способ придать лоск приложению
+		</h1>
+
+		<div class="avatar">
+			<a href="http://nyalldawson.net/" title="nyalldawson.net | Mapping, GIS, QGIS &amp; MapBasic"><img class="inline" src="dialogs/0.png" alt="nyalldawson.net" width="200px; " height="58px; " /></a>
+		</div>
+		<p class="small">
+			Автор: <a href="https://au.linkedin.com/in/nyall-dawson-18b6016a" title="Linked In">Nyall Dawson, Senior Analyst at Victoria Police Force</a> &copy;&nbsp;2012<br />
+			Перевод: <a href="../contact.html" title="Контакты">Ciril V. Golubev</a>&copy;&nbsp;2014
+		</p>
+		<hr class="split" />
+
+		<p>
+			Самый простой способ придать некоторый лоск вашему приложению MapBasic заключается в использовании стандартных диалогов Windows вместо команд <span class="code">Note</span> и <span class="code">Ask</span>. Безусловно, эти команды удобны для организации быстрого взаимодействия с пользователем, но, к сожалению, имеют нулевые настройки диалога.
+		</p>
+		<p>
+			<img src="dialogs/1.png" alt="Стандартный диалог MapBasic Note" width="222px" height="119px" />
+			<span class="small">Стандартный диалог MapBasic Note &ndash; ограничен иконкой <br />восклицательного знака и сообщением &quot;MapInfo&quot; в заголовке</span>
+		</p>
+		<p>
+			Давайте посмотрим, что можно сделать по этому поводу.
+		</p>
+		<p>
+			Начнем с подключения ссылки на стандартный диалог Windows, который входит в состав библиотеки User32.dll. Также используем две небольшие оболочки: функцию <span class="code">MessageBox</span>, которая используется для диалогов, возвращающих ответ (замена для функции <span class="code">Ask</span>), и процедуру <span class="code">MsgBox</span> для случаев, когда ответ от пользователя не важен (замена для <span class="code">Note</span>). И, наконец, добавим группу определений <span class="code">DEFINE</span>, которые позволят сделать вызов подпрограмм более удобным и запоминающимся.
+		</p>
+		<p class="code">
+	Declare Function MsgBoxA Lib &quot;User32.dll&quot; Alias &quot;MessageBoxA&quot; (ByVal hWnd As Integer, ByVal sTxt As String, ByVal sCaption As String, ByVal iTyp As Integer) As Integer
+	Declare Function MsgBox(ByVal sTxt As String, ByVal sCaption As String, ByVal iType As Integer) As Integer
+	Declare Sub MessageBox(ByVal sTxt As String, ByVal sCaption As String, ByVal iType As Integer)
+	<span class="font_green">' Кнопки окна сообщений</span>
+	DEFINE vbOKOnly 0
+	DEFINE vbOKCancel 1
+	DEFINE vbAbortRetryIgnore 2
+	DEFINE vbYesNoCancel 3
+	DEFINE vbYesNo 4
+	DEFINE vbRetryCancel 5
+	<span class="font_green">' Иконки окна сообщений</span>
+	DEFINE vbCritical 16
+	DEFINE vbQuestion 32
+	DEFINE vbExclamation 48
+	DEFINE vbInformation 64
+	<span class="font_green">' Кнопки окна сообщений по умолчанию</span>
+	DEFINE vbDefaultButton1 0
+	DEFINE vbDefaultButton2 256
+	DEFINE vbDefaultButton3 512
+	DEFINE vbDefaultButton4 768
+	<span class="font_green">' Возвращаемые значения окна сообщений</span>
+	DEFINE vbOK 1
+	DEFINE vbCancel 2
+	DEFINE vbAbort 3
+	DEFINE vbRetry 4
+	DEFINE vbIgnore 5
+	DEFINE vbYes 6
+	DEFINE vbNo 7
+	<span class="font_green">'**************************************************************************
+	' Оболочка для стандартной Win32 функции Msgbox
+	'**************************************************************************</span>
+	Function MsgBox(ByVal sTxt As String, ByVal sCaption As String, ByVal iType As Integer) As Integer
+		MsgBox = MsgBoxA(WindowInfo(WIN_MAPINFO, WIN_INFO_WND), sTxt, sCaption, iType)
+	End Function
+	<span class="font_green">'**************************************************************************
+	' Оболочка для окна сообщений, не возвращающего ответа
+	'**************************************************************************</span>
+	Sub MessageBox(ByVal sTxt As String, ByVal sCaption As String, ByVal iType As Integer)
+	Dim i As Integer
+		i = MsgBoxA(WindowInfo(WIN_MAPINFO, WIN_INFO_WND), sTxt, sCaption, iType)
+	End Sub
+		</p>
+		<p>
+			Теперь, когда всё настроено, можно заменить привычное окно сообщения MapInfo вызовом:
+		</p>
+		<p class="code">
+	Call MessageBox(<span class="font_gray">&quot;Стандартное окно сообщений Windows&quot;</span>, <span class="font_gray">&quot;Моя программа MapBasic&quot;</span>, vbExclamation)
+		</p>
+		<p>
+			<img src="dialogs/2.png" alt="Стандартное окно сообщений Windows" width="275px" height="119px" />
+			<span class="small">Окно сообщений с изменённым заголовком</span>
+		</p>
+		<p>
+			Как видно выше, <span class="code">MessageBox</span> может быть вызван с заданным текстом сообщения, заголовком диалога и одной или несколькими дополнительными опциями. В приведённом примере использовалась константа <span class="code">vbExclamation</span>, чтобы воспроизвести внешний вид окна <span class="code">Note</span>. Ничего особенно в этом пока что нет, но давайте посмотри дальше. В некоторых случаях (таких, как уведомления пользователя, что операция завершена успешно) значок восклицательного знака попросту неуместен. Сравним:
+		</p>
+		<p>
+			<img src="dialogs/3.png" alt="восклицательный знак – не лучший выбор" width="192px" height="119px" />
+			<span class="small">Иногда восклицательный знак &ndash; не лучший выбор</span>
+		</p>
+		<p>
+			А вот этот диалог создан со следующими параметрами:
+		</p>
+		<p class="code">
+	Call MessageBox(<span class="font_gray">&quot;Обработка завершена!&quot;</span>, <span class="font_gray">&quot;Не пугаем пользователя&quot;</span>, vbInformation)
+		</p>
+		<p>
+			<img src="dialogs/4.png" alt="Не пугаем пользователя" width="198px" height="119px" />
+			<span class="small">Намного лучше!</span>
+		</p>
+		<p>
+			Или наоборот, когда надо сообщить пользователю, что случилось что-то нехорошее:
+		</p>
+		<p class="code">
+	Call MessageBox(<span class="font_gray">&quot;Что-то реально пошло не так..!&quot;</span>, <span class="font_gray">&quot;Уп-с&hellip;&quot;</span>, vbCritical)
+		</p>
+		<p>
+			<img src="dialogs/5.png" alt="Что-то реально пошло не так..!" width="233px" height="119px" />
+			<span class="small">Гарантировано заметят!</span>
+		</p>
+		<p>
+			Другой способ использовать окно сообщений &ndash; через вызов функции <span class="code">MsgBox</span>. Способ применим, когда необходимо получить определённый ответ пользователя, так же, как при вызове MapBasic-функции <span class="code">Ask</span>. Но разница между этими подходами в том, что диалоговое окно <span class="code">Ask</span> заставляет кровоточить глаза:
+		</p>
+		<p>
+			<img src="dialogs/6.png" alt="MapBasic диалог Ask" width="284px" height="165px" />
+			<span class="small">MapBasic диалог Ask&hellip; что за пустое пространство!?</span>
+		</p>
+		<p>
+			Давайте заменим ЭТО стандартным окном сообщения Windows:
+		</p>
+		<p class="code">
+	iResponse = MsgBox(<span class="font_gray">&quot;Хотите продолжить?&quot;</span>, <span class="font_gray">&quot;Сообщение с двумя кнопками&quot;</span>, vbYesNo + vbQuestion + vbDefaultButton1)
+	If iResponse = vbYes Then
+		<span class="font_green">Пользователь нажал Да</span>
+	ElseIf iResponse = vbNo Then
+		<span class="font_green">Пользователь нажал Нет</span>
+	End If
+		</p>
+		<p>
+			Этот код демонстрирует, как объединяются диалоговые атрибуты:
+		</p>
+		<p class="code">
+	vbYesNo + vbQuestion + vbDefaultButton1
+		</p>
+		<p>
+			и как значение, возвращённое диалогом, может быть проверено на постоянные <span class="code">vbYes</span> и <span class="code">vbNo</span> для определения реакции пользователя.
+		</p>
+		<p>
+			Формирование сложных цепочек атрибутов позволяет создавать очень гибкие и удобные для пользователя диалоги. Опять же, конечный результат выглядит гораздо приятнее (и более профессионально), чем встроенная функция MapBasic:
+		</p>
+		<p>
+			<img src="dialogs/7.png" alt="Используем Message Box" width="233px" height="119px" />
+			<span class="small">Используем Message Box, чтобы задать вопрос</span>
+		</p>
+		<p>
+			Итак, поехали! Такое небольшое изменение для ваших программ на MapBasic позволит сделать их немного более удобным для пользователей.
+		</p>
+		<hr class="split" />
+
+		<p class="small">
+			Оригинал:<br />
+			<a href="http://nyalldawson.net/2012/08/better-dialogs-in-mapbasic/" title="Перейти">&quot;Better Dialogs in MapBasic&quot;</a>
+		</p>
+		<hr class="split" />
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿User-agent: *
+Sitemap: http://glab2007.narod.ru/sitemap.xml
+Disallow: /i/
+Disallow: /note.html
+Disallow: /scripts.js
+Disallow: /pub/

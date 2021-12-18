@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Вычисление объёма средствами MapInfo Professional &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Принципы и методика вычисления объема по результатам маркшейдерских замеров с помощью ГИС MapInfo Professional по горизонтальными и вертикальными сечениями на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="вычислить объем, сечения mapinfo, mapinfo в маркшейдерии" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a id="item" href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="article">
+			Вычисление объема средствами MapInfo Professional
+		</h1>
+		<hr class="split" />
+
+
+		<div class="avatar">
+			<a href="http://www.geoprofi.ru" title="Геопрофи"><img class="inline" src="vol/0.png" alt="Геопрофи" width="200px; " height="49px; " /></a>
+		</div>
+		<p class="small">
+			Автор: В.Ф. Кутырев &copy;2008<br />
+			В 1986 г. окончил Пермский политехнический институт по специальности &laquo;маркшейдерское дело&raquo;. Работал в ОКЭ № 308 (&laquo;УралМаркшейдерия&raquo;, Челябинск). С 1992 г. работает в ОАО &laquo;Сильвинит&raquo; (Соликамск), в настоящее время &ndash; начальник подземной маркшейдерской партии.
+		</p>
+		<p class="small passage">
+			Статья опубликована в 3-ем номере журнала <a href="http://www.geoprofi.ru">Геопрофи</a> в 2008 году.
+		</p>
+		<hr class="split" />
+
+<!--Start-->
+		<p>
+			Одной из основных задач в маркшейдерской практике является определение объема различных объектов (склада, отвала, насыпи и т. д.). До недавнего времени задачи такого рода решались вручную с применением калькулятора. В инструкциях по проведению маркшейдерских работ вычисление объема предлагается выполнять способом горизонтальных и вертикальных сечений, с помощью геометрически правильных тел или фигур и другими способами, обеспечивающими необходимую точность результата. С появлением геоинформационных систем (ГИС) и электронных средств измерений, таких как электронные тахеометры и лазерные рулетки, задача значительно упростилась. У маркшейдеров открылась возможность использовать программное обеспечение, которое позволяет значительно сократить затраты времени для решения данной задачи, а его интерфейс прост и понятен.
+		</p>
+		<p>
+			Многолетний опыт работы в ГИС MapInfo Professional (MapInfo Corp., США) доказал правильность выбора этой системы как наиболее доступной, простой и многофункциональной для решения различных маркшейдерских задач, включая вычисление объема. Вычисление объема по результатам маркшейдерских замеров с помощью ГИС MapInfo Professional обеспечивается горизонтальными и вертикальными сечениями с визуальным контролем данных. Использование обоих способов позволяет повысить точность результата, достоверность информации и качество камеральных работ.
+		</p>
+		<p>
+			Рассмотрим порядок вычисления объема способом вертикальных сечений по результатам полевых наблюдений. Полевые измерения пространственных координат <b>X, Y, Z</b> выполняются относительно условного центра в условной системе координат (рис. 1).
+		</p>
+		<p class="small">
+			<img src="vol/1.png" alt="рисунок 1" width="388px" height="203px" />
+			Рис. 1<br />
+			Схема полевых измерений
+		</p>
+		<p>
+			В качестве плановой координаты Х принимают значения расстояний, измеренных вдоль сечения до каждого съемочного пикета <b>Х1, Х2, &hellip; Х7</b>, а плановой координаты <b>Y</b> &ndash; значения расстояний между сечениями <b>Y1, Y2, &hellip; Yn</b>.
+		</p>
+		<p>
+			Координата <b>Z</b> представляет собой приращение по высоте от нулевого уровня для каждого пикета в сечении <b>Z1, Z2, &hellip; Z7</b>. Количество сечений определяется необходимой и достаточной точностью вычисления объема. В ГИС MapInfo сечение строится на карте с помощью функции &laquo;Полигон&raquo; в масштабе 1:1, удобном для просмотра, а площадь сечения определяется через запрос, с помощью функции &laquo;Подписи&raquo;.
+		</p>
+		<p>
+			Для контроля построенного сечения и длин линий используется функция &laquo;Линейка&raquo;. В этом случае при активизации функции &laquo;Подписи&raquo; на экране компьютера отображается конфигурация и площадь каждого сечения. Данный прием позволяет визуально контролировать геометрию и площадь построенного сечения.
+Далее объем вычисляется как сумма произведения усредненной площади соседних сечений на расстояние между ними. При одинаковом расстоянии между сечениями объем определяется по формуле:
+		</p>
+		<p>
+			<b>V = (S1 + &hellip; + 2Si + &hellip; + + Sn) H/2</b>,<br />
+			где <b>S1, Si, Sn</b> &ndash; значение площади каждого сечения; <b>H</b> &ndash; расстояние между сечениями.
+		</p>
+		<p>
+			Для визуального контроля результатов полевой съемки измеренные данные вводятся в виде таблицы (рис. 2а). По этим данным строятся точечные объекты, и создается тематическая карта по типу &laquo;Поверхность&raquo; (рис. 2б). Затем строится трехмерная модель (рис. 2в), и визуально анализируется плавность цветового перехода на предмет выраженных пятен, резких пиков или провалов поверхности, что свидетельствует об ошибках измерения или ввода исходных данных.
+		</p>
+		<p class="small">
+			<img src="vol/2.png" alt="рисунок 2" width="464px" height="225px" />
+			Рис. 2<br />
+			Контроль вычисления объема способом вертикальных сечений:<br />
+			а)&nbsp;таблица данных; б)&nbsp;тематическая карта &laquo;Поверхность&raquo;; в)&nbsp;трехмерная модель
+		</p>
+		<p>
+			Способ горизонтальных сечений в большей степени повторяет технологию вычисления объема вертикальными сечениями. После построения поверхности загружается дополнительный модуль &laquo;Поверхность&raquo;. Затем строятся горизонтали с шагом (сечением), обеспечивающим необходимую и достаточную точность. Уменьшение шага увеличивает точность определения объема и, одновременно, время, затрачиваемое на обработку. Следующим этапом является преобразование горизонталей в площадные объекты. Далее, аналогичным образом, как и с вертикальными сечениями, получаем площади и вычисляем объем по приведенной выше формуле.
+		</p>
+		<p>
+			Следует отметить, что для получения максимальной точности определения объемов, построение тематической карты &laquo;Поверхность&raquo; должно выполняться по минимальной величине ячейки так, как показано на рис. 3.
+		</p>
+		<p class="small">
+			<img src="vol/3.png" alt="рисунок 3" width="584px" height="202px" />
+			Рис. 2<br />
+			Построение тематической карты &laquo;Поверхность&raquo; по минимальной величине ячейки
+		</p>
+		<p>
+			Рассмотренный пример вычисления объема с помощью внутренних функций ГИС MapInfo Professional требует хорошего знания программы и технологии построений. Эти недостатки отсутствуют в программе Objem.exe, разработанной на основе ядра MapInfo Professional. Построения и вычисления в ней соответственно оформлены и легко выводятся на печать.
+		</p>
+		<hr class="split" />
+
+		<h2>RESUME</h2>
+		<p>
+			The procedure of computing a quantity of fill and cut (dump, bank, etc.) using the mine survey results with the help of GIS MapInfo Professional is described. A possibility of increasing the computation accuracy using horizontal sections as well as of visual controlling the capacity computation is marked.
+		</p>
+		<hr class="split" />
+		
+		<p>
+			<a href="http://www.geoprofi.ru/default.aspx?mode=binary&amp;id=950">Загрузить оригинал статьи (221 KB) &gt;&gt;&gt;</a>
+		</p>
+		<p>
+			<a href="vol/vol.zip">Загрузить копию (ZIP, 208 KB) &gt;&gt;&gt;</a>
+		</p>
+		<hr class="split" />
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

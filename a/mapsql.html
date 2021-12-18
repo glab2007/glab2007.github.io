@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Клиент-сервер технология для MapInfo &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Одновременное редактирование таблицы MapInfo несколькими пользователями при использовании MS SQL. Практическое решение, разработка и внедрение на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="клиент-сервер, несколько пользователей, сервер mapinfo, microsoft sql" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a id="item" href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="article">
+			Клиент-сервер технология для MapInfo
+		</h1>
+		<hr class="split" />
+
+		<div class="avatar">
+			<a href="http://mapbasic.ru" title="Утилиты и параметры для MapInfo"><img class="inline" src="mapsql/0.png" alt="mapbasic.ru" width="220px; " height="61px; " /></a>
+		</div>
+		<p class="small">
+			Оригинал опубликован в 2011 году на новом сайте <a href="http://mapbasic.ru/" title="Перейти">http://mapbasic.ru</a>, посвященном разработке программ на языке MapBasic и готовым решениям для MapInfo. В статье рассматриваются простой, но действенный алгоритм построения клиент-серверных связей, позволяющих одновременное редактирование таблицы MapInfo несколькими пользователями.
+		</p>
+		<p class="small">
+			Автор: <a href="http://mapbasic.ru/forum">Бирючков Дмитрий Анатольевич</a> &copy;&nbsp;2011
+		</p>
+		<hr class="split" />
+
+		<h2>Режим эконом</h2>
+		<p>
+			Одновременное редактирование таблицы MapInfo несколькими пользователями. Да, такая задача часто возникает и её решение возможно только при хранении таблиц на серверах баз данных. ORACLE, MS SQL, Informix, MapInfo Spatialware. Знакомые всем термины, серьёзные цены за комплект железо + софт + внедрение. В этой статье хочу показать некий промежуточный вариант, промежуточный между настольной MapInfo + файловый сервер и MapInfo + MS SQL + Spatialware.
+		</p>
+		<p>
+			Практическое описание когда-то давно было опубликовано на форуме <a href="http://www.geomatica.kiev.ua/">www.geomatica.kiev.ua</a>. К сожалению, форум-первоисточник сейчас не доступен.
+		</p>
+		<p>
+			Суть технологии сводится к созданию таблиц MSSQL с пространственными данными, то есть с метрикой объектов, хранимой в поле типа image и таблицей метаданных MapInfo_MapCatalog. Принципы те же что и при работе <a href="http://www.esti-map.ru/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D0%BE%D0%B5%D0%BE%D0%B1%D0%B5%D1%81%D0%BF%D0%B5%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/PBMapInfo/MapInfoSpatialWare/tabid/51/Default.aspx#SW2008">SpatialWare</a>, но только без него :-) Обратите внимание &ndash; только принципы! Предлагаемая технология не поддерживает пространственные запросы на стороне сервера, это основное отличие. Но, предлагаемая технология позволяет осуществлять многопользовательское редактирование таблиц плюс дополнительные возможности SQL сервера по поддержанию целостности данных, протоколированию изменений, архивированию и т.д.
+		</p>
+		<p>
+			Итак, например, что имеется на входе:
+		</p>
+		<ol>
+			<li>
+				<a href="http://www.microsoft.com/downloads/ru-ru/details.aspx?FamilyID=220549B5-0B07-4448-8848-DCC397514B41">Microsoft SQL Server 2005 Express Edition</a><br />
+				SQL Server Express предназначен для упрощенного развертывания и быстрого создания прототипов; его можно получить бесплатно и свободно распространять в составе приложений.
+			</li>
+			<li>
+				<a href="http://www.microsoft.com/downloads/ru-ru/details.aspx?FamilyID=c243a5ae-4bd1-4e3d-94b8-5a0f62bf7796">Microsoft SQL Server Management Studio Express</a><br />
+				Microsoft SQL Server Management Studio Express (SSMSE) –  простое в использовании графическое средство для управления базами данных SQL Server 2005 Express Edition.
+			</li>
+			<li>
+				MapInfo Professional 8.5 SCP
+			</li>
+		</ol>
+		<p>
+			Создам для примера простую базу данных на MS SQL под названием &laquo;<b>adr</b>&raquo;.
+		</p>
+		<img src="mapsql/1.png" alt="БД adr" width="525px" height="163px" />
+		<ol>
+			<li>
+				<b>town</b> &ndash; населенный пункт. Поля: <i>id</i> &ndash; код НП (автоинкрементное поле, первичный ключ); <i>name</i> &ndash; название; <i>objstyle</i> &ndash; поле для хранения стиля объекта (предложение Style для MapInfo); <i>sw_geometry</i> &ndash; поле типа &laquo;image&raquo; для хранения метрики объекта в бинарном виде.
+			</li>
+			<li>
+				<b>street</b> &ndash; улица. Поля: <i>id</i> &ndash; код улицы (автоинкрементное поле, первичный ключ); <i>id_town</i> &ndash; код населенного пункта (внешний ключ); <i>name</i> &ndash; название; <i>objstyle</i> &ndash; поле для хранения стиля объекта (предложение Style для MapInfo); <i>sw_geometry</i> &ndash; поле типа &laquo;image&raquo; для хранения метрики объекта в бинарном виде.
+			</li>
+			<li>
+				<b>house</b> &ndash; дом. Поля: <i>id</i> &ndash; код дома (автоинкрементное поле, первичный ключ); <i>id_street</i> &ndash; код улицы (внешний ключ); <i>number</i> &ndash; номер дома; <i>objstyle</i> &ndash; поле для хранения стиля объекта (предложение Style для MapInfo); <i>sw_geometry</i> &ndash; поле типа &laquo;image&raquo; для хранения метрики объекта в бинарном виде.
+			</li>
+		</ol>
+		<p>
+			Кроме того создается таблица MapInfo_MapCatalog хранения метаданных для каждой таблицы с объектами.
+		</p>
+		<img src="mapsql/2.png" alt="БД adr" width="505px" height="142px" />
+		<p>
+			MapInfo_MapCatalog можно создать как вручную, так и используя программу EasyLoader, поставляемую вместе с дистрибутивом MapInfo.
+		</p>
+		<p>
+			Не буду подробно останавливаться на процедурах создания базы данных. Этот вопрос больше относится к администрированию MS SQL. Рассматриваемые в статье данные вы можете непосредственно загрузить на свой компьютер:<br />
+			<a href="mapsql/adr.zip" title="Скачать adr.zip">Архив базы данных MS SQL</a> 198 KB<br />
+			<a href="mapsql/adr_script.zip" title="Скачать adr_script.zip">Скрипт создания структуры БД</a> 1.86 KB
+		</p>
+		<p>
+			Для MapInfo обязательно должна быть установлена поддержка баз данных MS SQL. Через панель инструментов &laquo;СУБД&raquo; осуществляется работа с &laquo;Удаленными таблицами&raquo; (&laquo;Linked tables&raquo;). &laquo;Удаленными&raquo; не в смысле &laquo;стёртыми&raquo;, а в смысле что они располагаются &laquo;далеко&raquo; :-) Так, например, выглядит файл таблицы <b>town.tab</b>:
+		</p>
+		<p class="code">
+	!table
+	!version 400
+	!charset WindowsCyrillic
+	Definition Table
+	Type LINKED Charset &quot;WindowsCyrillic&quot;
+	Fields 3
+	id Integer ReadOnly ;
+	id_town Integer ;
+	name Char (50) ;
+	begin_metadata
+	&quot;\DATALINK&quot; = &quot;&quot;
+	&quot;\DATALINK\ConnectionString&quot; = &quot;Description=adr;DRIVER=SQL Server;SERVER=WORKSTATION\SQLEXP;UID=Admin;APP=Microsoft Data Access Components;WSID=WORKSTATION;DATABASE=adr;Network=DBMSLPCN;Trusted_Connection=Yes&quot;
+	&quot;\DATALINK\Query&quot; = &quot;select &quot;&quot;id&quot;&quot;, &quot;&quot;id_town&quot;&quot;, &quot;&quot;name&quot;&quot;, &quot;&quot;objstyle&quot;&quot;, &quot;&quot;OBJECT&quot;&quot; from &quot;&quot;adr&quot;&quot;.&quot;&quot;dbo&quot;&quot;.&quot;&quot;street&quot;&quot;&quot;
+	&quot;\IsReadOnly&quot; = &quot;FALSE&quot;
+	end_metadata
+		</p>
+		<p>
+			Обратите внимание, что поле &laquo;<i>id</i>&raquo; в MapInfo недоступно для редактирования, это первичный ключ, по которому обновляются данные. Значения этому полю автоматически присваиваются на стороне сервера. Для новой строки (объекта), значение этого поля MapInfo получает при первом &laquo;обновлении содержимого таблицы СУБД&raquo;.
+		</p>
+		<p>
+			Поля &laquo;<i>objstyle</i>&raquo; и &laquo;<i>sw_geometry</i>&raquo; и вовсе явно не прописаны в tab файле. Значение поле &laquo;<i>objstyle</i>&raquo; MapInfo понимает как предложение &laquo;Style &hellip;&raquo;, а &laquo;<i>sw_geometry</i>&raquo; эквивалентно понятию &laquo;obj&raquo;.
+		</p>
+		<p>
+			<a href="mapsql/tab.zip" title="Скачать tab.zip">Архив с образцом трех таблиц в формате MapInfo</a> 24.9KB
+		</p>
+		<p>
+			В целом получается следующая картина: имеется реляционная БД на стороне сервера и локальная копия таблиц в формате MapInfo на стороне клиента. Редактирование данных как метрики, так и семантики происходит в MapInfo на стороне клиента. На момент сохранения изменений данные о редактированных объектах отправляются с клиента на сервер. При необходимости происходит синхронизация, то есть и обратный процесс — все изменения хранимые на сервере отправляются в локальную копию.
+		</p>
+		<p>
+			В случае ситуации редактирования одного объекта несколькими пользователями, включается механизм разрешения конфликтов.
+		</p>
+		<img src="mapsql/3.png" alt="БД adr" width="427px" height="390px" />
+		<p>
+			Окно разрешения конфликтов включается у пользователя сделавшего изменения последним.
+		</p>
+		<p>
+			Перечислю плюсы такой технологии хранения и обработки данных MapInfo:
+		</p>
+		<ol>
+			<li>
+				Возможность многопользовательского редактирования таблиц.
+			</li>
+			<li>
+				Ссылочная целостность БД на уровне семантических данных. Если таблицы street и town связаны по коду города, вы не сможете внести некорректный код города в таблицу улиц. Сервер выдаст ошибку на момент попытки сохранения некорректных данных.
+			</li>
+			<li>
+				Централизованное хранения данных. Возможность средствами сервера производить операции архивирования данных не прекращая работы с БД.
+			</li>
+			<li>
+				Протоколирование изменений данных. Средствами сервера, при наличии триггеров на операции INSERT, UPDATE, DELETE. Например, создается копии таблицы <b>town</b> под названием <b>town_copy</b>. В <b>town_copy</b> создаются два служебных поля <i>user_name</i> и <i>date_update</i>. Перед любым изменением данных для <b>town</b>, вначале копия ещё не измененных данных отправляется в <b>town_copy</b> с автоматической фиксацией имени пользователя и времени редактирования объекта.
+			</li>
+		</ol>
+		<p>
+			Есть и определенные ограничения.
+		</p>
+		<ol>
+			<li>
+				Таблица СУБД (связанная таблица) MapInfo не поддерживает прямоугольники со скругленными углами, эллипсы, дуги и объекты типа text.
+			</li>
+			<li>
+				При каждом сохранении данных, MapInfo предлагает обновить связанную таблицу. Когда объем таблицы достигает сотен тысяч записей, обновление локальной копии может занимать довольно длительное время.
+			</li>
+		</ol>
+		<p>
+			Для последнего пункта могу предложить возможное решение проблемы с использованием метаданных связанных таблиц. На примере рассматриваемых таблиц &ndash; таблицы <b>town</b> (600 объектов), <b>street</b> (7400 объектов), <b>house</b> (203000 объектов). Каждый пользователь одновременно работает только с одним населенным пунктом, редактируя таблицы <b>street</b> и <b>house</b>. Ограничим количество объектов таблиц <b>street</b> и <b>house</b> только объектами находящимися на территории населенного пункта с <i>id</i> = 1.
+		</p>
+		<p>
+			Всего четыре команды Mapbasic.
+		</p>
+		<p class="code">
+	MetaData Table street SetKey &quot;\DATALINK\Query&quot; To &quot;Select * From dbo.street Where id_town = 1&quot;
+	Server Refresh street
+	MetaData Table house SetKey &quot;\DATALINK\Query&quot; To &quot;Select * From dbo.house Where id_street In (Select id From dbo.street Where id_town = 1)&quot;
+	Server Refresh house
+		</p>
+		<p>
+			Получаем минимальное время обновления таблиц <b>street</b> и <b>house</b>, так как количество объектов в них сократилось до десятков и сотен. Естественно, необходимо вручную контролировать значение семантических полей <i>id_town</i> и <i>id_street</i>. Иначе рискуем потерять объекты из видимости данной выборки. Вернуть всё на место тоже не долго.
+		</p>
+		<p class="code">
+	MetaData Table street SetKey &quot;\DATALINK\Query&quot; To &quot;Select * From dbo.street&quot;
+	Server Refresh street
+	MetaData Table house SetKey &quot;\DATALINK\Query&quot; To &quot;Select * From dbo.house&quot;
+	Server Refresh house
+		</p>
+		<p>
+			Как вариант, можно создавать в таблицах служебное поле <i>user_edit</i> с именем текущего пользователя БД в качестве значения по умолчанию:
+		</p>
+		<p class="code">
+	ALTER TABLE [dbo].[town] ADD
+	CONSTRAINT [DF_town_user_edit] DEFAULT (user_name()) FOR [user_edit]
+		</p>
+		<p>
+			Выборку через метаданные таблицы производить по имени пользователя. Так как имя пользователя на стороне сервера фиксируется автоматически, в этом случае можно не отслеживать семантику ключевых полей при работе в MapInfo.
+		</p>
+		<p>
+			Ещё раз обращаю внимание, что описываемая технология не заменяет SpatialWare по причине отсутствия пространственных запросов на стороне сервера. Тем ни менее достойна внимания для возможности многопользовательского редактирования данных и централизованного хранения таблиц MapInfo.
+		</p>
+		<hr class="split" />
+
+		<p class="small">
+			Оригинал:<br />
+			<a href="http://mapbasic.ru/mapsql" title="http://mapbasic.ru/mskprj">Клиент-сервер технология для MapInfo. Режим эконом</a>
+		</p>
+		<hr class="split" />
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

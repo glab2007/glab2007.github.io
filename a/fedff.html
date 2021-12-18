@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Советы шеф-повара: обновление данных в таблицах MapInfo &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Преимущества и недостатки различных подходов к редактированию табличных данных MapInfo. Осознанный выбор в пользу автоматизации или ручного редактирования на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="обновление таблицы mapinfo, редактирование записей, sql" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a id="item" href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="article">
+			Советы шеф-повара: обновление данных в таблицах MapInfo
+		</h1>
+		<hr class="split" />
+
+		<div class="avatar">
+			<a href="http://fedorinoff.blogspot.ru" title="Fedorinoff's Blog"><img class="inline" src="fedff/0.png" alt="Fedorinoff's Blog" width="156px; " height="28px; " /></a>
+		</div>
+		<p class="small">
+			Автор: <a href="https://www.blogger.com/profile/16410478255510603380">FedorinoFF</a> &copy;&nbsp;2013
+		</p>
+		<p class="small">
+			Известный и постоянный участник форумов, Юрий Федоринов aka <b>FedorinoFF</b>, как оказалось, уже два года ведёт блог, посвящённый MapInfo. Блог небольшой, но интересный.
+		</p>
+		<p class="small">
+			Предлагаю вашему вниманию статью из этого блога.
+		</p>
+		<hr class="split" />
+
+		<ul id="toc">
+			<li><a href="#ch1">Введение</a></li>
+			<li><a href="#ch2">Ручное редактирование</a></li>
+			<li><a href="#ch3">Полуавтоматизированное редактирование</a></li>
+			<li><a href="#ch4">Автоматизированное редактирование</a></li>
+		</ul>
+		<hr class="split" />
+
+<!--1-->
+		<h3 id="ch1">Введение</h3>
+		<p>
+			Основная ценность, при работе практически с любыми программами, это данные. У программы, занимающейся работой с данными, должны присутствовать механизмы ввода, редактирования, сохранения данных.
+		</p>
+		<p>
+			В MapInfo данные хранятся в таблицах и могут содержать две составляющие: графические и семантические данные. Со стороны MapInfo, каждая таблица представляет собой нечто целое, содержащее некоторые записи, у каждой записи обязательно есть минимум одно семантическое поле. Со стороны файловой системы, таблица MapInfo состоит из нескольких файлов, в каждом из которых содержится какая-то информация: семантика, графика, служебная информация, индексные файлы.
+		</p>
+		<p>
+			Сегодня я захотел написать о редактировании данных, так как это неотъемлемая часть процесса подготовки картографического материала. Ко всем прочему, в форумах регулярно возникают вопросы, связанные с &laquo;а как&hellip;?&raquo;
+		</p>
+		<p>
+			Я бы разделил возможности по редактированию на три группы:
+		</p>
+		<ol>
+			<li>ручное редактирование</li>
+			<li>полуавтоматизированное редактирование</li>
+			<li>автоматизированное редактирование</li>
+		</ol>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--2-->
+		<h3 id="ch2">1. Ручное редактирование</h3>
+		<p>
+			Дешево, надежно и практично. Графические объекты редактируются в окне карты, семантические поля &ndash; в окне списка или в окне информации. Хотел бы обратить внимание, что при редактировании таблиц, имеющих графические объекты (Mappable), через окно списка можно создавать записи без графических объектов. Это делается простым добавлением новой записи в окне списка. В последующем, прицепить к таким записям графические объекты, проблематично для неподготовленных пользователей. Если в такой таблице нужно добавить новый графический объект, но необходимо открыть эту таблицу в окне карты и нарисовать нужный графический объект.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--3-->
+		<h3 id="ch3">2. Полуавтоматизированное редактирование</h3>
+		<p>
+			Под полуавтоматизированным методом я понимаю редактирование с использованием окна MapBasic, построителя запросов и прочих штатных встроенных инструментов MapInfo.
+		</p>
+		<p>
+			Для полноценного использования такого метода, на мой взгляд, нужны знания языка MapBasic. Сложности в нем нет, но есть особенности версий, есть особенности MapInfo, есть некоторые ограничения на использование MapBasic в одноименном окне MapInfo. Как я уже упоминал в ранних постах, документация MapInfo и MapBasic на очень хорошем уровне, и даже самостоятельное изучение не вызовет проблем.
+		</p>
+		<p>
+			В качестве живого примера полуавтоматизированного обновления приведу простой пример. Возникла элементарная и показательная задача по замене двойных кавычек на одинарные в поле таблицы. Хоть <a href="http://www.mapinfo.ru/product/mapinfo-mapbasic">MapBasic </a>и довольно развитый язык, но, в основном, он содержит базовые (элементарные) функции. И строковой функции &laquo;ЗаменитьПодстроку&raquo; в нем нет. Зато есть огромное поле для фантазий по решению задачи с использованием ограниченного набора инструментов. Решение простое :-). Пара команд:
+		</p>
+		<p class="code">
+	select * from SrcTable where InStr(1, SrcField, SrcSubstring) &gt; 0 into TmpTable noselect
+	update TmpTable set SrcField = Mid$(SrcField, 1, InStr(1, SrcField, SrcSubstring) - 1) + NewSubString + Mid$(SrcField, InStr(1, SrcField, SrcSubstring) +Len(SrcSubstring) , 254)
+		</p>
+		<p>
+			Выполняем эту пару два раза и получаем реш`нную задачу&hellip;
+		</p>
+		<p>
+			Первая команда <span class="code">select </span>дает нам выборку записей исходной таблицы, в исходном поле которой есть требуемая для замены подстрока (в нашем случае &ndash; символ двойной кавычки [&quot;]). В результате мы получаем запросную таблицу <i>TmpTable</i>. Теперь любые изменения в записях таблицы <i>TmpTable</i> автоматически записываются в соответствующие записи исходной таблицы <i>SrcTable</i>. Кто-то может спросить: а почему нельзя сразу написать <span class="code">update SrcTable </span>&hellip;?
+		</p>
+		<p>
+			Использование промежуточной таблицы обусловлено тем, что прямой update может вызвать ошибку, в случае если встретится запись, в которой в просматриваемом поле не искомой подстроки. Перехватывать ошибки в окне MapBasic невозможно, поэтому используется промежуточная таблица.
+		</p>
+		<p>
+			Вторая команда (<span class="code">update&hellip;</span>) производит замену нашей SrcSubstring на NewSubString.
+		</p>
+		<p>
+			Просто и быстро.
+		</p>
+		<p>
+			Если надо произвести изменение графического объекта, то команда может выглядеть следующим образом:
+		</p>
+		<p class="code">
+	update SrcTable set obj = ConvertToPLine(obj)
+		</p>
+		<p>
+			эта команда превратит все графические объекты в полилинии.
+		</p>
+		<p class="code">
+	update SrcTable set obj = CreatePoint(x,y)
+		</p>
+		<p>
+			а эта команда создаст для каждой записи точечный объект, при условии, что в таблице есть поля x и y с координатами.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--4-->
+		<h3 id="ch4">3. Автоматизированное редактирование</h3>
+		<p>
+			Под автоматизированным редактированием я понимаю использование специализированной программы на языке MapBasic.
+		</p>
+		<p>
+			Это, пожалуй, универсальный метод, позволяющий реализовать все, что душе угодно. С опытом, каждый для себя сможет сформулировать критерии, по которым можно принимать решение о выборе подхода, для решения вопроса о редактировании данных. Зачастую, написать пару команд в окне MapBasic позволяет выполнить задачу быстрее, нежели подготовка самой простой программы на MapBasic.
+		</p>
+		<p>
+			Простейшая программа для наших целей будет содержать всего две функции: обязательную <span class="code">main</span> и пользовательскую, которая производит обработку строки.
+		</p>
+		<p class="code">
+	sub main
+		&nbsp;update TmpTable set SrcField = StringReplace(SrcField, SrcSubstring, NewSubString )
+	end sub
+		</p>
+		<p class="code">
+	function StringReplace(byval aStr as string, byval aOldSub as string, byval aNewSub as string) as string
+		&hellip;
+		StringReplace = &hellip;
+	end function
+		</p>
+		<p>
+			Что мы имеем?
+		</p>
+		<p>
+			В коде присутствует обязательная для каждой программы MapBasic <span class="code">sub main</span>, в которой происходит обновление поля таблицы.
+		</p>
+		<p>
+			Функция <span class="code">StringReplace(&nbsp;)</span> производит обработку значения поля <i>SrcField</i>: заменяет все вхождения <i>SrcSubstring</i> на <i>NewSubString</i>.
+		</p>
+		<p>
+			Если нужна функция для обработки графических объектов, то ее объявление может иметь следующий вид
+		</p>
+		<p class="code">
+	function ModifyObject(byval aObj as object) as object
+		&hellip;
+		ModifyObject = &hellip;
+	end function
+		</p>
+		<p>
+			В программе можно использовать все возможности MapBasic. Остается откомпилировать текст программы при помощи компилятора MapBasic и запустить ее на выполнение.
+		</p>
+		<p>
+			Вот, пожалуй, и все. Общая тема обозначена, все остальное &ndash; дело техники и опыта. Не бойтесь изучать, экспериментировать и думать.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+		<p class="small">
+			Оригинал:<br />
+			<a href="http://fedorinoff.blogspot.ru/2013/11/blog-post_25.html" title="Перейти">Советы шеф-повара: обновление данных в таблицах</a>
+		</p>
+		<hr class="split" />
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

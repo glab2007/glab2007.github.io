@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Интерпретируемые сценарии MapBasic &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Как использовать MapBasic без компилятора. Макросы, скрипты и сценарии для COM-объекта MapInfo.Application на VBScript, VBA, AutoIt и других языках. Скачать на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="mapinfo vba, mapbasic script, mapinfo.application, скрипт mapinfo" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a id="item" href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="download">
+			Интерпретируемые сценарии MapBasic
+		</h1>
+		<hr class="split" />
+
+		<div class="avatar">
+			<img class="inline" src="mbint/0.png" alt="scripts" width="120px; " height="150px; " />
+		</div>
+		<p class="small">
+			Сценарий, или скрипт &ndash; это программа, не <a href="https://ru.wikipedia.org/wiki/%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%BD%D1%8B%D0%B9_%D1%8F%D0%B7%D1%8B%D0%BA" title="Wikipedia">предназначенная для компиляции</a> (перевода в бинарный код). Сценарий распознаётся &laquo;на лету&raquo; специальными программными компонентами (<a href="https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BF%D1%80%D0%B5%D1%82%D0%B0%D1%82%D0%BE%D1%80" title="Wikipedia">интерпретаторами</a>) для немедленного выполнения. Исходный код при этом остаётся в неизменном виде и может быть открыт в любом текстовом редакторе.
+		</p>
+		<p class="small">
+			Язык MapBasic сочетает в себе признаки как компилируемого, так и интерпретируемого языка. Концепция &laquo;Интегрированной Картографии&raquo; MapInfo предполагает, что:
+		</p>
+		<p class="small passage">
+			&laquo;Ваша программа осуществляет управление программой MapInfo, конструируя строки, представляющие операторы языка MapBasic, которые затем передаются в MapInfo Professional (&hellip;). MapInfo Professional выполняет эти операторы точно так же, как если бы пользователь вводил их с клавиатуры в окно MapBasic.&raquo;
+		</p>
+		<p class="small">
+			Ниже на странице представлены скрипты на различных языках, использующие управление экземпляром MapInfo посредством обращения к COM-объекту «MapInfo.Application», а также другие сценарии.
+		</p>
+		<hr class="split" />
+
+		<ul id="toc">
+			<li><a href="#vbs">Сценарии VBScript</a></li>
+			<li><a href="#vba">Макросы VBA</a></li>
+			<li><a href="#ait">Сценарии AutoIt!</a></li>
+			<li><a href="#etc">Прочие разработки</a></li>
+		</ul>
+		<hr class="split" />
+
+<!--vbs-->
+		<h2 id="vbs">VBScript</h2>
+		<hr class="split" />
+
+		<div id="closeall" class="block">
+			<div class="row_name" title="Название">
+				mi_CloseAll
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=8560#p49891">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт закрывает все открытые таблицы в одной из запущенных копий программы MapInfo.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/closeall.zip">Загрузить (13,0 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="domb" class="block">
+			<div class="row_name" title="Название">
+				doMapbasic_in_MapInfo
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=8560#p49891">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт читает входной текстовый файл и выполняет записанные в в нем простые (без циклов и условного оператора IF ) команды MapBasic'а в одной из запущенных копий программы MapInfo.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/domb.zip">Загрузить (12,6 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="mergemif" class="block">
+			<div class="row_name" title="Название">
+				mergeMIFs
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=8560#p49891">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт предназначен для сбора множества MIF файлов одинаковой структуры в один объединенный файл. Не требует Mapinfo.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/mergemif.zip">Загрузить (2,16 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="mifpath" class="block">
+			<div class="row_name" title="Название">
+				mi_add_to_MIF_filepath
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=8560#p49891">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт добавляет в файл MIF/MID информацию об имени и пути этого файла MIF. MIF дополняется двумя полями mifPath, mifName. В MID каждая запись дополняется путем и именем MIF файла. Не требует Mapinfo.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/mifpath.zip">Загрузить (2,64 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="miftitle" class="block">
+			<div class="row_name" title="Название">
+				MI_getMIF_title
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=8560#p49891">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт читает и выводит в файл заголовок MIF файла &ndash; строки до блока DATA. Не требует Mapinfo.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/miftitle.zip">Загрузить (1,80 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="obj2mif" class="block">
+			<div class="row_name" title="Название">
+				OBJ2MIF
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a>Ciril V. Golubev</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт экспортирует каждый объект открытой пользователем таблицы в отдельный файл обменного формата mid/mif. Имена результирующим файлам присваиваются согласно порядковому номеру объекта в исходной таблице.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/obj2mif.zip">Загрузить (2,22 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="ozi" class="block">
+			<div class="row_name" title="Название">
+				Ozi2Tab
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?t=3012#p10636">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт переводит формат Ozi Map File в MapInfo Tab с привязкой по 4-м точкам.<br />
+				Запускается из командной строки Windows.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/ozi2tab.zip">Загрузить (3,82 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="reindex" class="block">
+			<div class="row_name" title="Название">
+				mi_rebuild_Index
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=8560#p49891">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт предназначен для воссоздания индексов таблиц MapInfo, в случаях, когда их открытие приводит к сообщениям типа &laquo;неверный индекс&raquo;.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/reindex.zip">Загрузить (13,1 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="rerastr" class="block">
+			<div class="row_name" title="Название">
+				mi_tabRasterReproject
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=8560#p49891">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт производит пересчет точек привязки растровой таблицы MapInfo в указанную систему координат и выводит новую таблицу в файл или поток StdOut.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/rerastr.zip">Загрузить (13,4 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="rex4mi" class="block">
+			<div class="row_name" title="Название">
+				REX4MI
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a>Ciril V. Golubev</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт, позволяющий выполнять поиск текста и его замену в файлах обменного формата MID/MIF при помощи регулярных выражений VBScript.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/rex4mi.zip">Загрузить (3,42 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="tabcols" class="block">
+			<div class="row_name" title="Название">
+				mi_TabColsStr
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=8560#p49891">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт выводит перечень полей таблицы MapInfo в файл или поток StdOut в виде строки, разделенной точкой с запятой (;). Имена полей выводятся, начиная с 3-ей позиции в выходной строке. Первые две позиции занимают путь к таблице и ее имя, которое стандартно будет присвоено MapInfo при открытии.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/tabcols.zip">Загрузить (12,4 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="tabfile" class="block">
+			<div class="row_name" title="Название">
+				mi_tabFileInfo
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=8560#p49891">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт выводит информацию о свойствах таблицы MapInfo в файл или поток StdOut.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/tabfile.zip">Загрузить (12,4 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="tablist" class="block">
+			<div class="row_name" title="Название">
+				mi_TabsList
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=8560#p49891">Борис Полевой</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт выводит список всех открытых таблиц в текстовый файл. Список состоит из имени таблиц и пути к ней. Требует запущенную копию Mapinfo.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vbs/tablist.zip">Загрузить (2,18 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+<!--vba-->
+		<hr class="split" />
+		<h2 id="vba">Макросы VBA (Visual Basic for Applications)</h2>
+		<hr class="split" />
+
+		<div id="gt2mi" class="block">
+			<div class="row_name" title="Название">
+				GiveTable2MI
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a>Ciril V. Golubev</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Макрос для Microsoft Word. Позволяет перенести таблицу, созданную в Word, в окно отчета MapInfo Professional.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vba/gt2mi.zip">Загрузить (16,5 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="gс" class="block">
+			<div class="row_name" title="Название">
+				GetCoordinate
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a>Ciril V. Golubev</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Макрос для Microsoft Excel. Позволяет получить координаты всех узлов полигонов из выбранной таблицы MapInfo Professional.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vba/gc.zip">Загрузить (14,0 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="mas" class="block">
+			<div class="row_name" title="Название">
+				Map Access table in MapInfo
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://muhammad-aamer.blogspot.com">Muhammad Aamer</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Пример создания точек в MapInfo по данным из таблицы Microsoft Access с помощью макроса.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/vba/mdb2mi.zip">Загрузить (15,6 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+<!--ait-->
+		<hr class="split" />
+		<h2 id="ait">Сценарии AutoIt!</h2>
+		<hr class="split" />
+
+		<div id="pr4mi" class="block">
+			<div class="row_name" title="Название">
+				print4mi
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a>Ciril V. Golubev</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скомпилированный скрипт AutoIt3. Предназначен для пакетного вывода на печать всех окон Отчёта во всех найденных Рабочих Наборах MapInfo. Рабочие наборы ищутся рекурсивно в указанной пользователем директории, без ограничения глубины вложения.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/ait/print4mi.zip">Загрузить (445 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+<!--etc-->
+		<hr class="split" />
+		<h2 id="etc">Прочие разработки</h2>
+		<hr class="split" />
+
+		<div id="efn" class="block">
+			<div class="row_name" title="Название">
+				extract_field_names
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=11387#p71031">Максим Дубинин</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт на Python'е. Извлекает все названия полей из файлов MIF/TAB для их автоматической транслитерации или дальнейшей замены с помощью substitute_field_names.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/etc/extract_names.zip">Загрузить (2,49 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<div id="sfn" class="block">
+			<div class="row_name" title="Название">
+				substitute_field_names
+			</div>
+			<div class="row_mail" title="Связь с автором">
+				<a href="http://gis-lab.info/forum/viewtopic.php?f=17&amp;t=11387#p71031">Максим Дубинин</a>
+			</div>
+			<div class="row_note" title="Описание">
+				Скрипт на Python'е. Заменяет все названия полей в файлах MIF/TAB по данным из файла fields.csv.
+			</div>
+			<div class="row_save" title="Загрузка">
+				<a href="mbint/etc/substitute_names.zip">Загрузить (1,97 KB)</a>
+			</div>
+			<div class="split">
+				<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			</div>
+		</div>
+
+		<hr class="split" />
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

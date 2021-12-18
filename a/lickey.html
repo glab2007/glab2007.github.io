@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Лицензирование MapInfo и секреты серийных номеров &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Некоторые вопросы лицензирования MapInfo. Как прочитать серийный номер MapInfo и избежать ошибок при установке. Методика и описание на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="серийный номер mapinfo, регистрация, активация mapinfo" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a id="item" href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="article">
+			Лицензирование MapInfo и секреты серийных номеров
+		</h1>
+		<hr class="split" />
+
+		<p class="small">
+			Статья написана &laquo;по мотивам&raquo; поста в блоге компании <a href="http://www.critchlow.co.nz/" title="Перейти">Critchlow</a> &ndash; крупнейшего (как они утверждают) ГИС-интегратора в Новой Зеландии.
+		</p>
+		<hr class="split" />
+
+		<p>
+			Такое ощущение, что разработчики MapInfo пробудились от многолетнего летаргического сна и, с энергией Рип ван Винкла, навёрстывают упущенное. За последнее время вышло несколько знаковых обновлений, изменивших не только интерфейс, но и, в чём-то, принципы работы с программой.
+		</p>
+		<p>
+			Помимо новых инструментов, новых возможностей и перспектив, обновления принесли и новые неожиданные проблемы. Если верить блогам (западным, конечно же, если вы понимаете, о чём я), у пользователей стали массово появляться вопросы о лицензировании при переходе на новые версии MapInfo.
+		</p>
+		<p>
+			Для того, чтобы понять суть проблемы, надо сначала разобраться с нотификацией серийных номеров MapInfo. Что же скрывают эти буквы и цифры?
+		</p>
+		<img src="lickey/1.png" alt="Рис. 1" width="609px" height="246px" />
+		<p>
+			Как видно из схемы, серийный номер MapInfo состоит из нескольких групп буквенно-цифровых комбинаций. При этом каждая из групп кодирует ту или иную информацию.
+		</p>
+		<p>
+			<u>Позиция 1-2</u> кодирует принадлежность ключа к той или иной программе семейства MapInfo:
+		</p>
+		<ul>
+			<li><b>MI</b> &ndash; MapInfo Pro;</li>
+			<li><b>MA</b> &ndash; MapInfo Pro Advanced (дополнительный модуль для 64-битной версии, превращающий векторную MapInfo Pro в мощную растровую ГИС).</li>
+		</ul>
+		<p>
+			<u>Позиции 3 и 4</u> кодируют тип лицензии. Так, на позиции 3 могут располагаться следующие кода:
+		</p>
+		<ul>
+			<li><b>N</b> (node-locked license) &ndash; персональная (одиночная) лицензия, которая позволяет установить MapInfo Professional только на один компьютер;</li>
+			<li><b>S</b> (server license) &ndash; серверная (многопользовательская) лицензия, которая позволяет установить MapInfo Professional на неограниченное количество компьютеров;</li>
+			<li><b>D</b> (distribute license) &ndash; распределённая лицензия, при которой используется сервер лицензий MapInfo.</li>
+		</ul>
+		<p>
+			<u>На позиции 4</u> располагается код класса лицензии:
+		</p>
+		<ul>
+			<li><b>P</b> (premium) &ndash; лицензия, предоставляющая пользователю дополнительные возможности сервисов MapInfo;</li>
+			<li><b>W</b> (non-premium) &ndash; ординарная лицензия.</li>
+		</ul>
+		<p>
+			<u>Позиция 5</u> кодирует язык программы. К примеру:
+		</p>
+		<ul>
+			<li><b>E</b> (english) &ndash; английский язык;</li>
+			<li><b>R</b> (russian) &ndash; русский язык.</li>
+		</ul>
+		<p>
+			<u>Позиция 7-10</u> кодирует версия программы. К примеру:
+		</p>
+		<ul>
+			<li><b>1500</b> &ndash; MapInfo Pro версии 15 или 15.2;</li>
+			<li><b>1250</b> &ndash; MapInfo Pro версии 12.5 или 12.5.4.</li>
+		</ul>
+		<p>
+			<u>На позиции 11-16</u> располагается индивидуальный уникальный код лицензии.
+		</p>
+		<p>
+			Очевидно, только последние 6 символов являются по настоящему уникальными. Остальные же задают ряд параметров соответствия серийного номера типу устанавливаемой программы. Таким образом, введение пусть и честно приобретённого, но несоответствующего инсталляции серийного номера приведёт к его отторжению.
+		</p>
+		<p>
+			Косвенным подтверждением вышеизложенного тезиса служит обычный запрос службы технической поддержки MapInfo с просьбой назвать серийный номер установки, по которому уточняется версия программы и её тип.
+		</p>
+		<p>
+			Таким образом, можно с уверенностью заявлять, что серийные номера и коды активации жёстко привязаны к версии полного релиза MapInfo (11.0x, 12.0x, 12.5x etc). Естественно, серийные номера от одной версии не подойдут к другой версии программы.
+		</p>
+		<p>
+			Вместе с тем, серийный номер и код активации не содержат, по видимому, информации ни о битности, ни о версиях обновлений MapInfo. Т.е. обновления в пределах одно полного релиза (12.5.2, 12.5.3 etc) можно производить без риска утраты активации. Также можно утверждать, что серийный номер и код активации полного релиза подходят как для 32-битной, так и для 64-битной версии MapInfo:
+		</p>
+		<p class="small passage">
+			<b>When will I get my serial number and access code for the 64 bit version?</b><br />
+			&mdash; A different serial number is not required.<br />
+			Tom Probert, Editor of &quot;The MapInfo Pro&quot; journal
+		</p>
+		<hr class="split" />
+		<p class="small passage">
+			<b>Когда я получу свой серийный номер и код активации для 64-битной версии?</b><br />
+			&mdash; Отдельный серийный номер не требуется.<br />
+			Том Проберт, редактор журнала &laquo;The MapInfo Pro&raquo;
+		</p>
+		<hr class="split" />
+
+		<p>
+			Крайне маловероятно, что кто-нибудь из отечественных пользователей перепутает серийные ключи (если вы понимаете, о чём я). Но, как известно, нет предела человеческому совершенству. Praemonitus praemunitus.
+		</p>
+		<hr class="split" />
+
+		<p class="small">
+			Источники:<br />
+			MapInfo Professional Версия 12.5 Лицензирование и активация, ©2014, Pitney Bowes Software Inc.<br />
+			<a href="http://www.pitneybowes.com/us/location-intelligence/geographic-information-systems/mapinfo-pro.html">www.pitneybowes.com</a><br />
+			<a href="http://web.pb.com/mapinfopro-oct-2014/MapInfo-Provessional-v12.5-FAQ">web.pb.com</a><br />
+			<a href="http://www.mapinfo.ru/node/388">www.mapinfo.ru</a><br />
+			<a href="http://blog.critchlow.co.nz/blog/what-you-need-to-know-about-mapinfo-pro-licencing-and-serial-numbers">blog.critchlow.co.nz</a>
+		</p>
+		<hr class="split" />
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

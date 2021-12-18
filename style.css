@@ -1,0 +1,414 @@
+﻿/*© GLab, 2007 | glab.2007@yandex.ru */
+
+/*БАЗОВЫЕ ЭЛЕМЕНТЫ*/
+* 
+	{ 
+		margin: 0px; 
+		padding: 0px; 
+	}
+body 
+	{ 
+		color: #000; 
+		font-family: Verdana, Tahoma, Arial, sans-serif; 
+		background: #fff url("i/fon.gif"); 
+	}
+
+/*ЛЕВОЕ БЛОК*/
+#left 
+	{ 
+		float: left; 
+		position: absolute; top: 10px; left: 10px; 
+		width: 150px; 
+		padding-top: 120px; 
+		background: url("i/logo.gif") no-repeat left top; 
+	}
+#left UL 
+	{ 
+		display: block; 
+		list-style-type : none; 
+	}
+#left LI 
+	{ 
+		height: 36px; 
+		margin : 5px 0px; 
+		padding-left: 36px; 
+	}
+#left A 
+	{ 
+		height: 36px; 
+		margin-right: 5px; 
+		padding-left: 10px; 
+		display: block; 
+		font: bold 14px Tahoma; 
+		letter-spacing: 2px; 
+		color: #00F; 
+		text-decoration: none; 
+	}
+#left A:hover 
+	{ 
+		letter-spacing: 3px; 
+		color: #000; 
+		text-decoration: underline; 
+		background: #e0e0e0; 
+	}
+#item 
+	{ 
+		background: #e0e0e0; 
+	}
+#butterfly 
+	{ 
+		position: absolute; top: 15px; left: 140px; 
+		height: 60px;
+		width: 60px;
+	}
+#butterfly IMG 
+	{ 
+		width: 60px;
+		height: 60px;
+	}
+#arrow 
+	{ 
+		display: none; 
+	}
+#arrow IMG 
+	{ 
+		position: fixed; left:20px; bottom: 60px; 
+		z-index:100; 
+		height:32px; 
+		width:64px; 
+	}
+.ya-share2
+	{ 
+		position: fixed; left: 20px; bottom: 20px; 
+	}
+
+/*ИКОНКИ*/
+.home 
+	{ 
+		min-height: 36px; 
+		background: url("i/m/home.png") no-repeat left top; 
+	}
+.news 
+	{ 
+		min-height: 36px; 
+		background: url("i/m/news.png") no-repeat left top; 
+	}
+.query 
+	{ 
+		min-height: 36px; 
+		background: url("i/m/query.png") no-repeat left top; 
+	}
+.article 
+	{ 
+		min-height: 36px; 
+		background: url("i/m/article.png") no-repeat left top; 
+	}
+.download 
+	{ 
+		min-height: 36px; 
+		background: url("i/m/download.png") no-repeat left top; 
+	}
+.links 
+	{ 
+		min-height: 36px; 
+		background: url("i/m/links.png") no-repeat left top; 
+	}
+.about 
+	{ 
+		min-height: 36px; 
+		background: url("i/m/about.png") no-repeat left top; 
+	}
+.contact 
+	{ 
+		min-height: 36px; 
+		background: url("i/m/contact.png") no-repeat left top; 
+	}
+.search 
+	{ 
+		min-height: 36px; 
+		background: url("i/m/search.png") no-repeat left top; 
+	}
+.map 
+	{ 
+		min-height: 36px; 
+		background: url("i/m/map.png") no-repeat left top; 
+	}
+
+/*ТЕЛО*/
+#top 
+	{ 
+		height: 50px; 
+		margin-left: 160px; 
+		background: url("i/devis.gif") no-repeat 50% 50%; 
+	}
+
+#border_left 
+	{ 
+		margin: 5px 5px 5px 160px; 
+		background: url("i/left.gif") repeat-y left top; 
+	}
+
+#border_right 
+	{ 
+		background: url("i/right.gif") repeat-y right top; 
+	}
+
+#border_top 
+	{ 
+		margin: 0px 8px; 
+		background: url("i/top.gif") repeat-x left top; 
+	}
+
+#border_bottom 
+	{ 
+		padding: 16px 16px 16px 16px; 
+		background: url("i/bottom.gif") repeat-x left bottom; 
+	}
+
+
+/*КОНТЕНТ*/
+#content 
+	{ 
+		min-height: 400px; 
+		height: auto !important; 
+		height: 400px; 
+		padding: 15px; 
+		font: 14px/1.2 Tahoma, Arial, sens-serif; 
+		line-height: 1.5; 
+		color: #000;
+	}
+#content H1 
+	{ 
+		margin: 15px; 
+		padding-left: 45px; 
+		font: bold small-caps 18px/1.3 Verdana, Tahoma, sans-serif; 
+		letter-spacing: 4px; 
+		color: #000; 
+	}
+#content H2 
+	{ 
+		margin: 15px; 
+		font: bold 16px/1.3 Verdana, Tahoma, sans-serif; 
+		letter-spacing: 2px; 
+		color: #000; 
+	}
+#content H3 
+	{ 
+		margin: 10px 30px; 
+		font: bold 14px/1.2 Verdana, Tahoma, sans-serif; 
+		letter-spacing: 2px; 
+		color: #000; 
+	}
+#content P 
+	{ 
+		margin: 10px; 
+	}
+#content UL 
+	{ 
+		margin: 10px; 
+		display: block; 
+		list-style: disc outside; 
+	}
+#content LI 
+	{ 
+		margin-left: 15px; 
+	}
+#content A 
+	{ 
+		letter-spacing: 2px; 
+		text-decoration: none; 
+		color: #00F; 
+	}
+#content A:hover 
+	{ 
+		letter-spacing: 3px; 
+		text-decoration: underline; 
+		color: #000; 
+	}
+#content IMG 
+	{ 
+		margin: 10px; 
+		display: block; 
+		border: 0px none; 
+	}
+#content TD 
+	{ 
+		padding: 2px 5px; 
+	}
+#content CODE
+	{ 
+		font-size: 16px; 
+	}
+/*Дополнительные стили*/
+.small 
+	{ 
+		margin: 15px 5px; 
+		font: italic 14px/1.2 Arial, Tahoma, sans-serif; 
+		color: #808080; 
+	}
+.code 
+	{ 
+		margin: 0px 5px; 
+		padding: 0px 5px; 
+		white-space: pre-wrap; 
+		font: 15px/1.2 Courier, "Courier New", Tahoma, sans-serif; 
+		letter-spacing: 1px; 
+		line-height: 0.8; 
+		background: #fff;
+		border: gray groove Thin; 
+	}
+.passage 
+	{ 
+		padding-left: 45px; 
+		border-left: gray thin solid; 
+	}
+.avatar 
+	{ 
+		float: right; 
+		position: relative; top: -5px; 
+		margin-left: 20px; 
+	}
+/*БЛОКИ И СТРОКИ*/
+.block 
+	{ 
+		margin: 5px 5px 25px 20px !important; 
+		padding: 10px 0px 5px; 
+		border-right: gray thin solid; 
+		border-bottom: gray thin solid; 
+	}
+.block P 
+	{ 
+		margin: 0px !important; 
+		padding: 0px !important;
+	}
+
+.row_name 
+	{ 
+		min-height:29px; 
+		height: auto !important; 
+		height:29px; 
+		margin-top: 10px; 
+		padding-left: 40px; 
+		font-weight: 600; 
+		font-variant: small-caps; 
+		background: url("i/d/name.png") no-repeat 0px 5px; 
+	}
+.row_mail 
+	{ 
+		min-height:29px; 
+		height: auto !important; 
+		height:29px; 
+		margin-top: 10px; 
+		padding-left: 40px; 
+		background: url("i/d/mail.png") no-repeat 0px 5px; 
+	}
+.row_note 
+	{ 
+		min-height:29px; 
+		height: auto !important; 
+		height:29px; 
+		margin-top: 10px; 
+		padding-left: 40px; 
+		background: url("i/d/note.png") no-repeat 0px 5px; 
+	}
+.row_source 
+	{ 
+		min-height:29px; 
+		height: auto !important; 
+		height:29px; 
+		margin-top: 10px; 
+		padding-left: 40px; 
+		background: url("i/d/source.png") no-repeat 0px 5px; 
+	}
+.row_save 
+	{ 
+		min-height:29px; 
+		height: auto !important; 
+		height:29px; 
+		margin-top: 10px; 
+		padding-left: 40px; 
+		background: url("i/d/save.png") no-repeat 0px 5px; 
+		cursor: pointer; 
+	}
+.row_screen 
+	{ 
+		min-height:29px; 
+		height: auto !important; 
+		height:29px; 
+		margin-top: 10px; 
+		padding-left: 40px; 
+		background: url("i/d/screen.png") no-repeat 0px 5px; 
+	}
+
+/*ДОПОЛНЕНИЯ*/
+.spoil_title 
+	{ 
+		letter-spacing: 2px; 
+		color: #00F; 
+		text-decoration: underline; 
+		cursor: pointer; 
+	}
+.spoil_body 
+	{ 
+		font: 14px/1.1 Arial, Tahoma, sans-serif; 
+		letter-spacing: 1px; 
+		color: #000; 
+		margin: 5px; 
+		padding: 5px; 
+		background: #eaeaea; 
+		border: groove Thin; 
+	}
+.elhide 
+	{ 
+		display: none; 
+	}
+
+IMG.inline 
+	{ 
+		margin: 0px 5px !important; 
+		display: inline !important; 
+		border: 0px none; 
+	}
+.split
+	{ 
+		clear:both; 
+		margin: 10px 5% 15px 40%; 
+		text-align: right; 
+	}
+HR.split 
+	{ 
+		height: 1px; 
+		color: #808080; 
+	}
+
+/*УКРАШАТЕЛЬСТВА*/
+IMG.star 
+	{ 
+		width:10px !important; 
+		height:10px !important; 
+		display: inline !important; 
+		border: 0px; 
+	}
+
+/*ЗАТЫЧКИ*/
+.font_black 
+	{ 
+		color: #000 !important; 
+	}
+.font_gray 
+	{ 
+		/*color: #4c4c4c !important; */
+		color: #808080 !important; 
+	}
+.font_red 
+	{ 
+		color: #ff0000 !important; 
+	}
+.font_green 
+	{ 
+		color: #008000 !important; 
+	}
+.font_under 
+	{ 
+		text-decoration: underline; 
+	}

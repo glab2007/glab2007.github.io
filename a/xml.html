@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Конвертирование xml-выписок Росреестра в MapInfo &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Методика импорта xml-выписок Росреестра в MapInfo при помощи xml-конвертера для выгрузки в таблицы данных из выписок или кадастровых планов на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="xml-конвертор, росреестр, выписки в mapinfo, кадастровый план" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a id="item" href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="article">
+			Конвертирование xml-выписок Росреестра в MapInfo
+		</h1>
+
+		<div class="avatar">
+			<a href="http://terraingis.ru" title="Территория ГИС. Блог Александра Фадеева"><img class="inline" src="xml/0.png" alt="Территория ГИС" width="98px; " height="100px; " /></a>
+		</div>
+		<p class="small">
+			Автор: Автор: <a href="mailto:info@terraingis.ru">Александр Фадеев</a> &copy;&nbsp;2014
+		</p>
+		<p class="small passage">
+			Для импорта xml-выписок Росреестра в MapInfo имеется бесплатная утилита (xml-конвертер) выгрузки в таблицы из выписок или кадастровых планов, загрузку которой можно  произвести со страницы <a href="http://mapinfo.ru/resources/utils" title="Новый сайт ESTI MAP">Утилиты для MapInfo (русская версия)</a>.
+		</p>
+		<hr class="split" />
+
+		<ul id="toc">
+			<li><a href="#ch1">Подключение конвертера данных</a></li>
+			<li><a href="#ch2">Импорт данных из xml-выписки</a></li>
+			<li><a href="#ch3">Установление местной системы координат</a></li>
+			<li><a href="#ch4">Пример сопоставления данных</a></li>
+		</ul>
+		<hr class="split" />
+
+<!--1-->
+		<h2 id="ch1">Подключение конвертера данных из XML-схем Росреестра в MapInfo</h2>
+		<div style="width: 300px !important; ">
+			<a href="xml/1.png" title="Развернуть"><img src="xml/s1.png" alt="Рис. 1" width="300px" height="270px" /></a>
+		</div>
+		<p>
+			Для подключения данной утилиты необходимо все файлы, представленные в архиве, поместить в папку Tools, как правило, расположенную на диске &laquo;С:\\Program&nbsp;Files\MapInfo&nbsp;Professional\Tools\&raquo;. Учтите, что для данной операции и работы утилиты необходимы права уровня администратора. Далее запускаем MapInfo и в меню &laquo;Программы\Каталог программ&hellip;&raquo; нажимаем кнопку &laquo;Добавить&raquo;. В поле &laquo;Размещение&raquo; ищем и выбираем утилиту &laquo;ИмпортMI&raquo; в папке Tools и далее нажимаем &laquo;Открыть&raquo;. После чего задаем в строке &laquo;Заголовок&raquo; свое имя данной утилиты и нажимаем кнопку &laquo;ОК&raquo;. Далее рекомендуется поставить флажок в поле &laquo;Автозагрузка&raquo; напротив заданного вами имени данной утилиты. Нажимаем кнопку &laquo;ОК&raquo;. Теперь данная утилита под названием &laquo;Конвертер данных из XML-схем Росреестра&raquo; будет находиться в меню &laquo;Программы&raquo;.
+		</p> 
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--2-->
+		<h2 id="ch2">Импорт данных из xml-выписки Росреестра</h2>
+		<div style="width: 300px !important; ">
+			<a href="xml/2.png" title="Развернуть"><img src="xml/s2.png" alt="Рис. 2" width="300px" height="270px" /></a>
+		</div>
+		<p>
+			Запустив конвертер через меню &laquo;Программы/Конвертер данных из XML-схем Росреестра&raquo;, в окне настройки импорта необходимо перво-наперво выбрать папку в которую будут сохраняться результаты конвертации. Для этого нажимаем на кнопку &laquo;Папка&raquo;. Далее подключаем конвертируемый xml-файл кадастрового плана территории (КПТ) или кадастровой выписки земельного участка (КВЗУ), нажав на кнопку &laquo;Файл XML&raquo;. По кнопке &laquo;Стили&raquo; можно провести дополнительную настройку стилей слоев относительно стандартных. Номера точек при отсутствии xml-элемента Num_Geopoint следует выбирать из списка элемент Su_Nmb. При необходимости вы можете поменять местами координаты, установив соответствующий флажок.</p>
+		<p>
+			По кнопке &laquo;Дополнительно&raquo; можно выбрать групповую обработку файлов и при этом настроить вид конвертации: с очисткой или обновлением таблиц в папке для конвертированных данных. Запуск конвертации осуществляется по нажатии на кнопку &laquo;Конвертировать&raquo;.
+		</p>
+		<div style="width: 300px !important; ">
+			<a href="xml/3.png" title="Развернуть"><img src="xml/s3.png" alt="Рис. 3" width="300px" height="270px" /></a>
+		</div>
+		<p>
+			Установив флажок &laquo;Создавать выходные данные таблицы в план-схеме с экстремумами из файла  XML&raquo; вне зависимости от выбранной системы координат (по кнопке &laquo;Проекция&raquo;) данные в таблицах MapInfo будут в план-схеме. Для установления параметров местной системы координат необходимо отключить вышеприведенную опцию снятием флажка и по кнопке &laquo;Проекция&raquo; выбрать соответствующую проекцию из файла MAPINFOW.PRJ. Но, как правило, параметры местной системы координат в данном файле отсутствуют.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--3-->
+		<h2 id="ch3">Установление местной системы координат в MapInfo</h2>
+		<p>
+			Необходимость установления параметров местной системы координат существует в тех случаях, когда необходимо использовать сведения из разных источников, имеющих отличные системы координат. Для этого необходимо прописать параметры местной системы координат в каталоге систем координат MAPINFOW.PRJ. Открываем данный файл в простом текстовом редакторе (Блокнот, к примеру) и вписываем параметры местной системы по следующему образцу в конце документа, пропустив одну строку:
+		</p>
+		<p class="code">
+	&quot;&mdash; Местная система координат &mdash;&quot;
+	&quot;МСК-12 зона 1&quot;, 8, 1001, 7, 47.55, 0, 1, 1250000, -5914743.504
+	&quot;МСК-12 зона 2&quot;, 8, 1001, 7, 50.55, 0, 1, 2250000, -5914743.504
+		</p>
+		<p>
+			Необходимо отметить, что в данном случае первая строка указывает на группу систем координат с названием &laquo;Местная система координат&raquo;. Вторая и третья строки указывают на параметры &laquo;МСК-12 зона 1&raquo; и &laquo;МСК-12 зона 2&raquo;. Данные параметры являются расчетными и примерными, и взяты из статьи <a href="http://www.mapbasic.ru/msk12">МСК-12 Республика Марий Эл параметры для mapinfow.prj</a>.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--4-->
+		<h2 id="ch4">Пример сопоставления данных</h2>
+		<div style="width: 300px !important; ">
+			<a href="xml/4.png" title="Развернуть"><img src="xml/s4.png" alt="Рис. 4" width="300px" height="270px" /></a>
+		</div>
+		<p>
+			В качестве примера импорта xml-выписки Росреестра возьмём КПТ, рассмотренный в статье <a href="http://terraingis.ru/article/read/kadastroviji_plan_territorii.html" title="Территория ГИС. Блог Александра Фадеева">Кадастровый план территории</a>. Там же приведены ссылки на различные способы импорта xml-выписок Росреестра.
+		</p> 
+		<p>
+			В результате сопоставлению данных на соответствующую территорию из кадастрового плана территории в местной системе координат и данных из SAS.Планет с подключенным слоем кадастрового зонирования территории получилось, что параметры все-таки являются примерными при использовании их в Mapinfo.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--Links-->
+		<p class="small">
+			Оригинал:<br />
+			<a href="http://terraingis.ru/article/read/konvertirovanie-xml-vypisok-rosreestra-v-mapinfo.html" title="Перейти">Конвертирование xml-выписок Росреестра в MapInfo</a>.
+		</p>
+		<hr class="split" />
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

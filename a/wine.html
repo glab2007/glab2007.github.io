@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Инсталляция MapInfo в ОС Linux Mandriva &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Практическое описание удачной инсталляции ГИС MapInfo в ОС Linux Mandriva с использованием Wine и опыт решения возникших проблем на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="mapinfo linux, mapinfo wine, установить linux" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a id="item" href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="article">
+			Инсталляция MapInfo в ОС Linux Mandriva
+		</h1>
+		<hr class="split" />
+
+<!--0-->
+		<ul id="toc">
+			<li><a href="#ch1">Вместо предисловия</a></li>
+			<li><a href="#ch2">Deus ex machine</a></li>
+			<li><a href="#ch3">Исходные</a></li>
+			<li><a href="#ch4">Установка Wine</a></li>
+			<li><a href="#ch5">Plug-and-Pray</a></li>
+			<li><a href="#ch6">Назад в будущее</a></li>
+			<li><a href="#ch7">Winetricks</a></li>
+			<li><a href="#ch8">Win? Win!</a></li>
+			<li><a href="#ch9">P.&nbsp;S.</a></li>
+		</ul>
+		<hr class="split" />
+
+<!--1-->
+		<h2 id="ch1">Вместо предисловия</h2>
+		<p>
+			Вряд ли на сегодняшний день найдется человек, работающий с компьютером и не слышавший слова &laquo;Linux&raquo;. IT-шные и околоIT-шные миры полны слухов, домыслов, реальных историй и провокаций, холиворы Linux vs Windows заполнили форумы в интернете и курилки в офисах. И пусть доля Linux-систем в качестве десктопных ОС все еще объективно невелика, но у каждого найдется среди знакомых тот, кто пусть и не работает в консоли, но зато знает человека, брат которого женат на сестре человека, который установил дома Ubuntu или, упаси Бог, Gentoo. Шутка.
+		</p>
+		<p>
+			Не собираясь обсуждать достоинства той или иной ОС перед другой и не желая доказывать кому бы то ни было правильность выбранного пути, необходимо признать тот факт, что ОС Linux существует, развивается и, стало быть, вероятность встречи с ней в реальной жизни &ndash; ненулевая. А раз так, было бы неплохо представлять, что это за зверь, с чем его едят и как его применить для собственной пользы.
+		</p>
+		<p>
+			Автор, произнося эти слова, ссылается на собственный опыт &ndash; в один прекрасный день у меня под рукой оказался только маленький netbook с установленной на него Mandriva. И сроки сдачи проекта от этого никак не изменились. Пришлось изучать &laquo;на коленке&raquo;, горько сожалея о своей непредусмотрительности.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--2-->
+		<h2 id="ch2">Deus ex machine</h2>
+		<img src="wine/linux_tux.png" alt="" style="width: 96px; height: 99px; float: left; " />
+		<p>
+			Одной из основных претензий к Linux’у со стороны рядовых пользователей является неразвитость специального и профессионального программного обеспечения. То есть &ndash; если вам надо просто посидеть в интернете или набросать пару-тройку строк в текстовом редакторе, то да, любая из сборок предоставит готовые, зачастую весьма неплохие решения. А вот если требуется сделать что-то большее, чем убить время в офисе, то тут дело плохо. Задачи системных администраторов по сравнительно удобному подъему серверов и прочим шаманским пляскам в данном контексте не рассматриваются, им и для них и так достаточно понаписано. Но проектировщику, конструктору, картографу или какому еще инженеру, привыкшему к специализированным решениям в Windows, придется довольствоваться весьма небогатым выбором.
+		</p>
+		<img src="wine/wine_logo.png" alt="" style="width: 62px; height: 96px; float: right; " />
+		<p>
+			В ответ же справедливо возражают, указывая на наличие <a href="http://www.winehq.org/" title="http://www.winehq.org/">WINE</a>, использование которого позволяет запускать Windows-совместимые приложения в среде Linux.
+		</p>
+		<p>
+			Что такое Wine, подробно можно узнать на многочисленных сайтах, например, <a href="http://www.ubuntologia.ru/wine/" title="http://www.ubuntologia.ru/wine/">здесь</a>. Вкратце же, цитируя <a href="https://ru.wikipedia.org/wiki/Wine" title="https://ru.wikipedia.org/wiki/Wine/">Wikipedia</a>: &laquo;Wine&mdash; это свободное программное обеспечение, позволяющее пользователям UNIX-подобных систем (&hellip;) исполнять (&hellip;) приложения Microsoft Windows. (&hellip;) Название Wine является рекурсивным акронимом и расшифровывается &laquo;Wine Is Not an Emulator&raquo; &mdash; &laquo;Wine &mdash; не эмулятор&raquo; (имеется в виду, что Wine не является эмулятором компьютера (&hellip;)).Wine распространяется на условиях лицензии GNU LGPL.&raquo;
+		</p>
+		<p>
+			Таким образом, получается, достаточно запустить Wine и можно устанавливать любые Windows-программы. В идеале &ndash; да. В реальности же, форумы пестрят сообщениями типа &laquo;Как запустить 1C под Вайном&raquo;&hellip; Или же, с учетом специфики этого сайта, &laquo;<a href="http://map-info.ru/phpbb2/viewtopic.php?t=732" title="http://map-info.ru/">Linux и установка там MapInfo</a>&raquo;.
+		</p>
+		<p>
+			Для того, чтобы свести воедино идеал и реальность, попробую описать свой опыт удачной инсталляции MapInfo в среде Linux Mandriva.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--3-->
+		<h2 id="ch3">Исходные</h2>
+		<img src="wine/mandriva_logo.png" alt="" style="width: 64px; height: 96px; float: left; " />
+		<p>
+			Итак, что у меня было в наличии? Старенький ноутбук, <a href="http://www.notebook-market.ru/index/page_fdescr11141.iRU-Stilo-1714-CD.htm" title="http://www.notebook-market.ru/">iRu Stilo 1714 CD</a>. На этот ноутбук была установлена ОС Mandriva Linux release 2009.0 (Official) for i586. После непродолжительных экспериментов система была признана дееспособной и можно было начинать установку MapInfo. 
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--4-->
+		<h2 id="ch4">Установка Wine</h2>
+		<p>
+			При подключенном Интернет-соединении современные сборки Linux, в том числе и Mandriva’2009, автоматически его подхватывают и обновляют репозитории. Если этого не произошло, необходимо в Центре управления Mandriva вручную назначить источники обновления программ на закладке &laquo;Настройка источников установки/обновления ПО&raquo;.
+		</p>
+		<ul>
+			<li>Список зеркал Main</li>
+			<li>Список зеркал Main Backports</li>
+			<li>Список зеркал Contrib</li>
+			<li>Список зеркал Non-free</li>
+			<li>Список зеркал Non-free Updates</li>
+		</ul>
+		<p>
+			Когда все настроено, можно переходить к установке Wine. Для этого переходим в консоль и набираем короткую команду:
+		</p>
+		<p class="code">
+	#urpmi wine
+		</p>
+		<img src="wine/wine_instal.gif" alt="" width="600px" height="422px" />
+		<p>
+			Загрузчик предложит установить 3 пакета и после утвердительного ответа довольно шустро (14 Mb) скачает и установит Wine и сам обновит все зависимости. В моем случае скачалась последняя доступная для Mandriva сборка Wine версии 1.2-3mdv2010.1
+		</p>
+		<img src="wine/wine_about.png" alt="" width="414px" height="471px" />
+		<p>
+			Что ж, теперь можно запускать MapInfo на инсталляцию. Вставляем диск, переходим, минуя всякие красивости, в корень инсталлятора (каталог глубоко закопан и называется DATA1), дважды кликаем по файлу setup.exe и &hellip;
+		</p>
+		<img src="wine/mi_hello.png" alt="" width="503px" height="380px" />
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--5-->
+		<h2 id="ch5"><span title="&laquo;Вставь-и-молись&raquo;">Plug-and-Pray</span></h2>
+		<p>
+			Безусловно, хотелось бы вставить и насладится, но, как водится, &laquo;дьявол кроется в деталях&raquo;. После нажатия на кнопку &laquo;Далее&raquo; появляется окно с сообщением о распаковке ISScript и &hellip; все. Ничего не происходит, ни системных сообщений, ни дисковой активности, ни, соответственно, установки.
+		</p>
+		<p>
+			Надо заметить, что именно из-за подобного &laquo;тихушничества&raquo; многие пользователи и недолюбливают Wine. Понятно, что произошла ошибка, но где и какая?
+		</p>
+		<p>
+			Попробуем разобраться. И разработчики, и многочисленные форумные завсегдатаи рекомендуют создать лог-файл выполнения Windows-приложения. Что ж, переходим в консоль и подаем команду на запуск setup.exe с трассировкой:
+		</p>
+		<p class="code">
+	$ winedebug=+trace1,+trace2,-trace3 wine &quot;/mapinfo/setup.exe&quot; &amp;>/var/log/wine.log
+		</p>
+		<p>
+			Как и ожидалось, инсталляции не происходит, зато действительно создается файл отчета с текстом:
+		</p>
+		<p class="code">
+	fixme:advapi:LookupAccountNameW (null) L&quot;gray&quot; (nil) 0x33b1d0 (nil) 0x33b1d4 0x33b1c8 - stub
+	fixme:advapi:LookupAccountNameW (null) L&quot;gray&quot; 0x163520 0x33b1d0 0x1686b0 0x33b1d4 0x33b1c8 - stub
+	fixme:msi:ITERATE_DuplicateFiles We should track these duplicate files as well
+	err:rpc:I_RpcGetBuffer no binding
+	fixme:advapi:LookupAccountNameW (null) L&quot;gray&quot; (nil) 0x33f160 (nil) 0x33f164 0x33f158 - stub
+	fixme:advapi:LookupAccountNameW (null) L&quot;gray&quot; 0x15fe50 0x33f160 0x15f7e0 0x33f164 0x33f158 &ndash; stub
+		</p>
+		<p>
+			Содержательно, не правда ли?
+		</p>
+		<p>
+			Утомительное гугление строк отчета выявило множественные крики о помощи по всему интернету и полное отсутствие каких либо внятных рекомендаций по исправлению ситуации.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--6-->
+		<h2 id="ch6">Назад в будущее</h2>
+		<p>
+			Что ж, если гора не идет к Магомету, придется отправиться к горе самостоятельно. При внимательном рассмотрении текста отчета в глаза бросается многократно повторенное слово &laquo;advapi&raquo;. И слово это знакомое, так как в Windows есть системная библиотека advapi32. Как известно, в состав Wine входят многие системные библиотеки Windows, но все ли? Быстрый взгляд на состав предустановленных библиотек в конфигураторе Wine наглядно демонстрирует полное отсутствие указанной dll.
+		</p>
+		<p>
+			Будем копать дальше! А какие вообще библиотеки нужны инсталлятору MapInfo в работе? И все ли они присутствуют в Wine?
+		</p>
+		<p>
+			Для того, чтобы ответить на первый вопрос, вернемся обратно в Windows, где запустим Total Commander. Собственно, нам нужен не сам Total, а встроенный просмоторщик Lister с плагином FileInfo. Этот плагин, помимо прочего, позволяет просматривать зависимости исполняемых файлов, т.е., в частном случае, требуемые для работы exe-файла библиотеки:
+		</p>
+		<img src="wine/setup_prop.png" alt="" width="514px" height="271px" />
+		<p>
+			Перейдя опять в Linux и зайдя в конфигуратор Wine я лично обнаружил отсутствие 4 библиотек:
+		</p>
+		<ul>
+			<li>ADVAPI32.dll</li>
+			<li>GDI32.dll</li>
+			<li>KERNEL32.dll</li>
+			<li>USER32.dll</li>
+		</ul>
+		<img src="wine/wine_conf.png" alt="" width="414px" height="471px" />
+		<p>
+			И с этим надо что-то делать.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--7-->
+		<h2 id="ch7">Winetricks</h2>
+		<p>
+			В принципе, можно вручную скопировать библиотеки из Windows и поместить в соответствующий каталог Wine или добавить их через конфигуратор. Но добрые люди уже давно озаботились проблемой автоматизации данного процесса и придумали такую вещь как <a href="http://www.ubuntologia.ru/wine#directx-winetricks" title="http://www.ubuntologia.ru">Winetricks</a>. Вкратце &ndash; это скрипт, позволяющий оперативно скачивать и устанавливать в среду Wine необходимые файлы &ndash; от простых dll до навороченных FrameWorks.
+		</p>
+		<p>
+			Именно этим способом и предлагаю воспользоваться.
+		</p>
+		<p>
+			Шаг 1. Установить пакет cabextract:
+		</p>
+		<p class="code">
+	# urpmi cabextract
+		</p>
+		<p>
+			Шаг 2. Загрузить скрипт Winetricks:
+		</p>
+		<p class="code">
+	# wget http://www.kegel.com/wine/winetricks
+		</p>
+		<p>
+			Шаг 3. Установить нужную программу можно используя графическую оболочку, запустив ее командой:
+		</p>
+		<p class="code">
+	# sh winetricks
+		</p>
+		<p>
+			Либо вручную установить выбранный пакет:
+		</p>
+		<p class="code">
+	# sh winetricks advapi32
+	# sh winetricks gdi32
+	# sh winetricks kernel2
+	# sh winetricks user32
+		</p>
+		<img src="wine/dll_load.png" alt="" width="600px" height="422px" />
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--8-->
+		<h2 id="ch8">Win? Win!</h2>
+		<p>
+			Вроде все, что можно сделали. Запускаем setup.exe на выполнение и &ndash; о, чудо!!!
+		</p>
+		<img src="wine/mi_instal.gif" alt="" width="503px" height="380px" />
+		<p>
+			Все запустилось, все ставится и, что характерно, все работает!
+		</p>
+		<img src="wine/mi_work.png" alt="" width="589px" height="420px" />
+		<p>
+			Кстати.<br />
+			Как поставили программу, так и удалить можно. Аналог оснастки Windows &laquo;Установка и удаление программ&raquo; в Wine позволяет изменять компоненты установленных программ, равно как и деинсталлировать их.
+		</p>
+		<img src="wine/wine_mng.png" alt="" width="477px" height="504px" />
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--9-->
+		<h2 id="ch9">P.&nbsp;S.</h2>
+		<p>
+			Несколько дней мозговых усилий уместились в пять строк кода. Очевидно, в этом и есть сила Великого Торвальдса&hellip; Основная загвоздка в том, что эти 5 строк надо знать. И если вы решили поставить MapInfo под Wine, неважно почему &ndash; будем надеяться, теперь вы их знаете.
+		</p>
+		<p>
+			И даже если все равно не получается &ndash; вы знаете, что это возможно.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

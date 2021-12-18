@@ -1,0 +1,653 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+
+<head>
+<title>Создание меню и панелей инструментов стандартными средствами в MapInfo &frasl;GLab&copy;2007&frasl;</title>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-type" content="text/css; charset=utf-8" />
+<meta name="Author" content="GLab&copy;2007 http://www.glab2007.narod.ru" />
+<meta name="Description" content="Создание пользовательских меню и панелей инструментов в среде MapInfo. Редактирование файла mapinfow.mnu. Описание работы и практические примеры на сайте проекта GLab&copy;2007." />
+<meta name="KeyWords" content="редактировать mapinfow.mnu, создать меню в mapinfo" />
+
+<link rel="shortcut icon" href="../i/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="../i/favicon.ico" type="image/x-icon" />
+<link type="text/css" rel="stylesheet" href="../style.css" />
+
+<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+<script src="https://yastatic.net/share2/share.js" async="async" charset="utf-8"></script>
+<script type="text/javascript" src="../scripts.js"></script>
+
+</head>
+<body>
+
+<div id="left">
+	<ul>
+		<li class="home"><a href="../main.html" title="На главную">На <br />главную</a></li>
+		<li class="news"><a href="../index.html" title="Новости" style="line-height: 36px; ">Новости</a></li>
+		<li class="query"><a href="../query.html" title="Топ запросов">Топ<br />запросов</a></li>
+		<li class="article"><a id="item" href="../article.html" title="Статьи" style="line-height: 36px; ">Статьи</a></li>
+		<li class="download"><a href="../download.html" title="Загрузка" style="line-height: 36px; ">Загрузка</a></li>
+		<li class="links"><a href="../links.html" title="Ссылки">Каталог<br />ссылок</a></li>
+		<li class="about"><a href="../about.html" title="О проекте">О<br />проекте</a></li>
+		<li class="contact"><a href="../contact.html" title="Контактная информация" style="line-height: 36px; ">Контакты</a></li>
+		<li class="search"><a href="../main.html#search" title="Поиск">Поиск<br />по сайту</a></li>
+		<li class="map"><a href="../map.html" title="Карта сайта">Карта<br />сайта</a></li>
+	</ul>
+</div>
+<div id="arrow">
+	<a href="#">
+		<img src="../i/arr.gif" alt="Вверх" />
+	</a>
+</div>
+<div class="ya-share2" data-services="vkontakte,facebook,linkedin,viber"></div>
+
+<div id="top"></div>
+
+<div id="border_left"><div id="border_right"><div id="border_top"><div id="border_bottom">
+	<div id="content">
+
+		<h1 class="article">
+			Создание меню и панелей инструментов стандартными средствами в MapInfo
+		</h1>
+
+		<div class="avatar">
+			<a href="http://gis-lab.info" title="Геоинформационные системы и Дистанционное зондирование Земли"><img class="inline" src="menu/0.png" alt="GIS-Lab" width="160px; " height="50px; " /></a>
+		</div>
+		<p class="small">
+			Автор: <a href="http://gis-lab.info/forum/memberlist.php?mode=viewprofile&amp;u=9620" title="Профиль пользователя">Slinger</a>&copy;&nbsp;2015
+		</p>
+		<p class="small">
+			В этой заметке описано несколько тонкостей работы с ГИС MapInfo, в частности, с файлом mapinfow.mnu. Этот файл при небольшом знании и умении может быть изменён для упрощения выполнения некоторых рутинных операций и оптимизации работы в целом. О нём и пойдёт речь.
+		</p>
+		<p class="small passage">
+			Вопросы пользовательских настроек интерфейса также затрагивались в статье <a href="hotkey.html#ch9" title="Перейти">&laquo;Горячие&raquo; клавиши MapInfo</a>.
+		</p>
+		<hr class="split" />
+
+<!--0-->
+		<ul id="toc">
+			<li><a href="#ch1">Создание меню</a></li>
+			<li><a href="#ch2">Создание контекстного меню</a></li>
+			<li><a href="#ch3">Создание панелей инструментов</a></li>
+			<li><a href="#ch4">Таблица &laquo;горячих клавиш&raquo; в MapInfo</a></li>
+			<li><a href="#ch5">Заключение</a></li>
+		</ul>
+		<hr class="split" />
+
+<!--1-->
+		<h2 id="ch1">Создание меню</h2>
+		<p>
+			При запуске MapInfo происходит считывание данных из файла mapinfow.mnu, который находится в корневой папке MapInfo. Файл, как следует из расширения, отвечает за создание меню и панелей для запуска (вызова) различных инструментов. Однако, помимо этого, в данном файле можно прописать горячие клавиши для вызова часто используемых инструментов.
+		</p>
+		<p>
+			Откроем файл mapinfow.mnu в любом текстовом редакторе (например, в &laquo;Блокноте&raquo;). В качестве теста взят файл от версии 12.5. Но принципиальной разницы между версиями нет никакой (в этом файле).
+		</p>
+		<div style="width: 300px !important; ">
+			<a href="menu/1.png" title="Развернуть"><img src="menu/s1.png" alt="Рис. 1" width="300px" height="325px" /></a>
+		</div>
+		<p>
+			Для людей, хотя бы немного программирующих на VB и MapBasic, содержимое файла кажется очевидным. Если вы видите данные записи первый раз, то настоятельно рекомендуется почитать хотя бы самую небольшую справку по MapBasic, чтобы упростить себе понимание дальнейшего текста. Давайте пройдёмся по основным моментам. Для примера возьмём инструмент (команду вызова) создания новой таблицы из пункта меню &laquo;Файл&raquo;.
+		</p>
+		<p class="code" style="white-space: pre; ">
+	Create Menu &quot;&amp;Файл&quot; ID 1 As
+		&quot;&amp;Новая таблица...\tCtrl+N/W^N&quot;
+			HelpMsg &quot;Создать новую таблицу.&quot;
+			calling 101,
+		</p>
+		<p>
+			<span class="code">Create Menu</span> &ndash; создаём меню &laquo;&amp;Файл&raquo;. Значок амперсанда (&amp;) перед буквой означает, что при нажатии на эту букву (при нажатой клавише Alt) меню раскроется.
+		</p>
+		<p>
+			<span class="code">ID</span> &ndash; номер меню. Необязательный атрибут; необходим для того, чтобы обращаться в дальнейшем к меню по номеру, а не по имени.
+		</p>
+		<p>
+			<span class="code">As</span> &ndash; перечисление подменю, входящих в меню.
+		</p>
+		<ul>
+			<li>
+				<span class="code">&amp;Новая таблица&hellip;</span> &ndash; название подменю.
+			</li>
+			<li>
+				<span class="code">\t</span> &ndash; регулярное выражение языка C. Означает значок табуляции. Необязательный атрибут, который используется просто для того, чтобы визуально в меню выравнить все горячие клавиши.
+			</li>
+			<li>
+				<span class="code">Ctrl+N</span> &ndash; показывает пользователю горячие клавиши для вызова инструмента. Эта запись НЕ задаёт горячие клавиши. Это не более чем продолжение текста.
+			</li>
+			<li>
+				<span class="code">/W</span> &ndash; завершили текстовое отображение названия подменю. Этим слешем мы говорим, что сейчас допишем горячую клавишу вызова. &quot;W&quot; означает Windows. Обязательный элемент. В своё время MapInfo планировался для других операционных систем, но в итоге остался только на Windows. Кстати, буква W присутствует и на конце названия исполняемого файла запуска MapInfo.
+			</li>
+			<li>
+				<span class="code">&and;</span> &ndash; обозначение нажатой клавиши Ctrl. MapInfo разрешает использовать помимо этого клавиши Alt и Shift. Их обозначение соответственно &quot;@&quot; и &quot;#&quot;.
+			</li>
+			<li>
+				<span class="code">N</span> &ndash; непосредственно буква для вызова.
+			</li>
+		</ul>
+		<p>
+			<span class="code">HelpMsg</span> &ndash; сообщение помощи в нижнем левом углу при выборе или наведении мышки.
+		</p>
+		<p>
+			<span class="code">calling</span> &ndash; вызов процедуры под ID номером 101.
+		</p>
+		<p>
+			<span class="code">,</span> &ndash; запятая говорит о том, что это подменю завершилось, но оно не последнее и дальше пойдут объявления новых подменю.
+		</p>
+		<p>
+			Давайте остановимся на ID номерах вызываемых инструментов. Инструменты (процедуры) можно вызывать по техническим именам и по ID номерам. Полный список имён и номеров можно посмотреть в файле MENU.DEF. Данный файл находится в установочном пакете MapBasic, который, начиная с версии 10.0, стал бесплатным.
+		</p>
+		<div style="width: 300px !important; ">
+			<a href="menu/2.png" title="Развернуть"><img src="menu/s2.png" alt="Рис. 2" width="300px" height="325px" /></a>
+		</div>
+		<p>
+			Ну а теперь переместимся сразу в конец файла (<span class="small">Прим.: в конец файла mapinfow.mnu</span>).
+		</p>
+		<div style="width: 300px !important; ">
+			<a href="menu/3.png" title="Развернуть"><img src="menu/s3.png" alt="Рис. 3" width="300px" height="325px" /></a>
+		</div>
+		<p>
+			Здесь присутствует оператор <span class="code">Create Menu Bar</span>, который создаёт ПАНЕЛЬ меню, в которую мы будем добавлять кнопки меню (с аналогичными именами) с подменю. Если мы захотим создать своё меню, то нужно его сначала добавить в Create Menu Bar.
+		</p> 
+		<p>
+			А давайте, кстати, это и сделаем. Давайте создадим своё меню с какими-нибудь подменю, вызывающими необходимые функции. Для начала обновим <span class="code">Create Menu Bar:</span>
+		</p>
+		<p class="code" style="white-space: pre; ">
+	Create Menu Bar As
+		&quot;&amp;Файл&quot;,
+		&quot;&amp;Правка&quot;,
+		&quot;Програ&amp;ммы",
+		"Объ&amp;екты&quot;,
+		&quot;&amp;Запрос&quot;,
+		&quot;&amp;Таблица&quot;,
+		&quot;Н&amp;астройки&quot;,
+		&quot;WinSpecific&quot;,
+		&quot;&amp;Окно&quot;,
+		&quot;Сп&amp;равка&quot;,
+		&quot;Тестовое меню&quot;
+		</p>
+		<p>
+			Мы объявили новое меню на панели меню под названием &quot;Тестовое меню&quot;. Обратите внимание, что после <span class="code">Сп&amp;равка</span> теперь стоит запятая. Кроме того стоит отметить, что <span class="code">Create Menu Bar</span> определяет порядок расположения меню на панели. <span class="code">Тестовое меню</span> будет последним в списке.
+		</p>
+		<p>
+			Теперь давайте создадим непосредственно меню. Для примера его описание размещено в конце файла, но это опять же не принципиально.
+		</p>
+		<p class="code" style="white-space: pre; ">
+	Create Menu &quot;Тестовое меню&quot; As
+		&quot;Здесь будет вызываться SQL запрос\tShift+P/W#P&quot; Calling 302,
+		&quot;Здесь будет сохраняться рабочий набор\tAlt+E/W@E&quot; Calling 109
+		</p>
+		<div style="width: 300px !important; ">
+			<a href="menu/4.png" title="Развернуть"><img src="menu/s4.png" alt="Рис. 4" width="300px" height="60px" /></a>
+		</div>
+		<p>
+			При выборе первого подменю срабатывает инструмент SQL-запроса, которому присвоена &laquo;горячая клавиша&raquo; Shift+P. При выборе второго подменю срабатывает вызов инструмента сохранения рабочего набора, которому присвоена &laquo;горячая клавиша&raquo; Alt+E
+		</p>
+		<p>
+			Кроме того, хотелось бы рассказать о нескольких тонкостях назначения горячих клавиш.
+		</p>
+		<ol>
+			<li>
+				MapInfo воспринимает только буквы латиницы. Кириллица или иные символы будут проигнорированы.
+			</li>
+			<li>
+				MapInfo не воспринимает регистр букв. Для него нет разницы, малый или большой регистр используется.
+			</li>
+			<li>
+				С клавишей Alt работают не все буквы. Например, не будет работать комбинация Alt+G. Это связано с тем, что, начиная с MapInfo версии 10.0 и выше, программа не видит разницы между раскладками во время нажатия клавиши. Другими словами, буква G в латинице — это буква П в кириллице. Соответственно, вместо запуска нужного инструмента, программа при нажатии на Alt включит режим подписывания букв в меню (см. амперсанд) и откроет меню &laquo;Правка&raquo;.
+			</li>
+			<li>
+				На самом деле, MapInfo разрешает использовать только буквы без необходимости нажатия Ctrl, Shift или Alt. Но я бы не рекомендовал этого делать, так как в более старых версиях MapInfo это работать не будет. К тому же, если во время набора текста при создании текстового объекта нажать на установленную клавишу, то создание текстового объекта оборвётся, и будет вызвана команда.
+			</li>
+		</ol>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--2-->
+		<h2 id="ch2">Создание контекстного меню</h2>
+		<p>
+			Контекстное меню создаётся так же, как и обычное меню, за тем исключением, что в качестве параметра к оператору <span class="code">Create Menu</span> добавляется слово <span class="code">Context</span>. Взглянем для примера на часть контекстного меню окна карты:
+		</p>
+		<p class="code" style="white-space: pre; ">
+	Create Menu &quot;MapperShortcut&quot; ID 17 Context As
+		&quot;Управление с&amp;лоями...&quot;
+			HelpMsg &quot;Показать окно 'Управление Слоями'&quot;
+			calling 822,
+		&quot;(-&quot;,
+		&quot;Найти &amp;выборку&quot;
+			HelpMsg &quot;Выбрать объект/запись и найти выборку в текущем окне списка/карты.&quot;
+			calling 312,
+		&quot;&amp;Показать полностью слой с выборкой&quot;
+			HelpMsg &quot;Показывает полностью слой, из которого сделана выборка.&quot;
+			calling 819,
+		&quot;&amp;Выбрать всё из слоя с выборкой&quot;
+			HelpMsg &quot;Выбрать все записи слоя из которого сделана выборка.&quot;
+			calling 820,
+		&quot;Сделать слой с выборкой &amp;редактируемым&quot;
+			HelpMsg &quot;Делает слой с выборкой редактируемым.&quot;
+			calling 821,
+		</p>
+		<p>
+			Как видно, оно ничем не отличается от обычного меню и по такой же схеме можно добавить туда свои инструменты. Дописав в конце строчку:
+		</p>
+		<p class="code" style="white-space: pre; ">
+	&quot;Вызываем SQL-запрос!&quot;
+		HelpMsg &quot;Кликнув сюда, можно вызывать SQL-запрос.&quot;
+		calling 302
+		</p>
+		<p>
+			Можно получить такой результат:
+		</p>
+		<img src="menu/5.png" alt="Рис. 5" width="362px" height="359px" />
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--3-->
+		<h2 id="ch3">Создание панелей инструментов</h2>
+		<p>
+			Создание панелей инструментов происходит по той же схеме, что и создание меню. Давайте взглянем на создание пары инструментов на панели &laquo;Пенал&raquo;:
+		</p>
+		<p class="code" style="white-space: pre; ">
+	Create ButtonPad &quot;Пенал&quot; ID 2 As
+		ToolButton
+			Icon 16
+			Calling 1711
+			HelpMsg &quot;Помещает символ (точку) на доступный слой или макет Отчета.\nТочка&quot;
+		ToolButton
+			Icon 17
+			Calling 1712
+			HelpMsg &quot;Рисует линию на доступном слое или макете Отчета.\nЛиния&quot;
+		</p>
+		<p>
+			<span class="code">Create ButtonPad &quot;Пенал&quot; ID 2 As</span> &ndash; создаёт панель инструментов под именем &laquo;Пенал&raquo;, с ID номером 2.
+		</p>
+		<p>
+			<span class="code">ToolButton</span> &ndash; тип кнопки, вызывающей инструмент. О разнице между ToolButton, ToggleButton и PushButton почитайте в учебнике MapBasic или просто в интернете.
+		</p>
+		<p>
+			<span class="code">Icon</span> &ndash; номер или название иконки на панели. Примеры иконок (для старой версии MapInfo, в новых версиях они могли поменять свои номера) можно посмотреть <a href="http://georezo.net/jparis/MI_Enviro/Icons/MI_icons_for_MB.htm" title="Перейти">здесь</a>.
+		</p>
+		<p>
+			Рассмотрим иконки подробнее. Иконки можно вызывать по их техническим именам или по номерам. Полный список имён и их номеров можно увидеть в файле ICONS.DEF, который также находится в установочном пакете MapBasic.
+		</p>
+		<div style="width: 300px !important; ">
+			<a href="menu/6.png" title="Развернуть"><img src="menu/s6.png" alt="Рис. 6" width="300px" height="325px" /></a>
+		</div>
+		<p>
+			Стоит обратить внимание, что иконки разбиты по группам и разделены пустой строкой. Мы знаем их технические имена и номера, но не знаем, как они выглядят. Для этого нам необходимо воспользоваться утилитой Resource Hacker, описание которой было дано в <a href="http://gis-lab.info/qa/mapinfo-custom-fill-patterns.html" title="Перейти">этой статье</a>. Если открыть файл micore.dll, зайти в папку Bitmap и перейти к ресурсу 9001, то можно увидеть, что это и есть наша первая по счёту группа.
+		</p>
+		<div style="width: 400px !important; ">
+			<a href="menu/7.png" title="Развернуть"><img src="menu/s7.png" alt="Рис. 7" width="400px" height="220px" /></a>
+		</div>
+		<p>
+			Ну а дальше нам остаётся только визуально сориентироваться с номером иконки и её изображением.
+		</p>
+		<p>
+			Однако, для определения номера иконки есть способ и попроще. В состав MapBasic входит утилита IconDemo. При запуске утилиты нам будут доступны все возможные иконки, их изображения и номера.
+		</p>
+		<div style="width: 300px !important; ">
+			<a href="menu/8.png" title="Развернуть"><img src="menu/s8.png" alt="Рис. 8" width="300px" height="114px" /></a>
+		</div>
+		<p>
+			А теперь давайте попробуем создать панель инструментов под наши кнопки.
+		</p>
+		<p class="code" style="white-space: pre; ">
+	Create ButtonPad &quot;Тестовая панель инструментов&quot; As
+		ToolButton Icon 276 Calling 302 HelpMsg &quot;Здесь будет вызываться SQL запрос&quot;
+		ToolButton Icon 315 Calling 109 HelpMsg &quot;Здесь будет сохраняться рабочий набор&quot;
+		</p>
+		<img src="menu/9.png" alt="Рис. 9" width="400px" height="200px" />
+		<p>
+			Всё получилось. MapInfo создал панель инструментов с нашими иконками и нашими вызываемыми инструментами.
+		</p>
+		<p>
+			Дополнительные атрибуты оператора Create ButtonPad можно прочитать в учебнике MapBasic.
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--4-->
+		<h2 id="ch4">Таблица &quot;горячих клавиш&quot; в MapInfo</h2>
+		<table class="content">
+			<tr>
+				<td>
+					<b>Клавиша</b>
+				</td>
+				<td>
+					<b>ASCII-номер</b>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					BackSpace
+				</td>
+				<td>
+					%8
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Tab
+				</td>
+				<td>
+					%9
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Enter
+				</td>
+				<td>
+					%13
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Shift
+				</td>
+				<td>
+					%16
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Ctrl
+				</td>
+				<td>
+					%17
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Alt
+				</td>
+				<td>
+					%18
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Caps Lock
+				</td>
+				<td>
+					%20
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Space
+				</td>
+				<td>
+					%32
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Page Up
+				</td>
+				<td>
+					%33
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Page Down
+				</td>
+				<td>
+					%34
+				</td>
+			</tr>
+			<tr>
+				<td>
+					End
+				</td>
+				<td>
+					%35
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Home
+				</td>
+				<td>
+					%36
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Left Arrow
+				</td>
+				<td>
+					%37
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Up Arrow
+				</td>
+				<td>
+					%38
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Right Arrow
+				</td>
+				<td>
+					%39
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Down Arrow
+				</td>
+				<td>
+					%40
+				</td>
+			</tr>
+			<tr>
+				<td>
+					0-9
+				</td>
+				<td>
+					%48-%57
+				</td>
+			</tr>
+			<tr>
+				<td>
+					A-Z
+				</td>
+				<td>
+					%65-%90
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Win (левая)
+				</td>
+				<td>
+					%91
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Win (правая)
+				</td>
+				<td>
+					%92
+				</td>
+			</tr>
+			<tr>
+				<td>
+					NumPad 0-9
+				</td>
+				<td>
+					%96-%105
+				</td>
+			</tr>
+			<tr>
+				<td>
+					NumPad *
+				</td>
+				<td>
+					%106
+				</td>
+			</tr>
+			<tr>
+				<td>
+					NumPad +
+				</td>
+				<td>
+					%107
+				</td>
+			</tr>
+			<tr>
+				<td>
+					NumPad -
+				</td>
+				<td>
+					%109
+				</td>
+			</tr>
+			<tr>
+				<td>
+					NumPad . Del
+				</td>
+				<td>
+					%110
+				</td>
+			</tr>
+			<tr>
+				<td>
+					NumPad /
+				</td>
+				<td>
+					%111
+				</td>
+			</tr>
+			<tr>
+				<td>
+					F1 - F12
+				</td>
+				<td>
+					%112-%123
+				</td>
+			</tr>
+			<tr>
+				<td>
+					NumLock
+				</td>
+				<td>
+					%144
+				</td>
+			</tr>
+			<tr>
+				<td>
+					ScrollLock
+				</td>
+				<td>
+					%145
+				</td>
+			</tr>
+		</table>
+		<p>
+			В этом списке приведены ASCII номера, по которым можно вызвать нужный символ. При этом это не обязательно должна быть буква, а можно ,например, использовать комбинацию клавиш Shift + ScrollLock или Alt + Win. При этом записывать ASCII номера необходимо для любых символов за исключением букв (а возможно и цифр). Другими словами выражение:
+		</p>
+		<p class="code" style="white-space: pre; ">
+	&quot;&amp;Новая таблица...\tCtrl+A/W&and;A
+		</p>
+		<p>
+			равнозначно выражению:
+		</p>
+		<p class="code" style="white-space: pre; ">
+	&quot;&amp;Новая таблица...\tCtrl+A/W&amp;%65
+		</p>
+		<p>
+			Как было сказано ранее, буква A в верхнем регистре имеет ASCII-номер 65. Соответственно, чтобы использовать комбинацию клавиш Alt + NumLock, нужно записать так:
+		</p>
+		<p class="code" style="white-space: pre; ">
+	&quot;&amp;Новая таблица...\tAlt+NumLock/W@%144
+		</p>
+		<p>
+			При всём при этом у MapInfo старше версии 10.0 есть одна особенность. Предположим, была использована запись:
+		</p>
+		<p class="code" style="white-space: pre; ">
+	&quot;&amp;Новая таблица.../W@%145
+		</p>
+		<p>
+			Мы не указали пользователю, какие клавиши нужно нажимать, чтобы вызвать инструмент, но объявили их системе. И MapInfo пропишет их автоматически:
+		</p>
+		<div style="width: 128px !important; ">
+			<a href="menu/10.png" title="Развернуть"><img src="menu/s10.png" alt="Рис. 10" width="128px" height="240px" /></a>
+		</div>
+		<p>
+			В конце необходимо отметить ещё несколько моментов использования &laquo;горячих клавиш&raquo;:
+		</p>
+		<ul>
+			<li>
+				Не все специальные символы работают с клавишей Ctrl. Например, Ctrl + ScrollLock и Ctrl + NumLock не работают.
+			</li>
+			<li>
+				Отдельными номерами обозначены клавиши Ctrl, Shift и Alt (номера 17, 16 и 18, соответственно). Но использовать комбинации клавиш Ctrl + Shift не получится. Зато при назначении клавиш Shift + Shift получится вызвать инструмент однократным нажатием клавиши Shift.
+			</li>
+			<li>
+				Клавиши цифровой клавиатуры (NumPad) могут работать и при выключенном NumLock. И, как уже было сказано ранее, клавиши можно использовать без необходимости нажатия Shift, Alt или Ctrl, что довольно удобно.
+			</li>
+		</ul>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+<!--5-->
+		<h2 id="ch5">Заключение</h2>
+		<p>
+			В статье было показано создание элементов меню и инструментальных панелей, а также использование так называемых &laquo;горячих клавиш&raquo; для упрощения вызова инструментов. Файл .MNU фактически представляет из себя определённый список операторов языка MapBasic, который можно настраивать по собственному вкусу и даже добавлять команды, которые отсутствуют в нём изначально. Например, через .MNU можно запустить приложение mbx, используя оператор <span class="code">Start Application</span>. И в зависимости от того, куда мы определим строчку запуска, приложение запустится до объявления меню и инструментов, после него или вообще в середине. Но это уже отдельная тема.
+		</p>
+		<p>
+			На этом всё, успешной работы!
+		</p>
+		<div class="split">
+			<a href="#toc">К оглавлению &gt;&gt;&gt;</a>
+			<hr />
+		</div>
+
+		<p class="small">
+			Оригинал:<br />
+			<a href="http://gis-lab.info/qa/mapinfo-menus-panels.html" title="Перейти">GIS-Lab: Создание меню и панелей инструментов стандартными средствами в MapInfo</a>.
+		</p>
+		<p class="small">
+			Обсуждение на форуме:<br />
+			<a href="http://gis-lab.info/forum/viewtopic.php?t=18817" title="Перейти">Форумы GIS-Lab.info: Просмотр темы - Работа с горячими клавишами в MapInfo</a>.
+		</p>
+		<p class="small">
+			Примечание:<br />
+			Все иллюстрации оригинальной статьи заменены на аналогичные.
+		</p>
+		<hr class="split" />
+
+	</div>
+</div></div></div></div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+	(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+	m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+ 
+	ym(86922484, "init", {
+		 clickmap:true,
+		 trackLinks:true,
+		 accurateTrackBounce:true
+	});
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/86922484" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
